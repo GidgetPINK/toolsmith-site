@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>The Toolsmith</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--charcoal:#1a1a2e;--navy:#16213e;--navy-light:#0f3460;--gold:#c9a84c;--gold-light:#e8c97a;--white:#f8f6f1;--muted:#9a9db5;--card:#1e2245;--cb:rgba(201,168,76,0.18);--r:12px}
+html{scroll-behavior:smooth}
+body{background:var(--charcoal);color:var(--white);font-family:'Inter',sans-serif;font-weight:300;line-height:1.7}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 5%;background:rgba(26,26,46,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--cb)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);letter-spacing:.04em;text-decoration:none}
+.nav-links{display:flex;gap:2rem;align-items:center;list-style:none}
+.nav-links a{color:var(--muted);font-size:.88rem;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--gold-light)}
+.cart-btn{position:relative;cursor:pointer;background:none;border:1px solid var(--gold);color:var(--gold);padding:.45rem 1.1rem;border-radius:6px;font-size:.85rem;font-family:'Inter',sans-serif;letter-spacing:.06em;text-transform:uppercase;transition:background .2s,color .2s}
+.cart-btn:hover{background:var(--gold);color:var(--charcoal)}
+.cart-count{position:absolute;top:-8px;right:-8px;background:var(--gold);color:var(--charcoal);width:18px;height:18px;border-radius:50%;font-size:.7rem;font-weight:700;display:none;align-items:center;justify-content:center}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10rem 5% 6rem;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(15,52,96,.55) 0%,transparent 70%),linear-gradient(180deg,var(--charcoal) 0%,var(--navy) 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem;font-weight:500;position:relative}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:700;line-height:1.1;color:var(--white);margin-bottom:1.5rem;position:relative}
+.hero h1 span{color:var(--gold)}
+.hero>p{max-width:540px;color:var(--muted);font-size:1.05rem;margin-bottom:2.8rem;position:relative}
+.hero-cta{position:relative}
+.btn-primary{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);padding:.9rem 2.4rem;border-radius:8px;font-weight:600;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:opacity .2s,transform .2s;font-family:'Inter',sans-serif}
+.btn-primary:hover{opacity:.88;transform:translateY(-1px)}
+.btn-ghost{display:inline-block;background:transparent;color:var(--gold-light);padding:.9rem 2.4rem;border-radius:8px;font-weight:500;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:1px solid var(--cb);cursor:pointer;transition:border-color .2s,color .2s;font-family:'Inter',sans-serif;margin-left:1rem}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+
+/* SECTION BASE */
+section{padding:6rem 5%}
+.slabel{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;font-weight:500}
+.stitle{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:600;margin-bottom:1rem;line-height:1.2}
+.ssub{color:var(--muted);max-width:520px;font-size:.98rem;margin-bottom:3.5rem}
+.divider{width:48px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:1rem 0 1.5rem}
+
+/* SHOP */
+#shop{background:var(--navy)}
+.filters{display:flex;gap:.75rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.filter-btn{padding:.4rem 1.1rem;border-radius:20px;border:1px solid var(--cb);background:none;color:var(--muted);font-size:.82rem;font-family:'Inter',sans-serif;letter-spacing:.05em;cursor:pointer;transition:all .2s}
+.filter-btn.active,.filter-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.08)}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.75rem}
+.pcard{background:var(--card);border:1px solid var(--cb);border-radius:var(--r);overflow:hidden;transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+.pcard:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.4),0 0 0 1px rgba(201,168,76,.25)}
+.pbadge{position:absolute;top:14px;left:14px;background:var(--gold);color:var(--charcoal);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .65rem;border-radius:4px}
+.pimg{position:relative;height:180px;background:linear-gradient(135deg,var(--navy-light),var(--charcoal));display:flex;align-items:center;justify-content:center}
+.picon{font-size:3.2rem;opacity:.85}
+.pbody{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+.pcat{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;font-weight:500}
+.pname{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;margin-bottom:.6rem;line-height:1.3}
+.pdesc{color:var(--muted);font-size:.88rem;flex:1;margin-bottom:1.25rem;line-height:1.6}
+.pfooter{display:flex;align-items:center;justify-content:space-between}
+.pprice{font-size:1.3rem;font-weight:600;color:var(--gold-light)}
+.atc{background:rgba(201,168,76,.12);border:1px solid var(--gold);color:var(--gold);padding:.5rem 1.1rem;border-radius:6px;font-size:.82rem;font-family:'Inter',sans-serif;font-weight:500;letter-spacing:.05em;cursor:pointer;transition:background .2s,color .2s}
+.atc:hover{background:var(--gold);color:var(--charcoal)}
+
+/* GUIDES */
+#guides{background:var(--charcoal)}
+.gtabs{display:flex;gap:.65rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.gtab{padding:.4rem 1.1rem;border-radius:20px;border:1px solid var(--cb);background:none;color:var(--muted);font-size:.82rem;font-family:'Inter',sans-serif;letter-spacing:.05em;cursor:pointer;transition:all .2s}
+.gtab.active,.gtab:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.08)}
+.glayout{display:grid;grid-template-columns:280px 1fr;gap:2rem;align-items:start}
+.gnav{display:flex;flex-direction:column;gap:.5rem;position:sticky;top:100px}
+.gnav-item{display:flex;align-items:center;gap:.75rem;padding:.85rem 1rem;border-radius:10px;border:1px solid transparent;cursor:pointer;transition:all .2s;background:none;font-family:'Inter',sans-serif;text-align:left;width:100%;color:var(--white)}
+.gnav-item:hover{border-color:var(--cb);background:var(--card)}
+.gnav-item.active{border-color:var(--gold);background:rgba(201,168,76,.08)}
+.gnav-icon{font-size:1.4rem;flex-shrink:0}
+.gnav-text{display:flex;flex-direction:column}
+.gnav-label{font-size:.72rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+.gnav-name{font-size:.88rem;color:var(--white);font-weight:400;line-height:1.3;margin-top:.15rem}
+.gcontent{background:var(--card);border:1px solid var(--cb);border-radius:var(--r);overflow:hidden;min-height:400px}
+.gpanel{display:none}
+.gpanel.active{display:block}
+.gpanel-hdr{padding:2rem 2rem 1.5rem;border-bottom:1px solid var(--cb);display:flex;gap:1.25rem;align-items:flex-start}
+.gpanel-icon{font-size:2.4rem}
+.gpanel-cat{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem;font-weight:500}
+.gpanel-title{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:600;line-height:1.2}
+.gpanel-body{padding:2rem}
+.goverview{color:var(--muted);font-size:.93rem;line-height:1.75;margin-bottom:2rem}
+.gsteps-lbl{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1.25rem}
+.gsteps{display:flex;flex-direction:column}
+.gstep{display:flex;gap:1.25rem;padding:1.25rem 0;border-bottom:1px solid rgba(201,168,76,.08)}
+.gstep:last-child{border-bottom:none}
+.stepnum{width:32px;height:32px;flex-shrink:0;border-radius:50%;background:rgba(201,168,76,.12);border:1px solid var(--gold);color:var(--gold);font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:.1rem}
+.stepbody{flex:1}
+.steptitle{font-size:.95rem;font-weight:600;color:var(--white);margin-bottom:.35rem}
+.stepdesc{font-size:.87rem;color:var(--muted);line-height:1.65}
+.gtip{margin-top:2rem;background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.2);border-radius:10px;padding:1.1rem 1.25rem;display:flex;gap:.75rem;align-items:flex-start}
+.gtip-icon{font-size:1rem;flex-shrink:0;margin-top:.1rem}
+.gtip p{font-size:.85rem;color:var(--gold-light);line-height:1.6}
+.gpanel-ftr{padding:1.5rem 2rem;border-top:1px solid var(--cb);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.gprice-note{font-size:.85rem;color:var(--muted)}
+.gprice-note strong{color:var(--gold-light);font-size:1.05rem}
+
+/* PHILOSOPHY */
+#philosophy{background:var(--navy)}
+.phgrid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.pillars{display:flex;flex-direction:column;gap:1.5rem}
+.pillar{display:flex;gap:1.25rem;align-items:flex-start}
+.pill-icon{width:44px;height:44px;flex-shrink:0;background:rgba(201,168,76,.1);border:1px solid var(--cb);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.pillar h4{font-size:1rem;font-weight:600;margin-bottom:.3rem;color:var(--white)}
+.pillar p{font-size:.88rem;color:var(--muted);line-height:1.6}
+
+/* NEWSLETTER */
+#newsletter{background:linear-gradient(135deg,var(--navy-light),var(--charcoal));text-align:center}
+.nbox{max-width:540px;margin:0 auto;background:var(--card);border:1px solid var(--cb);border-radius:16px;padding:3rem 2.5rem}
+.nform{display:flex;gap:.75rem;margin-top:1.75rem}
+.ninput{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--cb);border-radius:8px;padding:.8rem 1.1rem;color:var(--white);font-family:'Inter',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s}
+.ninput::placeholder{color:var(--muted)}
+.ninput:focus{border-color:var(--gold)}
+
+/* FOOTER */
+footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.flogo{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.1rem}
+.fnote{color:var(--muted);font-size:.8rem}
+.flinks{display:flex;gap:1.5rem}
+.flinks a{color:var(--muted);font-size:.8rem;text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--gold)}
+
+/* CART */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s}
+.overlay.open{opacity:1;pointer-events:all}
+.drawer{position:fixed;top:0;right:-420px;width:420px;height:100vh;background:var(--navy);border-left:1px solid var(--cb);z-index:201;transition:right .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;padding:2rem;overflow:hidden}
+.drawer.open{right:0}
+.drw-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem}
+.drw-hdr h3{font-family:'Playfair Display',serif;font-size:1.4rem}
+.close-drw{background:none;border:none;color:var(--muted);font-size:1.5rem;cursor:pointer;line-height:1}
+.close-drw:hover{color:var(--white)}
+.citems{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:1rem}
+.cempty{color:var(--muted);font-size:.9rem;text-align:center;margin-top:3rem}
+.citem{display:flex;gap:1rem;align-items:center;background:var(--card);border:1px solid var(--cb);border-radius:10px;padding:1rem}
+.citem-icon{font-size:1.8rem}
+.citem-info{flex:1}
+.citem-name{font-size:.95rem;font-weight:500;margin-bottom:.2rem}
+.citem-price{font-size:.85rem;color:var(--gold)}
+.rem-item{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.1rem}
+.rem-item:hover{color:#e06c75}
+.cfoot{margin-top:2rem;border-top:1px solid var(--cb);padding-top:1.5rem}
+.ctotal{display:flex;justify-content:space-between;margin-bottom:1.5rem;font-size:1.05rem}
+.ctotal span:last-child{font-weight:600;color:var(--gold-light)}
+.chkbtn{width:100%;padding:1rem;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);border:none;border-radius:8px;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:opacity .2s}
+.chkbtn:hover{opacity:.88}
+.snote{text-align:center;color:var(--muted);font-size:.75rem;margin-top:.75rem}
+
+/* TOAST */
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--card);border:1px solid var(--gold);border-radius:10px;padding:.9rem 1.4rem;font-size:.88rem;color:var(--white);transform:translateY(80px);opacity:0;transition:all .3s;z-index:300;max-width:320px}
+.toast.show{transform:translateY(0);opacity:1}
+
+/* RESPONSIVE */
+@media(max-width:900px){.glayout{grid-template-columns:1fr}.gnav{flex-direction:row;flex-wrap:wrap;position:static}.gnav-item{flex:1;min-width:140px}}
+@media(max-width:768px){.nav-links{display:none}.phgrid{grid-template-columns:1fr}.nform{flex-direction:column}.drawer{width:100%;right:-100%}.btn-ghost{margin-left:0;margin-top:.75rem}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">The Toolsmith</a>
+  <ul class="nav-links">
+    <li><a href="#shop">Shop</a></li>
+    <li><a href="#guides">How-To Guides</a></li>
+    <li><a href="#philosophy">Philosophy</a></li>
+    <li><a href="#newsletter">Newsletter</a></li>
+  </ul>
+  <button class="cart-btn" onclick="toggleCart()">Cart <span class="cart-count" id="cartCount">0</span></button>
+</nav>
+
+<section class="hero">
+  <p class="eyebrow">Precision-Built Tools for Operations Teams</p>
+  <h1>Spreadsheets &amp; Apps<br/>that <span>Actually Work</span></h1>
+  <p>Production-ready Excel templates and CMMS applications — for the people who keep the machines running.</p>
+  <div class="hero-cta">
+    <a href="#shop" class="btn-primary">Browse the Shop</a>
+    <a href="#guides" class="btn-ghost">How-To Guides</a>
+  </div>
+</section>
+
+<section id="shop">
+  <p class="slabel">The Shop</p>
+  <h2 class="stitle">Tools Built for the Real World</h2>
+  <div class="divider"></div>
+  <p class="ssub">Every product ships as an instant download the moment your payment clears — no accounts, no waiting.</p>
+  <div class="filters">
+    <button class="filter-btn active" onclick="filterProducts('all',this)">All</button>
+    <button class="filter-btn" onclick="filterProducts('excel',this)">Excel Templates</button>
+    <button class="filter-btn" onclick="filterProducts('cmms',this)">CMMS Apps</button>
+  </div>
+  <div class="pgrid" id="productsGrid"></div>
+</section>
+
+<section id="guides">
+  <p class="slabel">Documentation</p>
+  <h2 class="stitle">How to Use Each Tool</h2>
+  <div class="divider"></div>
+  <p class="ssub">Step-by-step walkthroughs for every product in the shop — so you hit the ground running on day one.</p>
+  <div class="gtabs">
+    <button class="gtab active" onclick="filterGuides('all',this)">All Tools</button>
+    <button class="gtab" onclick="filterGuides('excel',this)">Excel Templates</button>
+    <button class="gtab" onclick="filterGuides('cmms',this)">CMMS Apps</button>
+  </div>
+  <div class="glayout">
+    <div class="gnav" id="guideNav"></div>
+    <div class="gcontent" id="guideContent"></div>
+  </div>
+</section>
+
+<section id="philosophy">
+  <div class="phgrid">
+    <div>
+      <p class="slabel">The Approach</p>
+      <h2 class="stitle">Tools Without the Noise</h2>
+      <div class="divider"></div>
+      <p style="color:var(--muted);font-size:.98rem;line-height:1.8;margin-bottom:1.5rem">Good tools disappear into the work. They don't demand attention — they redirect it toward what matters: keeping equipment running, catching failures before they happen, and making the numbers legible to the people who need them.</p>
+      <p style="color:var(--muted);font-size:.98rem;line-height:1.8">Every spreadsheet and every app here started as something I actually needed. If it ended up here, it proved itself first.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><div class="pill-icon">⚙️</div><div><h4>Built for Maintainers</h4><p>Designed around the reality of a maintenance department — not a textbook scenario.</p></div></div>
+      <div class="pillar"><div class="pill-icon">📐</div><div><h4>No Bloat</h4><p>Every column, every field, every formula earns its place. Nothing is there to impress.</p></div></div>
+      <div class="pillar"><div class="pill-icon">⬇️</div><div><h4>Instant Delivery</h4><p>Stripe handles payment; your download is ready the moment the transaction clears.</p></div></div>
+      <div class="pillar"><div class="pill-icon">🔄</div><div><h4>Iterative by Design</h4><p>Tools I sell continue to evolve. Buyers receive update notifications by email.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="newsletter">
+  <div class="nbox">
+    <p class="slabel" style="text-align:center">Stay in the Loop</p>
+    <h2 class="stitle" style="text-align:center;font-size:1.9rem">New Tools. New Notes.</h2>
+    <p style="color:var(--muted);font-size:.9rem;text-align:center;margin-top:.5rem">Low-volume updates when something new ships or when a learning note is worth sharing. No filler.</p>
+    <div class="nform">
+      <input type="email" class="ninput" placeholder="your@email.com" id="emailInput"/>
+      <button class="btn-primary" onclick="subscribe()">Subscribe</button>
+    </div>
+    <p style="color:var(--muted);font-size:.75rem;text-align:center;margin-top:1rem">No spam. Unsubscribe any time.</p>
+  </div>
+</section>
+
+<footer>
+  <span class="flogo">The Toolsmith</span>
+  <span class="fnote">© 2025 · All products delivered digitally via Stripe</span>
+  <div class="flinks"><a href="#">Terms</a><a href="#">Refund Policy</a><a href="#">Contact</a></div>
+</footer>
+
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+<div class="drawer" id="drawer">
+  <div class="drw-hdr"><h3>Your Cart</h3><button class="close-drw" onclick="toggleCart()">&#10005;</button></div>
+  <div class="citems" id="cartItems"><p class="cempty">Your cart is empty.</p></div>
+  <div class="cfoot" id="cartFoot" style="display:none">
+    <div class="ctotal"><span>Total</span><span id="cartTotal">$0.00</span></div>
+    <button class="chkbtn" onclick="checkout()">Proceed to Checkout</button>
+    <p class="snote">&#128274; Secure checkout via Stripe — instant download after payment</p>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var products=[
+  {id:1,category:'excel',icon:'📊',badge:'Bestseller',name:'Preventive Maintenance Scheduler',desc:'A 12-month rolling PM calendar with auto-flagging for overdue tasks, parts tracking, and a compliance dashboard that shows you where you stand at a glance.',price:29},
+  {id:2,category:'excel',icon:'🔧',badge:null,name:'Equipment Downtime Tracker',desc:'Log every failure event, auto-calculate MTBF and MTTR, and export a monthly reliability report in one click.',price:24},
+  {id:3,category:'cmms',icon:'📱',badge:'New',name:'Work Order Manager — Replit App',desc:'A mobile-friendly CMMS app built in Replit. Create, assign, and close work orders with priority queuing and technician dashboards.',price:49},
+  {id:4,category:'excel',icon:'💰',badge:null,name:'Maintenance Budget Planner',desc:'Annual budget template with actuals-vs-plan tracking, cost-per-asset analysis, and a one-page executive summary tab.',price:19},
+  {id:5,category:'cmms',icon:'🏭',badge:null,name:'Asset Registry — Base44 App',desc:'A structured asset hierarchy app built in Base44. Catalog every asset, attach specs, and link directly to work orders.',price:39},
+  {id:6,category:'excel',icon:'📋',badge:null,name:'Inspection Checklist Builder',desc:'Create custom inspection forms, track pass/fail rates by asset, and maintain a full audit trail — no paper required.',price:22}
+];
+
+var guides=[
+  {id:1,pid:1,category:'excel',icon:'📊',name:'Preventive Maintenance Scheduler',
+   overview:'This spreadsheet runs a rolling 12-month PM calendar across all your assets. Once you have your equipment list and frequencies entered, the dashboard auto-calculates compliance rates and flags anything overdue in red. Plan on 30 to 60 minutes of initial setup, then about five minutes each week to log completions.',
+   steps:[
+    {t:'Open the Setup tab first',d:'The Setup tab is your foundation. Enter every asset name, a short asset ID, and the department it belongs to. Keep the IDs consistent — the rest of the workbook references them.'},
+    {t:'Define your PM frequencies',d:'In the Frequency column, choose from the dropdown: Daily, Weekly, Monthly, Quarterly, Semi-Annual, or Annual. Each task on an asset gets its own row. One asset can have multiple tasks at different frequencies.'},
+    {t:'Set your start date',d:'Cell B2 on the Calendar tab controls the rolling window. Enter the Monday of the week you want to begin tracking. The 12-month grid populates automatically from there.'},
+    {t:'Log completions in the weekly columns',d:'When a PM is completed, enter the date in the corresponding cell. The cell turns green. If a due date passes with no entry, it turns red and increments the Overdue counter on the dashboard.'},
+    {t:'Review the Dashboard tab weekly',d:'The Dashboard pulls compliance percentage by department, a count of overdue tasks, and a list of the five most overdue items sorted by days late. Print or screenshot it for your weekly maintenance meeting.'},
+    {t:'Add parts in the Parts Log tab',d:'Each PM row can reference parts consumed. Enter the part number, description, quantity used, and unit cost. The Parts Log rolls up monthly spend automatically.'}
+   ],tip:'Freeze the first three columns on the Calendar tab before your first session. With 20-plus assets the horizontal scroll becomes unwieldy without it.',price:29},
+
+  {id:2,pid:2,category:'excel',icon:'🔧',name:'Equipment Downtime Tracker',
+   overview:'Every unplanned failure event gets a row. The spreadsheet calculates Mean Time Between Failures and Mean Time to Repair automatically, then rolls them up into a monthly reliability report you can export as a PDF in one click. Most teams see the value within the first two or three months of consistent logging.',
+   steps:[
+    {t:'Log each failure event immediately',d:'When equipment goes down, open the Events tab and enter the asset ID, failure date and time, the failure mode from the dropdown, and a short description. Precision here is what makes the MTBF numbers trustworthy.'},
+    {t:'Record the restoration time',d:'When the asset is back online, return to that row and enter the restored date and time. The Downtime Hours column calculates the gap automatically. Do not leave this blank — it breaks the MTTR formula.'},
+    {t:'Classify the failure root cause',d:'The Root Cause column uses a dropdown with eight categories: Wear, Lubrication Failure, Operator Error, Design Defect, Deferred Maintenance, Electrical Fault, External, and Unknown. Consistent classification turns data into patterns.'},
+    {t:'Review MTBF and MTTR on the Metrics tab',d:'The Metrics tab shows MTBF and MTTR for each asset, sortable by either value. Assets with MTBF dropping month-over-month need PM attention. Assets with MTTR climbing indicate a parts or labor problem.'},
+    {t:'Export the monthly report',d:'On the Report tab, select the month from the dropdown in cell B2 and click Export to PDF. It generates a one-page summary showing total downtime hours, top five worst-performing assets, failure mode breakdown, and cost estimate.'}
+   ],tip:'Set the Hourly Downtime Cost in the Setup tab before your first export. Even a rough estimate turns the report from a list of hours into a dollar figure — which is the language that gets budget conversations moving.',price:24},
+
+  {id:3,pid:3,category:'cmms',icon:'📱',name:'Work Order Manager — Replit App',
+   overview:'A mobile-first CMMS app hosted on Replit. Technicians create and close work orders from any phone browser — no app install required. Supervisors see a live queue sorted by priority with technician workload visible at a glance. Initial deployment takes about 15 minutes.',
+   steps:[
+    {t:'Fork the Replit project after purchase',d:'Your download includes a link to the Replit template. Click Fork to copy it into your own Replit account. Everything runs from there — no hosting configuration required on your end.'},
+    {t:'Add your team in the Admin panel',d:'Navigate to /admin and create a technician account for each person on your team. Assign them a role: Technician, Supervisor, or Admin. Each role sees a different view of the work order queue.'},
+    {t:'Configure your asset list and locations',d:'Under Settings, enter your assets and the physical locations where work orders will originate. These populate the dropdowns technicians see when creating a new WO — keeping data clean from the start.'},
+    {t:'Create your first work order',d:'From the main dashboard, click New Work Order. Select the asset, location, priority level (Critical, High, Standard, or Routine), and assign it to a technician. Add a description and any attached photos, then submit.'},
+    {t:'Technicians work from the My Queue screen',d:'On mobile, technicians see only their assigned work orders sorted by priority. They tap a WO to open it, log time and materials used, add notes, and close it when complete. All updates are live.'},
+    {t:'Review the Supervisor Dashboard',d:'Supervisors see all open work orders across the team, a backlog count by priority level, and average time-to-close for the last 30 days. Filter by technician, asset, or location to drill into patterns.'}
+   ],tip:'Set Critical priority work orders to trigger an email notification to the supervisor on creation. The notification settings are under Admin > Alerts — two minutes to configure, and it prevents high-priority items from sitting unnoticed.',price:49},
+
+  {id:4,pid:4,category:'excel',icon:'💰',name:'Maintenance Budget Planner',
+   overview:'An annual budget template built around the way maintenance departments actually spend money: labor, parts, contractors, and capital. Enter your budget by category each January, then log actuals monthly. The executive summary tab produces a one-page variance report you can take directly into a budget meeting.',
+   steps:[
+    {t:'Enter your annual budget in the Plan tab',d:'The Plan tab has rows for each spend category pre-built. Enter your budgeted amount for each category across the 12 monthly columns. If you budget annually as a lump sum, enter the full amount in January and zeros across the rest.'},
+    {t:'Log monthly actuals in the Actuals tab',d:'At the close of each month, enter what you actually spent by category. Pull the numbers from your AP system or purchase orders. Precision to the dollar is ideal, but rounding to the nearest hundred works fine for the summary.'},
+    {t:'Assign costs to assets in the Asset Cost tab',d:'Every expense row can be tagged to an asset ID. This is optional but valuable — it surfaces which assets are consuming disproportionate budget and builds the case for a repair-vs-replace conversation.'},
+    {t:'Review the Variance tab monthly',d:'The Variance tab shows budget vs. actual by category and by asset, with the gap expressed in both dollars and percentage. Red cells indicate overspend. The running YTD variance tells you how much buffer remains.'},
+    {t:'Present the Executive Summary',d:'The Summary tab auto-generates a one-page view: total spend vs. budget YTD, top five cost drivers by asset, and a bar chart of monthly actuals vs. plan. Change the month selector in B2 to update any period.'}
+   ],tip:'Use the Contractor category for any outside labor — even one-time calls. Separating contractor spend from internal labor gives you a cleaner picture of true in-house capacity and what it actually costs to supplement it.',price:19},
+
+  {id:5,pid:5,category:'cmms',icon:'🏭',name:'Asset Registry — Base44 App',
+   overview:'A structured asset hierarchy app built in Base44. Every piece of equipment lives in a searchable database with its full specification sheet, location, manufacturer details, and linked work order history. Think of it as the single source of truth for your equipment — the foundation everything else in your CMMS stack references.',
+   steps:[
+    {t:'Access your app after purchase',d:'Your download includes login credentials and a direct URL to your Base44 instance. The app is pre-configured with the asset hierarchy structure. Log in as Admin on first access and change your password immediately under Account Settings.'},
+    {t:'Build your location hierarchy first',d:'Under Locations, create your site, then buildings or production areas, then zones. Assets are nested inside locations. Getting this structure right before adding assets saves significant rework later.'},
+    {t:'Add assets and attach spec sheets',d:'Click Add Asset and fill in the required fields: Asset ID, name, category, location, manufacturer, model number, serial number, and installation date. Then attach the OEM spec sheet as a PDF — every technician now has that document one tap away.'},
+    {t:'Set criticality and replacement value',d:'Each asset has a Criticality field: Critical, Important, or Standard. Set this based on the consequence of failure, not the likelihood. Also enter the estimated replacement value — these two fields drive the repair-vs-replace analysis.'},
+    {t:'Link assets to work orders',d:'When you create a work order in your CMMS, reference the Asset ID from the registry. Over time this builds a full maintenance history against each asset, visible from the asset record under the History tab.'},
+    {t:'Run the Asset Health report',d:'Under Reports, the Asset Health report shows every asset sorted by work order frequency over the trailing 12 months. Assets at the top of that list are your biggest reliability risks — or your candidates for disposal.'}
+   ],tip:'Complete the Nameplate Data fields even when they feel redundant with the spec sheet attachment. Technicians searching by model number or serial number in the field need those values to be text-searchable — an attached PDF does not give them that.',price:39},
+
+  {id:6,pid:6,category:'excel',icon:'📋',name:'Inspection Checklist Builder',
+   overview:'Build custom inspection forms for any asset type — lubrication routes, operator rounds, safety checks, or statutory inspections. Each completed form is timestamped, tied to an asset, and stored in the audit trail tab. Pass/fail rates by asset roll up automatically so you can see deterioration trends before they become failures.',
+   steps:[
+    {t:'Create a checklist template in the Builder tab',d:'The Builder tab is where you design your forms. Each row is one inspection item. Enter the check description, the acceptable range or condition, the measurement unit if applicable, and whether a failed item should trigger an alert flag.'},
+    {t:'Assign the template to an asset or asset group',d:'Once a template is built, assign it to one or more Asset IDs in the Assignment column. An asset can have multiple templates at different frequencies — a daily operator round and a monthly engineering inspection, for example.'},
+    {t:'Complete inspections in the Inspection tab',d:'The Inspection tab generates a clean form based on the assigned template. Enter the Asset ID, date, and inspector name, then work through each item entering the measured value or selecting Pass/Fail from the dropdown.'},
+    {t:'Flag and follow up on failures',d:'Any item marked Fail generates an entry in the Failures tab automatically, with the asset, the failed item, the date, and the inspector. Add a corrective action and a target closure date. Unclosed failures turn amber after 7 days and red after 14.'},
+    {t:'Analyze trends in the Pass/Fail Summary',d:'The Summary tab shows pass rate by asset over the trailing six months. A declining trend on a specific check item is an early warning that deserves a PM adjustment before you see a failure event.'}
+   ],tip:'Keep inspection items specific and measurable wherever possible. "Oil level between MIN and MAX on sight glass" is far more useful than "check oil level" when you are trying to trend data six months from now.',price:22}
+];
+
+// ── SHOP ──
+function renderProducts(filter){
+  filter=filter||'all';
+  var list=filter==='all'?products:products.filter(function(p){return p.category===filter});
+  document.getElementById('productsGrid').innerHTML=list.map(function(p){
+    return '<div class="pcard"><div class="pimg">'+(p.badge?'<span class="pbadge">'+p.badge+'</span>':'')+
+      '<span class="picon">'+p.icon+'</span></div>'+
+      '<div class="pbody"><p class="pcat">'+(p.category==='excel'?'Excel Template':'CMMS App')+'</p>'+
+      '<h3 class="pname">'+p.name+'</h3><p class="pdesc">'+p.desc+'</p>'+
+      '<div class="pfooter"><span class="pprice">$'+p.price+'</span>'+
+      '<button class="atc" onclick="addToCart('+p.id+')">Add to Cart</button></div></div></div>';
+  }).join('');
+}
+function filterProducts(cat,btn){
+  document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});
+  btn.classList.add('active');
+  renderProducts(cat);
+}
+
+// ── GUIDES ──
+var activeGFilter='all';
+var activeGId=1;
+function visibleGuides(){return activeGFilter==='all'?guides:guides.filter(function(g){return g.category===activeGFilter})}
+function renderGuides(){
+  var vis=visibleGuides();
+  if(!vis.length)return;
+  if(!vis.find(function(g){return g.id===activeGId}))activeGId=vis[0].id;
+  document.getElementById('guideNav').innerHTML=vis.map(function(g){
+    return '<button class="gnav-item'+(g.id===activeGId?' active':'')+'" onclick="selectGuide('+g.id+')">'+
+      '<span class="gnav-icon">'+g.icon+'</span>'+
+      '<span class="gnav-text"><span class="gnav-label">'+(g.category==='excel'?'Excel':'CMMS App')+'</span>'+
+      '<span class="gnav-name">'+g.name+'</span></span></button>';
+  }).join('');
+  document.getElementById('guideContent').innerHTML=vis.map(function(g){
+    var sh=g.steps.map(function(s,i){
+      return '<div class="gstep"><span class="stepnum">'+(i+1)+'</span>'+
+        '<div class="stepbody"><p class="steptitle">'+s.t+'</p><p class="stepdesc">'+s.d+'</p></div></div>';
+    }).join('');
+    return '<div class="gpanel'+(g.id===activeGId?' active':'')+'" id="gp'+g.id+'">'+
+      '<div class="gpanel-hdr"><span class="gpanel-icon">'+g.icon+'</span>'+
+      '<div><p class="gpanel-cat">'+(g.category==='excel'?'Excel Template':'CMMS App')+'</p>'+
+      '<h3 class="gpanel-title">'+g.name+'</h3></div></div>'+
+      '<div class="gpanel-body"><p class="goverview">'+g.overview+'</p>'+
+      '<p class="gsteps-lbl">Step-by-Step Walkthrough</p>'+
+      '<div class="gsteps">'+sh+'</div>'+
+      '<div class="gtip"><span class="gtip-icon">&#128161;</span><p>'+g.tip+'</p></div></div>'+
+      '<div class="gpanel-ftr"><p class="gprice-note">Available in the shop for <strong>$'+g.price+'</strong></p>'+
+      '<button class="btn-primary" onclick="addToCart('+g.pid+')">Add to Cart &mdash; $'+g.price+'</button></div></div>';
+  }).join('');
+}
+function selectGuide(id){activeGId=id;renderGuides()}
+function filterGuides(cat,btn){
+  document.querySelectorAll('.gtab').forEach(function(b){b.classList.remove('active')});
+  btn.classList.add('active');
+  activeGFilter=cat;
+  renderGuides();
+}
+
+// ── CART ──
+var cart=[];
+function addToCart(id){
+  var p=products.find(function(x){return x.id===id});
+  if(cart.find(function(i){return i.id===id})){showToast('"'+p.name+'" is already in your cart.');return}
+  cart.push(p);updateCartUI();showToast('Added: '+p.name);
+}
+function removeFromCart(id){cart=cart.filter(function(i){return i.id!==id});updateCartUI()}
+function updateCartUI(){
+  var n=cart.length;
+  var el=document.getElementById('cartCount');
+  el.textContent=n;el.style.display=n>0?'flex':'none';
+  var ci=document.getElementById('cartItems');
+  var cf=document.getElementById('cartFoot');
+  if(!n){ci.innerHTML='<p class="cempty">Your cart is empty.</p>';cf.style.display='none';return}
+  cf.style.display='block';
+  ci.innerHTML=cart.map(function(i){
+    return '<div class="citem"><span class="citem-icon">'+i.icon+'</span>'+
+      '<div class="citem-info"><p class="citem-name">'+i.name+'</p><p class="citem-price">$'+i.price+'</p></div>'+
+      '<button class="rem-item" onclick="removeFromCart('+i.id+')">&#10005;</button></div>';
+  }).join('');
+  document.getElementById('cartTotal').textContent='$'+cart.reduce(function(s,i){return s+i.price},0).toFixed(2);
+}
+function toggleCart(){
+  document.getElementById('drawer').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('open');
+}
+function checkout(){
+  if(!cart.length)return;
+  // STRIPE HOOK: POST cart to /api/create-checkout-session, redirect to session.url
+  showToast('Stripe integration ready — connect your backend to go live.');
+}
+function subscribe(){
+  var e=document.getElementById('emailInput').value.trim();
+  if(!e||e.indexOf('@')<0){showToast('Please enter a valid email address.');return}
+  document.getElementById('emailInput').value='';
+  showToast("You're on the list. Thank you.");
+}
+var tt;
+function showToast(msg){
+  var t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('show')},2800);
+}
+
+renderProducts();
+renderGuides();
+</script>
+</body>
+</html>
