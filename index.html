@@ -10,8 +10,6 @@
 :root{--charcoal:#1a1a2e;--navy:#16213e;--navy-light:#0f3460;--gold:#c9a84c;--gold-light:#e8c97a;--white:#f8f6f1;--muted:#9a9db5;--card:#1e2245;--cb:rgba(201,168,76,0.18);--r:12px}
 html{scroll-behavior:smooth}
 body{background:var(--charcoal);color:var(--white);font-family:'Inter',sans-serif;font-weight:300;line-height:1.7}
-
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 5%;background:rgba(26,26,46,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--cb)}
 .nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);letter-spacing:.04em;text-decoration:none}
 .nav-links{display:flex;gap:2rem;align-items:center;list-style:none}
@@ -20,8 +18,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .cart-btn{position:relative;cursor:pointer;background:none;border:1px solid var(--gold);color:var(--gold);padding:.45rem 1.1rem;border-radius:6px;font-size:.85rem;font-family:'Inter',sans-serif;letter-spacing:.06em;text-transform:uppercase;transition:background .2s,color .2s}
 .cart-btn:hover{background:var(--gold);color:var(--charcoal)}
 .cart-count{position:absolute;top:-8px;right:-8px;background:var(--gold);color:var(--charcoal);width:18px;height:18px;border-radius:50%;font-size:.7rem;font-weight:700;display:none;align-items:center;justify-content:center}
-
-/* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10rem 5% 6rem;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(15,52,96,.55) 0%,transparent 70%),linear-gradient(180deg,var(--charcoal) 0%,var(--navy) 100%);position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
 .eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem;font-weight:500;position:relative}
@@ -33,15 +29,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .btn-primary:hover{opacity:.88;transform:translateY(-1px)}
 .btn-ghost{display:inline-block;background:transparent;color:var(--gold-light);padding:.9rem 2.4rem;border-radius:8px;font-weight:500;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:1px solid var(--cb);cursor:pointer;transition:border-color .2s,color .2s;font-family:'Inter',sans-serif;margin-left:1rem}
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
-
-/* SECTION BASE */
 section{padding:6rem 5%}
 .slabel{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;font-weight:500}
 .stitle{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:600;margin-bottom:1rem;line-height:1.2}
 .ssub{color:var(--muted);max-width:520px;font-size:.98rem;margin-bottom:3.5rem}
 .divider{width:48px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:1rem 0 1.5rem}
-
-/* SHOP */
 #shop{background:var(--navy)}
 .filters{display:flex;gap:.75rem;margin-bottom:2.5rem;flex-wrap:wrap}
 .filter-btn{padding:.4rem 1.1rem;border-radius:20px;border:1px solid var(--cb);background:none;color:var(--muted);font-size:.82rem;font-family:'Inter',sans-serif;letter-spacing:.05em;cursor:pointer;transition:all .2s}
@@ -60,8 +52,6 @@ section{padding:6rem 5%}
 .pprice{font-size:1.3rem;font-weight:600;color:var(--gold-light)}
 .atc{background:rgba(201,168,76,.12);border:1px solid var(--gold);color:var(--gold);padding:.5rem 1.1rem;border-radius:6px;font-size:.82rem;font-family:'Inter',sans-serif;font-weight:500;letter-spacing:.05em;cursor:pointer;transition:background .2s,color .2s}
 .atc:hover{background:var(--gold);color:var(--charcoal)}
-
-/* GUIDES */
 #guides{background:var(--charcoal)}
 .gtabs{display:flex;gap:.65rem;margin-bottom:2.5rem;flex-wrap:wrap}
 .gtab{padding:.4rem 1.1rem;border-radius:20px;border:1px solid var(--cb);background:none;color:var(--muted);font-size:.82rem;font-family:'Inter',sans-serif;letter-spacing:.05em;cursor:pointer;transition:all .2s}
@@ -98,8 +88,6 @@ section{padding:6rem 5%}
 .gpanel-ftr{padding:1.5rem 2rem;border-top:1px solid var(--cb);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
 .gprice-note{font-size:.85rem;color:var(--muted)}
 .gprice-note strong{color:var(--gold-light);font-size:1.05rem}
-
-/* PHILOSOPHY */
 #philosophy{background:var(--navy)}
 .phgrid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
 .pillars{display:flex;flex-direction:column;gap:1.5rem}
@@ -107,24 +95,18 @@ section{padding:6rem 5%}
 .pill-icon{width:44px;height:44px;flex-shrink:0;background:rgba(201,168,76,.1);border:1px solid var(--cb);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
 .pillar h4{font-size:1rem;font-weight:600;margin-bottom:.3rem;color:var(--white)}
 .pillar p{font-size:.88rem;color:var(--muted);line-height:1.6}
-
-/* NEWSLETTER */
 #newsletter{background:linear-gradient(135deg,var(--navy-light),var(--charcoal));text-align:center}
 .nbox{max-width:540px;margin:0 auto;background:var(--card);border:1px solid var(--cb);border-radius:16px;padding:3rem 2.5rem}
 .nform{display:flex;gap:.75rem;margin-top:1.75rem}
 .ninput{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--cb);border-radius:8px;padding:.8rem 1.1rem;color:var(--white);font-family:'Inter',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s}
 .ninput::placeholder{color:var(--muted)}
 .ninput:focus{border-color:var(--gold)}
-
-/* FOOTER */
 footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
 .flogo{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.1rem}
 .fnote{color:var(--muted);font-size:.8rem}
 .flinks{display:flex;gap:1.5rem}
 .flinks a{color:var(--muted);font-size:.8rem;text-decoration:none;transition:color .2s}
 .flinks a:hover{color:var(--gold)}
-
-/* CART */
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s}
 .overlay.open{opacity:1;pointer-events:all}
 .drawer{position:fixed;top:0;right:-420px;width:420px;height:100vh;background:var(--navy);border-left:1px solid var(--cb);z-index:201;transition:right .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;padding:2rem;overflow:hidden}
@@ -148,12 +130,8 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
 .chkbtn{width:100%;padding:1rem;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);border:none;border-radius:8px;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:opacity .2s}
 .chkbtn:hover{opacity:.88}
 .snote{text-align:center;color:var(--muted);font-size:.75rem;margin-top:.75rem}
-
-/* TOAST */
 .toast{position:fixed;bottom:2rem;right:2rem;background:var(--card);border:1px solid var(--gold);border-radius:10px;padding:.9rem 1.4rem;font-size:.88rem;color:var(--white);transform:translateY(80px);opacity:0;transition:all .3s;z-index:300;max-width:320px}
 .toast.show{transform:translateY(0);opacity:1}
-
-/* RESPONSIVE */
 @media(max-width:900px){.glayout{grid-template-columns:1fr}.gnav{flex-direction:row;flex-wrap:wrap;position:static}.gnav-item{flex:1;min-width:140px}}
 @media(max-width:768px){.nav-links{display:none}.phgrid{grid-template-columns:1fr}.nform{flex-direction:column}.drawer{width:100%;right:-100%}.btn-ghost{margin-left:0;margin-top:.75rem}}
 </style>
@@ -264,9 +242,9 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
 var products=[
   {id:1,category:'excel',icon:'📊',badge:'Bestseller',name:'Preventive Maintenance Scheduler',desc:'A 12-month rolling PM calendar with auto-flagging for overdue tasks, parts tracking, and a compliance dashboard that shows you where you stand at a glance.',price:29},
   {id:2,category:'excel',icon:'🔧',badge:null,name:'Equipment Downtime Tracker',desc:'Log every failure event, auto-calculate MTBF and MTTR, and export a monthly reliability report in one click.',price:24},
-  {id:3,category:'cmms',icon:'📱',badge:'New',name:'Work Order Manager — Replit App',desc:'A mobile-friendly CMMS app built in Replit. Create, assign, and close work orders with priority queuing and technician dashboards.',price:49},
+  {id:3,category:'cmms',icon:'🛠️',badge:'14-Day Free Trial',name:'Toolsmith CMMS — Lite',desc:'Work order management, technician queues, and a real-time manager dashboard for small maintenance teams. $19/month after your free trial.',price:19,isCmms:true,trialUrl:'https://toolsmith-cmms.vercel.app/register',features:['Work order create, assign, and close','Technician management and queues','Manager dashboard with priority filters','Mobile-friendly for field technicians']},
   {id:4,category:'excel',icon:'💰',badge:null,name:'Maintenance Budget Planner',desc:'Annual budget template with actuals-vs-plan tracking, cost-per-asset analysis, and a one-page executive summary tab.',price:19},
-  {id:5,category:'cmms',icon:'🏭',badge:null,name:'Asset Registry — Base44 App',desc:'A structured asset hierarchy app built in Base44. Catalog every asset, attach specs, and link directly to work orders.',price:39},
+  {id:5,category:'cmms',icon:'⚙️',badge:'Most Popular',name:'Toolsmith CMMS — Pro',desc:'The full-featured CMMS — everything in Lite plus asset management, PM scheduling, reporting, and parts tracking. $49/month after your free trial.',price:49,isCmms:true,trialUrl:'https://toolsmith-cmms.vercel.app/register',features:['Everything in Lite','Full asset registry and management','PM scheduling with recurring tasks','Reporting — downtime, compliance, costs','Parts tracking and cost per asset']},
   {id:6,category:'excel',icon:'📋',badge:null,name:'Inspection Checklist Builder',desc:'Create custom inspection forms, track pass/fail rates by asset, and maintain a full audit trail — no paper required.',price:22}
 ];
 
@@ -292,16 +270,25 @@ var guides=[
     {t:'Export the monthly report',d:'On the Report tab, select the month from the dropdown in cell B2 and click Export to PDF. It generates a one-page summary showing total downtime hours, top five worst-performing assets, failure mode breakdown, and cost estimate.'}
    ],tip:'Set the Hourly Downtime Cost in the Setup tab before your first export. Even a rough estimate turns the report from a list of hours into a dollar figure — which is the language that gets budget conversations moving.',price:24},
 
-  {id:3,pid:3,category:'cmms',icon:'📱',name:'Work Order Manager — Replit App',
-   overview:'A mobile-first CMMS app hosted on Replit. Technicians create and close work orders from any phone browser — no app install required. Supervisors see a live queue sorted by priority with technician workload visible at a glance. Initial deployment takes about 15 minutes.',
+  {id:3,pid:3,category:'cmms',icon:'🛠️',name:'Toolsmith CMMS — Lite',
+   overview:'The Lite plan is built for small maintenance teams that need a clean, simple work order system without the complexity of enterprise software. After your 14-day free trial you pay $19 per month for the whole team — no per-seat pricing. Sign up, add your technicians, and you are running work orders the same day.',
    steps:[
-    {t:'Fork the Replit project after purchase',d:'Your download includes a link to the Replit template. Click Fork to copy it into your own Replit account. Everything runs from there — no hosting configuration required on your end.'},
-    {t:'Add your team in the Admin panel',d:'Navigate to /admin and create a technician account for each person on your team. Assign them a role: Technician, Supervisor, or Admin. Each role sees a different view of the work order queue.'},
-    {t:'Configure your asset list and locations',d:'Under Settings, enter your assets and the physical locations where work orders will originate. These populate the dropdowns technicians see when creating a new WO — keeping data clean from the start.'},
-    {t:'Create your first work order',d:'From the main dashboard, click New Work Order. Select the asset, location, priority level (Critical, High, Standard, or Routine), and assign it to a technician. Add a description and any attached photos, then submit.'},
-    {t:'Technicians work from the My Queue screen',d:'On mobile, technicians see only their assigned work orders sorted by priority. They tap a WO to open it, log time and materials used, add notes, and close it when complete. All updates are live.'},
-    {t:'Review the Supervisor Dashboard',d:'Supervisors see all open work orders across the team, a backlog count by priority level, and average time-to-close for the last 30 days. Filter by technician, asset, or location to drill into patterns.'}
-   ],tip:'Set Critical priority work orders to trigger an email notification to the supervisor on creation. The notification settings are under Admin > Alerts — two minutes to configure, and it prevents high-priority items from sitting unnoticed.',price:49},
+    {t:'Start your free trial',d:'Click Start Free Trial, pick the Lite plan, and create your manager account. No credit card required for the first 14 days. You will be asked for payment details upfront so your subscription activates automatically when the trial ends.'},
+    {t:'Add your technicians',d:'From the manager dashboard click Team, then Add Team Member. Enter their name, email, and a temporary password. They log in from any browser — no app download needed. Their queue shows only their assigned work orders.'},
+    {t:'Create your first work order',d:'Click + New Work Order from the dashboard. Set the title, description, priority level, and assign it to a technician. Critical work orders appear at the top of every queue automatically.'},
+    {t:'Technicians work their queue',d:'Each technician logs in and sees their personal queue sorted by priority. They open a work order, update the status to In Progress, add notes, and close it when the job is done. The manager dashboard updates in real time.'},
+    {t:'Monitor from the dashboard',d:'The manager dashboard shows all open work orders with priority filters and stat cards. Click any priority card to filter the list instantly. Click an asset in the sidebar to see only that asset\'s work orders.'}
+   ],tip:'Add your whole team before you start creating work orders. That way every work order can be assigned immediately rather than sitting unassigned in the queue.',price:19,isCmms:true,trialUrl:'https://toolsmith-cmms.vercel.app/register'},
+
+  {id:5,pid:5,category:'cmms',icon:'⚙️',name:'Toolsmith CMMS — Pro',
+   overview:'The Pro plan includes everything in Lite plus the full asset registry, PM scheduling, reporting, and parts tracking. At $49 per month for the whole team it is a fraction of what enterprise CMMS tools charge per user. Your 14-day free trial gives you full Pro access from day one with no commitment.',
+   steps:[
+    {t:'Start your free trial',d:'Click Start Free Trial, pick the Pro plan, and create your manager account. Full Pro features are available immediately — asset management, PM scheduling, and reporting are all unlocked from the moment you sign in.'},
+    {t:'Build your asset registry',d:'From the dashboard sidebar click + Add Asset. Enter the asset name, location, and category. Every asset you add appears in the sidebar and becomes available in the work order form dropdown. Pro users can add and manage assets directly — no upgrade prompts.'},
+    {t:'Create work orders linked to assets',d:'When creating a work order, select the asset from the dropdown or add a new one inline. The asset sidebar on the dashboard lets you click any asset to filter work orders by that asset instantly.'},
+    {t:'Set up PM schedules',d:'Coming soon — PM scheduling will let you create recurring maintenance tasks tied to assets with frequency settings. Tasks auto-generate work orders when they come due and flag overdue PMs on the dashboard.'},
+    {t:'Run reports',d:'Coming soon — the reporting dashboard will show downtime by asset, PM compliance rates, cost per asset, and technician workload. Export any report as a PDF for your maintenance meetings.'}
+   ],tip:'Upgrade from Lite to Pro at any time from inside the app. Your existing work orders, technicians, and settings carry over automatically — nothing resets when you upgrade.',price:49,isCmms:true,trialUrl:'https://toolsmith-cmms.vercel.app/register'},
 
   {id:4,pid:4,category:'excel',icon:'💰',name:'Maintenance Budget Planner',
    overview:'An annual budget template built around the way maintenance departments actually spend money: labor, parts, contractors, and capital. Enter your budget by category each January, then log actuals monthly. The executive summary tab produces a one-page variance report you can take directly into a budget meeting.',
@@ -312,17 +299,6 @@ var guides=[
     {t:'Review the Variance tab monthly',d:'The Variance tab shows budget vs. actual by category and by asset, with the gap expressed in both dollars and percentage. Red cells indicate overspend. The running YTD variance tells you how much buffer remains.'},
     {t:'Present the Executive Summary',d:'The Summary tab auto-generates a one-page view: total spend vs. budget YTD, top five cost drivers by asset, and a bar chart of monthly actuals vs. plan. Change the month selector in B2 to update any period.'}
    ],tip:'Use the Contractor category for any outside labor — even one-time calls. Separating contractor spend from internal labor gives you a cleaner picture of true in-house capacity and what it actually costs to supplement it.',price:19},
-
-  {id:5,pid:5,category:'cmms',icon:'🏭',name:'Asset Registry — Base44 App',
-   overview:'A structured asset hierarchy app built in Base44. Every piece of equipment lives in a searchable database with its full specification sheet, location, manufacturer details, and linked work order history. Think of it as the single source of truth for your equipment — the foundation everything else in your CMMS stack references.',
-   steps:[
-    {t:'Access your app after purchase',d:'Your download includes login credentials and a direct URL to your Base44 instance. The app is pre-configured with the asset hierarchy structure. Log in as Admin on first access and change your password immediately under Account Settings.'},
-    {t:'Build your location hierarchy first',d:'Under Locations, create your site, then buildings or production areas, then zones. Assets are nested inside locations. Getting this structure right before adding assets saves significant rework later.'},
-    {t:'Add assets and attach spec sheets',d:'Click Add Asset and fill in the required fields: Asset ID, name, category, location, manufacturer, model number, serial number, and installation date. Then attach the OEM spec sheet as a PDF — every technician now has that document one tap away.'},
-    {t:'Set criticality and replacement value',d:'Each asset has a Criticality field: Critical, Important, or Standard. Set this based on the consequence of failure, not the likelihood. Also enter the estimated replacement value — these two fields drive the repair-vs-replace analysis.'},
-    {t:'Link assets to work orders',d:'When you create a work order in your CMMS, reference the Asset ID from the registry. Over time this builds a full maintenance history against each asset, visible from the asset record under the History tab.'},
-    {t:'Run the Asset Health report',d:'Under Reports, the Asset Health report shows every asset sorted by work order frequency over the trailing 12 months. Assets at the top of that list are your biggest reliability risks — or your candidates for disposal.'}
-   ],tip:'Complete the Nameplate Data fields even when they feel redundant with the spec sheet attachment. Technicians searching by model number or serial number in the field need those values to be text-searchable — an attached PDF does not give them that.',price:39},
 
   {id:6,pid:6,category:'excel',icon:'📋',name:'Inspection Checklist Builder',
    overview:'Build custom inspection forms for any asset type — lubrication routes, operator rounds, safety checks, or statutory inspections. Each completed form is timestamped, tied to an asset, and stored in the audit trail tab. Pass/fail rates by asset roll up automatically so you can see deterioration trends before they become failures.',
@@ -340,12 +316,26 @@ function renderProducts(filter){
   filter=filter||'all';
   var list=filter==='all'?products:products.filter(function(p){return p.category===filter});
   document.getElementById('productsGrid').innerHTML=list.map(function(p){
+    var featuresHtml='';
+    if(p.features){
+      featuresHtml='<ul style="list-style:none;margin-bottom:1.25rem;">'+
+        p.features.map(function(f){
+          return '<li style="font-size:0.82rem;color:#9a9db5;padding:0.25rem 0;display:flex;gap:0.5rem;align-items:flex-start;">'+
+            '<span style="color:#c9a84c;flex-shrink:0;">✓</span>'+f+'</li>';
+        }).join('')+'</ul>';
+    }
+    var actionBtn=p.isCmms
+      ? '<a href="'+p.trialUrl+'" style="display:inline-block;background:linear-gradient(135deg,#c9a84c,#e8c97a);color:#1a1a2e;padding:0.5rem 1.1rem;border-radius:6px;font-size:0.82rem;font-family:Inter,sans-serif;font-weight:700;letter-spacing:0.05em;text-decoration:none;text-transform:uppercase;">Start Free Trial</a>'
+      : '<button class="atc" onclick="addToCart('+p.id+')">Add to Cart</button>';
+    var priceLabel=p.isCmms
+      ? '<span class="pprice">$'+p.price+'<span style="font-size:0.7rem;font-weight:400;color:#9a9db5;">/mo</span></span>'
+      : '<span class="pprice">$'+p.price+'</span>';
     return '<div class="pcard"><div class="pimg">'+(p.badge?'<span class="pbadge">'+p.badge+'</span>':'')+
       '<span class="picon">'+p.icon+'</span></div>'+
       '<div class="pbody"><p class="pcat">'+(p.category==='excel'?'Excel Template':'CMMS App')+'</p>'+
       '<h3 class="pname">'+p.name+'</h3><p class="pdesc">'+p.desc+'</p>'+
-      '<div class="pfooter"><span class="pprice">$'+p.price+'</span>'+
-      '<button class="atc" onclick="addToCart('+p.id+')">Add to Cart</button></div></div></div>';
+      featuresHtml+
+      '<div class="pfooter">'+priceLabel+actionBtn+'</div></div></div>';
   }).join('');
 }
 function filterProducts(cat,btn){
@@ -381,8 +371,11 @@ function renderGuides(){
       '<p class="gsteps-lbl">Step-by-Step Walkthrough</p>'+
       '<div class="gsteps">'+sh+'</div>'+
       '<div class="gtip"><span class="gtip-icon">&#128161;</span><p>'+g.tip+'</p></div></div>'+
-      '<div class="gpanel-ftr"><p class="gprice-note">Available in the shop for <strong>$'+g.price+'</strong></p>'+
-      '<button class="btn-primary" onclick="addToCart('+g.pid+')">Add to Cart &mdash; $'+g.price+'</button></div></div>';
+      '<div class="gpanel-ftr"><p class="gprice-note">'+(g.isCmms?'14-day free trial — then <strong>$'+g.price+'/month</strong>':'Available in the shop for <strong>$'+g.price+'</strong>')+'</p>'+
+      (g.isCmms
+        ? '<a href="'+g.trialUrl+'" class="btn-primary" style="text-decoration:none;">Start Free Trial</a>'
+        : '<button class="btn-primary" onclick="addToCart('+g.pid+')">Add to Cart &mdash; $'+g.price+'</button>'
+      )+'</div></div>';
   }).join('');
 }
 function selectGuide(id){activeGId=id;renderGuides()}
@@ -422,7 +415,6 @@ function toggleCart(){
 }
 function checkout(){
   if(!cart.length)return;
-  // STRIPE HOOK: POST cart to /api/create-checkout-session, redirect to session.url
   showToast('Stripe integration ready — connect your backend to go live.');
 }
 function subscribe(){
