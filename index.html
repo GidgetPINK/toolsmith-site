@@ -151,7 +151,7 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
 
 <section class="hero">
   <p class="eyebrow">Precision-Built Tools for Operations Teams</p>
-  <h1>Spreadsheets &amp; Apps<br/>that <span>Actually Work - Staging Test</span></h1>
+  <h1>Spreadsheets &amp; Apps<br/>that <span>Actually Work</span></h1>
   <p>Production-ready Excel templates and CMMS applications — for the people who keep the machines running.</p>
   <div class="hero-cta">
     <a href="#shop" class="btn-primary">Browse the Shop</a>
@@ -163,7 +163,7 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
   <p class="slabel">The Shop</p>
   <h2 class="stitle">Tools Built for the Real World</h2>
   <div class="divider"></div>
-  <p class="ssub">Every product ships as an instant download the moment your payment clears — no accounts, no waiting.</p>
+  <p class="ssub">Start your free CMMS trial today. Excel templates are coming soon — enter your email in the newsletter below to be notified when they launch.</p>
   <div class="filters">
     <button class="filter-btn active" onclick="filterProducts('all',this)">All</button>
     <button class="filter-btn" onclick="filterProducts('excel',this)">Excel Templates</button>
@@ -240,7 +240,7 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
 
 <script>
 var products=[
-  {id:1,category:'excel',icon:'📊',badge:'Bestseller',name:'Preventive Maintenance Scheduler',desc:'A 12-month rolling PM calendar with auto-flagging for overdue tasks, parts tracking, and a compliance dashboard that shows you where you stand at a glance.',price:29},
+  {id:1,category:'excel',icon:'📊',badge:'Available Now',name:'Preventive Maintenance Scheduler',desc:'A 12-month rolling PM calendar with auto-flagging for overdue tasks, parts tracking, and a compliance dashboard. Google Sheets version available now. Excel version coming soon.',price:29},
   {id:2,category:'excel',icon:'🔧',badge:null,name:'Equipment Downtime Tracker',desc:'Log every failure event, auto-calculate MTBF and MTTR, and export a monthly reliability report in one click.',price:24},
   {id:3,category:'cmms',icon:'🛠️',badge:'14-Day Free Trial',name:'Toolsmith CMMS — Lite',desc:'Work order management, technician queues, and a real-time manager dashboard for small maintenance teams. $19/month after your free trial.',price:19,isCmms:true,trialUrl:'https://toolsmith-cmms.vercel.app/register',features:['Work order create, assign, and close','Technician management and queues','Manager dashboard with priority filters','Mobile-friendly for field technicians']},
   {id:4,category:'excel',icon:'💰',badge:null,name:'Maintenance Budget Planner',desc:'Annual budget template with actuals-vs-plan tracking, cost-per-asset analysis, and a one-page executive summary tab.',price:19},
@@ -326,7 +326,7 @@ function renderProducts(filter){
     }
     var actionBtn=p.isCmms
       ? '<a href="'+p.trialUrl+'" style="display:inline-block;background:linear-gradient(135deg,#c9a84c,#e8c97a);color:#1a1a2e;padding:0.5rem 1.1rem;border-radius:6px;font-size:0.82rem;font-family:Inter,sans-serif;font-weight:700;letter-spacing:0.05em;text-decoration:none;text-transform:uppercase;">Start Free Trial</a>'
-      : '<button class="atc" onclick="addToCart('+p.id+')">Add to Cart</button>';
+      : '<span style="display:inline-block;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.3);color:#c9a84c;padding:0.5rem 1.1rem;border-radius:6px;font-size:0.78rem;font-family:Inter,sans-serif;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Coming Soon</span>';
     var priceLabel=p.isCmms
       ? '<span class="pprice">$'+p.price+'<span style="font-size:0.7rem;font-weight:400;color:#9a9db5;">/mo</span></span>'
       : '<span class="pprice">$'+p.price+'</span>';
@@ -371,10 +371,10 @@ function renderGuides(){
       '<p class="gsteps-lbl">Step-by-Step Walkthrough</p>'+
       '<div class="gsteps">'+sh+'</div>'+
       '<div class="gtip"><span class="gtip-icon">&#128161;</span><p>'+g.tip+'</p></div></div>'+
-      '<div class="gpanel-ftr"><p class="gprice-note">'+(g.isCmms?'14-day free trial — then <strong>$'+g.price+'/month</strong>':'Available in the shop for <strong>$'+g.price+'</strong>')+'</p>'+
+      '<div class="gpanel-ftr"><p class="gprice-note">'+(g.isCmms?'14-day free trial — then <strong>$'+g.price+'/month</strong>':'Coming soon — <strong>$'+g.price+'</strong> when available')+'</p>'+
       (g.isCmms
         ? '<a href="'+g.trialUrl+'" class="btn-primary" style="text-decoration:none;">Start Free Trial</a>'
-        : '<button class="btn-primary" onclick="addToCart('+g.pid+')">Add to Cart &mdash; $'+g.price+'</button>'
+        : '<span style="display:inline-block;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.3);color:#c9a84c;padding:0.5rem 1.5rem;border-radius:6px;font-size:0.82rem;font-family:Inter,sans-serif;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Coming Soon</span>'
       )+'</div></div>';
   }).join('');
 }
