@@ -152,7 +152,7 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
 <section class="hero">
   <p class="eyebrow">Precision-Built Tools for Operations Teams</p>
   <h1>Spreadsheets &amp; Apps<br/>that <span>Actually Work</span></h1>
-  <p>Production-ready Excel templates and CMMS applications — for the people who keep the machines running.</p>
+  <p>Production-ready spreadsheet templates and CMMS applications — for the people who keep the machines running.</p>
   <div class="hero-cta">
     <a href="#shop" class="btn-primary">Browse the Shop</a>
     <a href="#guides" class="btn-ghost">How-To Guides</a>
@@ -163,10 +163,10 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
   <p class="slabel">The Shop</p>
   <h2 class="stitle">Tools Built for the Real World</h2>
   <div class="divider"></div>
-  <p class="ssub">Start your free CMMS trial today. Excel templates are coming soon — enter your email in the newsletter below to be notified when they launch.</p>
+  <p class="ssub">Start your free CMMS trial today. The PM Scheduler is available now in Google Sheets. More templates coming soon.</p>
   <div class="filters">
     <button class="filter-btn active" onclick="filterProducts('all',this)">All</button>
-    <button class="filter-btn" onclick="filterProducts('excel',this)">Excel Templates</button>
+    <button class="filter-btn" onclick="filterProducts('excel',this)">Spreadsheet Templates</button>
     <button class="filter-btn" onclick="filterProducts('cmms',this)">CMMS Apps</button>
   </div>
   <div class="pgrid" id="productsGrid"></div>
@@ -179,7 +179,7 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
   <p class="ssub">Step-by-step walkthroughs for every product in the shop — so you hit the ground running on day one.</p>
   <div class="gtabs">
     <button class="gtab active" onclick="filterGuides('all',this)">All Tools</button>
-    <button class="gtab" onclick="filterGuides('excel',this)">Excel Templates</button>
+    <button class="gtab" onclick="filterGuides('excel',this)">Spreadsheet Templates</button>
     <button class="gtab" onclick="filterGuides('cmms',this)">CMMS Apps</button>
   </div>
   <div class="glayout">
@@ -200,7 +200,7 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
     <div class="pillars">
       <div class="pillar"><div class="pill-icon">⚙️</div><div><h4>Built for Maintainers</h4><p>Designed around the reality of a maintenance department — not a textbook scenario.</p></div></div>
       <div class="pillar"><div class="pill-icon">📐</div><div><h4>No Bloat</h4><p>Every column, every field, every formula earns its place. Nothing is there to impress.</p></div></div>
-      <div class="pillar"><div class="pill-icon">⬇️</div><div><h4>Instant Delivery</h4><p>Stripe handles payment; your download is ready the moment the transaction clears.</p></div></div>
+      <div class="pillar"><div class="pill-icon">⬇️</div><div><h4>Instant Delivery</h4><p>Your template link arrives by email the moment payment clears.</p></div></div>
       <div class="pillar"><div class="pill-icon">🔄</div><div><h4>Iterative by Design</h4><p>Tools I sell continue to evolve. Buyers receive update notifications by email.</p></div></div>
     </div>
   </div>
@@ -221,7 +221,7 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
 
 <footer>
   <span class="flogo">The Toolsmith</span>
-  <span class="fnote">© 2025 · All products delivered digitally via Stripe</span>
+  <span class="fnote">© 2025 · Templates delivered by email · CMMS hosted on Vercel</span>
   <div class="flinks"><a href="#">Terms</a><a href="#">Refund Policy</a><a href="#">Contact</a></div>
 </footer>
 
@@ -232,7 +232,7 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
   <div class="cfoot" id="cartFoot" style="display:none">
     <div class="ctotal"><span>Total</span><span id="cartTotal">$0.00</span></div>
     <button class="chkbtn" onclick="checkout()">Proceed to Checkout</button>
-    <p class="snote">&#128274; Secure checkout via Stripe — instant download after payment</p>
+    <p class="snote">&#128274; Secure checkout via Stripe</p>
   </div>
 </div>
 
@@ -240,7 +240,7 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
 
 <script>
 var products=[
-  {id:1,category:'excel',icon:'📊',badge:'Available Now',name:'Preventive Maintenance Scheduler',desc:'A 12-month rolling PM calendar with auto-flagging for overdue tasks, parts tracking, and a compliance dashboard. Google Sheets version available now. Excel version coming soon.',price:29},
+  {id:1,category:'excel',icon:'📊',badge:'Available Now',name:'Preventive Maintenance Scheduler',desc:'A 12-month rolling PM calendar with auto-flagging for overdue tasks, parts tracking, and a compliance dashboard. Google Sheets version available now. Excel version coming soon.',price:29,buyNow:true},
   {id:2,category:'excel',icon:'🔧',badge:null,name:'Equipment Downtime Tracker',desc:'Log every failure event, auto-calculate MTBF and MTTR, and export a monthly reliability report in one click.',price:24},
   {id:3,category:'cmms',icon:'🛠️',badge:'14-Day Free Trial',name:'Toolsmith CMMS — Lite',desc:'Work order management, technician queues, and a real-time manager dashboard for small maintenance teams. $19/month after your free trial.',price:19,isCmms:true,trialUrl:'https://toolsmith-cmms.vercel.app/register',features:['Work order create, assign, and close','Technician management and queues','Manager dashboard with priority filters','Mobile-friendly for field technicians']},
   {id:4,category:'excel',icon:'💰',badge:null,name:'Maintenance Budget Planner',desc:'Annual budget template with actuals-vs-plan tracking, cost-per-asset analysis, and a one-page executive summary tab.',price:19},
@@ -252,13 +252,13 @@ var guides=[
   {id:1,pid:1,category:'excel',icon:'📊',name:'Preventive Maintenance Scheduler',
    overview:'This spreadsheet runs a rolling 12-month PM calendar across all your assets. Once you have your equipment list and frequencies entered, the dashboard auto-calculates compliance rates and flags anything overdue in red. Plan on 30 to 60 minutes of initial setup, then about five minutes each week to log completions.',
    steps:[
-    {t:'Open the Setup tab first',d:'The Setup tab is your foundation. Enter every asset name, a short asset ID, and the department it belongs to. Keep the IDs consistent — the rest of the workbook references them.'},
-    {t:'Define your PM frequencies',d:'In the Frequency column, choose from the dropdown: Daily, Weekly, Monthly, Quarterly, Semi-Annual, or Annual. Each task on an asset gets its own row. One asset can have multiple tasks at different frequencies.'},
-    {t:'Set your start date',d:'Cell B2 on the Calendar tab controls the rolling window. Enter the Monday of the week you want to begin tracking. The 12-month grid populates automatically from there.'},
-    {t:'Log completions in the weekly columns',d:'When a PM is completed, enter the date in the corresponding cell. The cell turns green. If a due date passes with no entry, it turns red and increments the Overdue counter on the dashboard.'},
-    {t:'Review the Dashboard tab weekly',d:'The Dashboard pulls compliance percentage by department, a count of overdue tasks, and a list of the five most overdue items sorted by days late. Print or screenshot it for your weekly maintenance meeting.'},
-    {t:'Add parts in the Parts Log tab',d:'Each PM row can reference parts consumed. Enter the part number, description, quantity used, and unit cost. The Parts Log rolls up monthly spend automatically.'}
-   ],tip:'Freeze the first three columns on the Calendar tab before your first session. With 20-plus assets the horizontal scroll becomes unwieldy without it.',price:29},
+    {t:'Make your copy',d:'Click the Google Sheets link delivered to your email after purchase. Select Make a copy — it saves to your own Google Drive and you own it completely.'},
+    {t:'Add the automation script',d:'In your copy click Extensions > Apps Script. Delete the default code, paste the contents of Code.gs included in your purchase, and click Save. Name the project PM Scheduler.'},
+    {t:'Authorize the script',d:'Select the onOpen function from the dropdown and click Run. Follow the permissions prompts to authorize. Refresh your sheet and the PM Scheduler menu appears in the toolbar.'},
+    {t:'Enter your equipment list',d:'Go to the Equipment Master sheet and add your assets. Each asset gets an ID, name, location, category, and criticality level. Keep IDs short and consistent — they are referenced throughout the workbook.'},
+    {t:'Set up your PM schedule',d:'In the PM Schedule sheet add a row for each PM task. Assign the asset ID, task description, frequency, assigned technician, and priority. The status column updates automatically based on due dates.'},
+    {t:'Log completions in the Task Tracker',d:'When a PM is completed enter the completion date in the Task Tracker. The status changes to COMPLETED automatically. The Dashboard compliance rate updates in real time.'}
+   ],tip:'Add your whole equipment list before creating PM tasks. That way every task can reference a real asset ID from the start and your dashboard filters work correctly from day one.',price:29,buyNow:true},
 
   {id:2,pid:2,category:'excel',icon:'🔧',name:'Equipment Downtime Tracker',
    overview:'Every unplanned failure event gets a row. The spreadsheet calculates Mean Time Between Failures and Mean Time to Repair automatically, then rolls them up into a monthly reliability report you can export as a PDF in one click. Most teams see the value within the first two or three months of consistent logging.',
@@ -273,42 +273,42 @@ var guides=[
   {id:3,pid:3,category:'cmms',icon:'🛠️',name:'Toolsmith CMMS — Lite',
    overview:'The Lite plan is built for small maintenance teams that need a clean, simple work order system without the complexity of enterprise software. After your 14-day free trial you pay $19 per month for the whole team — no per-seat pricing. Sign up, add your technicians, and you are running work orders the same day.',
    steps:[
-    {t:'Start your free trial',d:'Click Start Free Trial, pick the Lite plan, and create your manager account. No credit card required for the first 14 days. You will be asked for payment details upfront so your subscription activates automatically when the trial ends.'},
-    {t:'Add your technicians',d:'From the manager dashboard click Team, then Add Team Member. Enter their name, email, and a temporary password. They log in from any browser — no app download needed. Their queue shows only their assigned work orders.'},
+    {t:'Start your free trial',d:'Click Start Free Trial, pick the Lite plan, and create your manager account. You will be asked for payment details upfront so your subscription activates automatically when the trial ends.'},
+    {t:'Add your technicians',d:'From the manager dashboard click Team, then Add Team Member. Enter their name, email, and a temporary password. They log in from any browser — no app download needed.'},
     {t:'Create your first work order',d:'Click + New Work Order from the dashboard. Set the title, description, priority level, and assign it to a technician. Critical work orders appear at the top of every queue automatically.'},
-    {t:'Technicians work their queue',d:'Each technician logs in and sees their personal queue sorted by priority. They open a work order, update the status to In Progress, add notes, and close it when the job is done. The manager dashboard updates in real time.'},
-    {t:'Monitor from the dashboard',d:'The manager dashboard shows all open work orders with priority filters and stat cards. Click any priority card to filter the list instantly. Click an asset in the sidebar to see only that asset\'s work orders.'}
+    {t:'Technicians work their queue',d:'Each technician logs in and sees their personal queue sorted by priority. They open a work order, update the status to In Progress, and close it when the job is done.'},
+    {t:'Monitor from the dashboard',d:'The manager dashboard shows all open work orders with priority filters and stat cards. Click any priority card to filter the list instantly.'}
    ],tip:'Add your whole team before you start creating work orders. That way every work order can be assigned immediately rather than sitting unassigned in the queue.',price:19,isCmms:true,trialUrl:'https://toolsmith-cmms.vercel.app/register'},
 
   {id:5,pid:5,category:'cmms',icon:'⚙️',name:'Toolsmith CMMS — Pro',
    overview:'The Pro plan includes everything in Lite plus the full asset registry, PM scheduling, reporting, and parts tracking. At $49 per month for the whole team it is a fraction of what enterprise CMMS tools charge per user. Your 14-day free trial gives you full Pro access from day one with no commitment.',
    steps:[
-    {t:'Start your free trial',d:'Click Start Free Trial, pick the Pro plan, and create your manager account. Full Pro features are available immediately — asset management, PM scheduling, and reporting are all unlocked from the moment you sign in.'},
-    {t:'Build your asset registry',d:'From the dashboard sidebar click + Add Asset. Enter the asset name, location, and category. Every asset you add appears in the sidebar and becomes available in the work order form dropdown. Pro users can add and manage assets directly — no upgrade prompts.'},
-    {t:'Create work orders linked to assets',d:'When creating a work order, select the asset from the dropdown or add a new one inline. The asset sidebar on the dashboard lets you click any asset to filter work orders by that asset instantly.'},
-    {t:'Set up PM schedules',d:'Coming soon — PM scheduling will let you create recurring maintenance tasks tied to assets with frequency settings. Tasks auto-generate work orders when they come due and flag overdue PMs on the dashboard.'},
-    {t:'Run reports',d:'Coming soon — the reporting dashboard will show downtime by asset, PM compliance rates, cost per asset, and technician workload. Export any report as a PDF for your maintenance meetings.'}
-   ],tip:'Upgrade from Lite to Pro at any time from inside the app. Your existing work orders, technicians, and settings carry over automatically — nothing resets when you upgrade.',price:49,isCmms:true,trialUrl:'https://toolsmith-cmms.vercel.app/register'},
+    {t:'Start your free trial',d:'Click Start Free Trial, pick the Pro plan, and create your manager account. Full Pro features are available immediately from the moment you sign in.'},
+    {t:'Build your asset registry',d:'From the dashboard sidebar click + Add Asset. Enter the asset name, location, and category. Every asset appears in the sidebar and becomes available in the work order form dropdown.'},
+    {t:'Create work orders linked to assets',d:'When creating a work order, select the asset from the dropdown or add a new one inline. Click any asset in the sidebar to filter work orders by that asset instantly.'},
+    {t:'Set up PM schedules',d:'Coming soon — PM scheduling will let you create recurring maintenance tasks tied to assets with frequency settings.'},
+    {t:'Run reports',d:'Coming soon — the reporting dashboard will show downtime by asset, PM compliance rates, cost per asset, and technician workload.'}
+   ],tip:'Upgrade from Lite to Pro at any time from inside the app. Your existing work orders, technicians, and settings carry over automatically.',price:49,isCmms:true,trialUrl:'https://toolsmith-cmms.vercel.app/register'},
 
   {id:4,pid:4,category:'excel',icon:'💰',name:'Maintenance Budget Planner',
    overview:'An annual budget template built around the way maintenance departments actually spend money: labor, parts, contractors, and capital. Enter your budget by category each January, then log actuals monthly. The executive summary tab produces a one-page variance report you can take directly into a budget meeting.',
    steps:[
-    {t:'Enter your annual budget in the Plan tab',d:'The Plan tab has rows for each spend category pre-built. Enter your budgeted amount for each category across the 12 monthly columns. If you budget annually as a lump sum, enter the full amount in January and zeros across the rest.'},
-    {t:'Log monthly actuals in the Actuals tab',d:'At the close of each month, enter what you actually spent by category. Pull the numbers from your AP system or purchase orders. Precision to the dollar is ideal, but rounding to the nearest hundred works fine for the summary.'},
-    {t:'Assign costs to assets in the Asset Cost tab',d:'Every expense row can be tagged to an asset ID. This is optional but valuable — it surfaces which assets are consuming disproportionate budget and builds the case for a repair-vs-replace conversation.'},
-    {t:'Review the Variance tab monthly',d:'The Variance tab shows budget vs. actual by category and by asset, with the gap expressed in both dollars and percentage. Red cells indicate overspend. The running YTD variance tells you how much buffer remains.'},
-    {t:'Present the Executive Summary',d:'The Summary tab auto-generates a one-page view: total spend vs. budget YTD, top five cost drivers by asset, and a bar chart of monthly actuals vs. plan. Change the month selector in B2 to update any period.'}
-   ],tip:'Use the Contractor category for any outside labor — even one-time calls. Separating contractor spend from internal labor gives you a cleaner picture of true in-house capacity and what it actually costs to supplement it.',price:19},
+    {t:'Enter your annual budget in the Plan tab',d:'The Plan tab has rows for each spend category pre-built. Enter your budgeted amount for each category across the 12 monthly columns.'},
+    {t:'Log monthly actuals in the Actuals tab',d:'At the close of each month, enter what you actually spent by category. Pull the numbers from your AP system or purchase orders.'},
+    {t:'Assign costs to assets in the Asset Cost tab',d:'Every expense row can be tagged to an asset ID. This surfaces which assets are consuming disproportionate budget.'},
+    {t:'Review the Variance tab monthly',d:'The Variance tab shows budget vs. actual by category and by asset. Red cells indicate overspend.'},
+    {t:'Present the Executive Summary',d:'The Summary tab auto-generates a one-page view: total spend vs. budget YTD, top five cost drivers, and a bar chart of monthly actuals vs. plan.'}
+   ],tip:'Use the Contractor category for any outside labor — even one-time calls. Separating contractor spend from internal labor gives you a cleaner picture of true in-house capacity.',price:19},
 
   {id:6,pid:6,category:'excel',icon:'📋',name:'Inspection Checklist Builder',
-   overview:'Build custom inspection forms for any asset type — lubrication routes, operator rounds, safety checks, or statutory inspections. Each completed form is timestamped, tied to an asset, and stored in the audit trail tab. Pass/fail rates by asset roll up automatically so you can see deterioration trends before they become failures.',
+   overview:'Build custom inspection forms for any asset type — lubrication routes, operator rounds, safety checks, or statutory inspections. Pass/fail rates by asset roll up automatically so you can see deterioration trends before they become failures.',
    steps:[
-    {t:'Create a checklist template in the Builder tab',d:'The Builder tab is where you design your forms. Each row is one inspection item. Enter the check description, the acceptable range or condition, the measurement unit if applicable, and whether a failed item should trigger an alert flag.'},
-    {t:'Assign the template to an asset or asset group',d:'Once a template is built, assign it to one or more Asset IDs in the Assignment column. An asset can have multiple templates at different frequencies — a daily operator round and a monthly engineering inspection, for example.'},
-    {t:'Complete inspections in the Inspection tab',d:'The Inspection tab generates a clean form based on the assigned template. Enter the Asset ID, date, and inspector name, then work through each item entering the measured value or selecting Pass/Fail from the dropdown.'},
-    {t:'Flag and follow up on failures',d:'Any item marked Fail generates an entry in the Failures tab automatically, with the asset, the failed item, the date, and the inspector. Add a corrective action and a target closure date. Unclosed failures turn amber after 7 days and red after 14.'},
-    {t:'Analyze trends in the Pass/Fail Summary',d:'The Summary tab shows pass rate by asset over the trailing six months. A declining trend on a specific check item is an early warning that deserves a PM adjustment before you see a failure event.'}
-   ],tip:'Keep inspection items specific and measurable wherever possible. "Oil level between MIN and MAX on sight glass" is far more useful than "check oil level" when you are trying to trend data six months from now.',price:22}
+    {t:'Create a checklist template in the Builder tab',d:'Each row is one inspection item. Enter the check description, the acceptable range or condition, the measurement unit if applicable, and whether a failed item should trigger an alert flag.'},
+    {t:'Assign the template to an asset or asset group',d:'Once a template is built, assign it to one or more Asset IDs. An asset can have multiple templates at different frequencies.'},
+    {t:'Complete inspections in the Inspection tab',d:'Enter the Asset ID, date, and inspector name, then work through each item entering the measured value or selecting Pass/Fail.'},
+    {t:'Flag and follow up on failures',d:'Any item marked Fail generates an entry in the Failures tab automatically. Add a corrective action and a target closure date.'},
+    {t:'Analyze trends in the Pass/Fail Summary',d:'The Summary tab shows pass rate by asset over the trailing six months. A declining trend is an early warning that deserves a PM adjustment.'}
+   ],tip:'Keep inspection items specific and measurable wherever possible. "Oil level between MIN and MAX on sight glass" is far more useful than "check oil level" when trending data six months from now.',price:22}
 ];
 
 // ── SHOP ──
@@ -326,13 +326,15 @@ function renderProducts(filter){
     }
     var actionBtn=p.isCmms
       ? '<a href="'+p.trialUrl+'" style="display:inline-block;background:linear-gradient(135deg,#c9a84c,#e8c97a);color:#1a1a2e;padding:0.5rem 1.1rem;border-radius:6px;font-size:0.82rem;font-family:Inter,sans-serif;font-weight:700;letter-spacing:0.05em;text-decoration:none;text-transform:uppercase;">Start Free Trial</a>'
+      : p.buyNow
+      ? '<button onclick="buyTemplate(\''+p.id+'\')" style="background:linear-gradient(135deg,#c9a84c,#e8c97a);color:#1a1a2e;border:none;padding:0.5rem 1.1rem;border-radius:6px;font-size:0.82rem;font-family:Inter,sans-serif;font-weight:700;letter-spacing:0.05em;cursor:pointer;text-transform:uppercase;">Buy Now — $'+p.price+'</button>'
       : '<span style="display:inline-block;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.3);color:#c9a84c;padding:0.5rem 1.1rem;border-radius:6px;font-size:0.78rem;font-family:Inter,sans-serif;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Coming Soon</span>';
     var priceLabel=p.isCmms
       ? '<span class="pprice">$'+p.price+'<span style="font-size:0.7rem;font-weight:400;color:#9a9db5;">/mo</span></span>'
       : '<span class="pprice">$'+p.price+'</span>';
     return '<div class="pcard"><div class="pimg">'+(p.badge?'<span class="pbadge">'+p.badge+'</span>':'')+
       '<span class="picon">'+p.icon+'</span></div>'+
-      '<div class="pbody"><p class="pcat">'+(p.category==='excel'?'Excel Template':'CMMS App')+'</p>'+
+      '<div class="pbody"><p class="pcat">'+(p.category==='excel'?'Spreadsheet Template':'CMMS App')+'</p>'+
       '<h3 class="pname">'+p.name+'</h3><p class="pdesc">'+p.desc+'</p>'+
       featuresHtml+
       '<div class="pfooter">'+priceLabel+actionBtn+'</div></div></div>';
@@ -355,7 +357,7 @@ function renderGuides(){
   document.getElementById('guideNav').innerHTML=vis.map(function(g){
     return '<button class="gnav-item'+(g.id===activeGId?' active':'')+'" onclick="selectGuide('+g.id+')">'+
       '<span class="gnav-icon">'+g.icon+'</span>'+
-      '<span class="gnav-text"><span class="gnav-label">'+(g.category==='excel'?'Excel':'CMMS App')+'</span>'+
+      '<span class="gnav-text"><span class="gnav-label">'+(g.category==='excel'?'Spreadsheet':'CMMS App')+'</span>'+
       '<span class="gnav-name">'+g.name+'</span></span></button>';
   }).join('');
   document.getElementById('guideContent').innerHTML=vis.map(function(g){
@@ -363,19 +365,25 @@ function renderGuides(){
       return '<div class="gstep"><span class="stepnum">'+(i+1)+'</span>'+
         '<div class="stepbody"><p class="steptitle">'+s.t+'</p><p class="stepdesc">'+s.d+'</p></div></div>';
     }).join('');
+    var footerBtn=g.isCmms
+      ? '<a href="'+g.trialUrl+'" class="btn-primary" style="text-decoration:none;">Start Free Trial</a>'
+      : g.buyNow
+      ? '<button class="btn-primary" onclick="buyTemplate(\''+g.pid+'\')">Buy Now — $'+g.price+'</button>'
+      : '<span style="display:inline-block;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.3);color:#c9a84c;padding:0.5rem 1.5rem;border-radius:6px;font-size:0.82rem;font-family:Inter,sans-serif;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Coming Soon</span>';
+    var priceNote=g.isCmms
+      ? '14-day free trial — then <strong>$'+g.price+'/month</strong>'
+      : g.buyNow
+      ? 'One-time purchase — <strong>$'+g.price+'</strong>'
+      : 'Coming soon — <strong>$'+g.price+'</strong> when available';
     return '<div class="gpanel'+(g.id===activeGId?' active':'')+'" id="gp'+g.id+'">'+
       '<div class="gpanel-hdr"><span class="gpanel-icon">'+g.icon+'</span>'+
-      '<div><p class="gpanel-cat">'+(g.category==='excel'?'Excel Template':'CMMS App')+'</p>'+
+      '<div><p class="gpanel-cat">'+(g.category==='excel'?'Spreadsheet Template':'CMMS App')+'</p>'+
       '<h3 class="gpanel-title">'+g.name+'</h3></div></div>'+
       '<div class="gpanel-body"><p class="goverview">'+g.overview+'</p>'+
       '<p class="gsteps-lbl">Step-by-Step Walkthrough</p>'+
       '<div class="gsteps">'+sh+'</div>'+
       '<div class="gtip"><span class="gtip-icon">&#128161;</span><p>'+g.tip+'</p></div></div>'+
-      '<div class="gpanel-ftr"><p class="gprice-note">'+(g.isCmms?'14-day free trial — then <strong>$'+g.price+'/month</strong>':'Coming soon — <strong>$'+g.price+'</strong> when available')+'</p>'+
-      (g.isCmms
-        ? '<a href="'+g.trialUrl+'" class="btn-primary" style="text-decoration:none;">Start Free Trial</a>'
-        : '<span style="display:inline-block;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.3);color:#c9a84c;padding:0.5rem 1.5rem;border-radius:6px;font-size:0.82rem;font-family:Inter,sans-serif;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Coming Soon</span>'
-      )+'</div></div>';
+      '<div class="gpanel-ftr"><p class="gprice-note">'+priceNote+'</p>'+footerBtn+'</div></div>';
   }).join('');
 }
 function selectGuide(id){activeGId=id;renderGuides()}
@@ -416,6 +424,21 @@ function toggleCart(){
 function checkout(){
   if(!cart.length)return;
   showToast('Stripe integration ready — connect your backend to go live.');
+}
+async function buyTemplate(productId){
+  var email=prompt('Enter your email address to purchase:');
+  if(!email||email.indexOf('@')<0){showToast('Please enter a valid email address.');return;}
+  showToast('Redirecting to checkout...');
+  try{
+    var response=await fetch('https://toolsmith-cmms.vercel.app/api/create-template-checkout',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,productName:'pm_scheduler'})
+    });
+    var data=await response.json();
+    if(data.url){window.location.href=data.url;}
+    else{showToast('Something went wrong. Please try again.');}
+  }catch(err){showToast('Something went wrong. Please try again.');}
 }
 function subscribe(){
   var e=document.getElementById('emailInput').value.trim();
