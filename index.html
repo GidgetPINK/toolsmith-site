@@ -132,6 +132,22 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
 .snote{text-align:center;color:var(--muted);font-size:.75rem;margin-top:.75rem}
 .toast{position:fixed;bottom:2rem;right:2rem;background:var(--card);border:1px solid var(--gold);border-radius:10px;padding:.9rem 1.4rem;font-size:.88rem;color:var(--white);transform:translateY(80px);opacity:0;transition:all .3s;z-index:300;max-width:320px}
 .toast.show{transform:translateY(0);opacity:1}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:400;display:none;align-items:center;justify-content:center;padding:1rem}
+.modal-overlay.open{display:flex}
+.modal-box{background:#1e2245;border:1px solid rgba(201,168,76,0.3);border-radius:14px;padding:2.5rem;width:100%;max-width:420px}
+.modal-logo{font-family:'Playfair Display',serif;color:#c9a84c;font-size:1.2rem;font-weight:600;margin-bottom:.25rem}
+.modal-sub{color:#9a9db5;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.75rem}
+.modal-title{color:#f8f6f1;font-size:1.05rem;font-weight:600;margin-bottom:.5rem}
+.modal-desc{color:#9a9db5;font-size:.88rem;line-height:1.6;margin-bottom:1.5rem}
+.modal-input{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.25);border-radius:8px;padding:.85rem 1rem;color:#f8f6f1;font-size:.95rem;outline:none;font-family:'Inter',sans-serif;box-sizing:border-box;margin-bottom:.75rem}
+.modal-input:focus{border-color:#c9a84c}
+.modal-input::placeholder{color:#9a9db5}
+.modal-btn{width:100%;background:linear-gradient(135deg,#c9a84c,#e8c97a);color:#1a1a2e;border:none;border-radius:8px;padding:.9rem;font-size:.9rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;font-family:'Inter',sans-serif;margin-bottom:.75rem}
+.modal-btn:disabled{opacity:.6;cursor:not-allowed}
+.modal-cancel{width:100%;background:none;border:none;color:#9a9db5;font-size:.85rem;cursor:pointer;font-family:'Inter',sans-serif;padding:.5rem}
+.modal-cancel:hover{color:#f8f6f1}
+.modal-error{color:#e06c75;font-size:.82rem;margin-bottom:.75rem;padding:.6rem .85rem;background:rgba(224,108,117,.1);border-radius:6px;border:1px solid rgba(224,108,117,.2);display:none}
+.modal-secure{color:#9a9db5;font-size:.75rem;text-align:center;margin-top:.5rem}
 @media(max-width:900px){.glayout{grid-template-columns:1fr}.gnav{flex-direction:row;flex-wrap:wrap;position:static}.gnav-item{flex:1;min-width:140px}}
 @media(max-width:768px){.nav-links{display:none}.phgrid{grid-template-columns:1fr}.nform{flex-direction:column}.drawer{width:100%;right:-100%}.btn-ghost{margin-left:0;margin-top:.75rem}}
 </style>
@@ -233,6 +249,20 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
     <div class="ctotal"><span>Total</span><span id="cartTotal">$0.00</span></div>
     <button class="chkbtn" onclick="checkout()">Proceed to Checkout</button>
     <p class="snote">&#128274; Secure checkout via Stripe</p>
+  </div>
+</div>
+
+<div class="modal-overlay" id="buyModal">
+  <div class="modal-box">
+    <p class="modal-logo">The Toolsmith</p>
+    <p class="modal-sub">Secure Checkout</p>
+    <p class="modal-title" id="modalProductName">Preventive Maintenance Scheduler</p>
+    <p class="modal-desc">Enter your email address. After payment your template link will be delivered to your inbox instantly.</p>
+    <p class="modal-error" id="modalError"></p>
+    <input type="email" class="modal-input" id="modalEmail" placeholder="your@email.com"/>
+    <button class="modal-btn" id="modalBtn" onclick="submitBuyModal()">Proceed to Checkout — $29</button>
+    <button class="modal-cancel" onclick="closeBuyModal()">Cancel</button>
+    <p class="modal-secure">&#128274; Secure checkout via Stripe. Your email is used only for delivery.</p>
   </div>
 </div>
 
@@ -425,10 +455,35 @@ function checkout(){
   if(!cart.length)return;
   showToast('Stripe integration ready — connect your backend to go live.');
 }
-async function buyTemplate(productId){
-  var email=prompt('Enter your email address to purchase:');
-  if(!email||email.indexOf('@')<0){showToast('Please enter a valid email address.');return;}
-  showToast('Redirecting to checkout...');
+var currentBuyPrice=29;
+function buyTemplate(productId){
+  var p=products.find(function(x){return x.id==productId});
+  if(p){
+    document.getElementById('modalProductName').textContent=p.name;
+    currentBuyPrice=p.price;
+    document.getElementById('modalBtn').textContent='Proceed to Checkout — $'+p.price;
+  }
+  document.getElementById('modalEmail').value='';
+  document.getElementById('modalError').style.display='none';
+  document.getElementById('modalBtn').disabled=false;
+  document.getElementById('buyModal').classList.add('open');
+  setTimeout(function(){document.getElementById('modalEmail').focus();},100);
+}
+function closeBuyModal(){
+  document.getElementById('buyModal').classList.remove('open');
+}
+async function submitBuyModal(){
+  var email=document.getElementById('modalEmail').value.trim();
+  var errEl=document.getElementById('modalError');
+  var btn=document.getElementById('modalBtn');
+  errEl.style.display='none';
+  if(!email||email.indexOf('@')<0){
+    errEl.textContent='Please enter a valid email address.';
+    errEl.style.display='block';
+    return;
+  }
+  btn.disabled=true;
+  btn.textContent='Redirecting to Stripe...';
   try{
     var response=await fetch('https://toolsmith-cmms.vercel.app/api/create-template-checkout',{
       method:'POST',
@@ -437,9 +492,22 @@ async function buyTemplate(productId){
     });
     var data=await response.json();
     if(data.url){window.location.href=data.url;}
-    else{showToast('Something went wrong. Please try again.');}
-  }catch(err){showToast('Something went wrong. Please try again.');}
+    else{
+      errEl.textContent='Something went wrong. Please try again.';
+      errEl.style.display='block';
+      btn.disabled=false;
+      btn.textContent='Proceed to Checkout — $'+currentBuyPrice;
+    }
+  }catch(err){
+    errEl.textContent='Something went wrong. Please try again.';
+    errEl.style.display='block';
+    btn.disabled=false;
+    btn.textContent='Proceed to Checkout — $'+currentBuyPrice;
+  }
 }
+document.addEventListener('click',function(e){
+  if(e.target.id==='buyModal')closeBuyModal();
+});
 function subscribe(){
   var e=document.getElementById('emailInput').value.trim();
   if(!e||e.indexOf('@')<0){showToast('Please enter a valid email address.');return}
