@@ -18,7 +18,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .cart-btn{position:relative;cursor:pointer;background:none;border:1px solid var(--gold);color:var(--gold);padding:.45rem 1.1rem;border-radius:6px;font-size:.85rem;font-family:'Inter',sans-serif;letter-spacing:.06em;text-transform:uppercase;transition:background .2s,color .2s}
 .cart-btn:hover{background:var(--gold);color:var(--charcoal)}
 .cart-count{position:absolute;top:-8px;right:-8px;background:var(--gold);color:var(--charcoal);width:18px;height:18px;border-radius:50%;font-size:.7rem;font-weight:700;display:none;align-items:center;justify-content:center}
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:12rem 5% 6rem;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(15,52,96,.55) 0%,transparent 70%),linear-gradient(180deg,var(--charcoal) 0%,var(--navy) 100%);position:relative;overflow:hidden}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10rem 5% 6rem;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(15,52,96,.55) 0%,transparent 70%),linear-gradient(180deg,var(--charcoal) 0%,var(--navy) 100%);position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
 .eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem;font-weight:500;position:relative}
 .hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:700;line-height:1.1;color:var(--white);margin-bottom:1.5rem;position:relative}
@@ -148,25 +148,38 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
 .modal-cancel:hover{color:#f8f6f1}
 .modal-error{color:#e06c75;font-size:.82rem;margin-bottom:.75rem;padding:.6rem .85rem;background:rgba(224,108,117,.1);border-radius:6px;border:1px solid rgba(224,108,117,.2);display:none}
 .modal-secure{color:#9a9db5;font-size:.75rem;text-align:center;margin-top:.5rem}
-.launch-banner{background:linear-gradient(135deg,#0f3460,#16213e);border-bottom:1px solid rgba(201,168,76,0.3);padding:.6rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:nowrap;gap:1.5rem;position:fixed;top:64px;left:0;right:0;z-index:99}
-.launch-banner p{color:#f8f6f1;font-size:.82rem;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.launch-banner p span{color:#c9a84c;font-weight:600}
-.launch-banner-form{display:flex;gap:.5rem;flex-shrink:0}
-.launch-banner-input{background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.25);border-radius:6px;padding:.4rem .85rem;color:#f8f6f1;font-size:.82rem;font-family:'Inter',sans-serif;outline:none;width:200px}
-.launch-banner-input::placeholder{color:#9a9db5}
-.launch-banner-input:focus{border-color:#c9a84c}
-.launch-banner-btn{background:linear-gradient(135deg,#c9a84c,#e8c97a);color:#1a1a2e;border:none;border-radius:6px;padding:.4rem 1rem;font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap}
+.launch-popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:500;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;animation:fadeInOverlay .4s ease .8s forwards}
+@keyframes fadeInOverlay{to{opacity:1}}
+.launch-popup{background:#1e2245;border:1px solid rgba(201,168,76,0.3);border-radius:14px;padding:2.5rem;width:100%;max-width:480px;position:relative;transform:translateY(20px);opacity:0;animation:slideUpPopup .4s ease .8s forwards}
+@keyframes slideUpPopup{to{transform:translateY(0);opacity:1}}
+.launch-popup-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:#9a9db5;font-size:1.2rem;cursor:pointer;line-height:1;padding:.25rem;transition:color .2s}
+.launch-popup-close:hover{color:#f8f6f1}
+.launch-popup-label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#c9a84c;font-weight:500;margin-bottom:.75rem}
+.launch-popup-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:#f8f6f1;margin-bottom:.75rem;line-height:1.2}
+.launch-popup-desc{color:#9a9db5;font-size:.88rem;line-height:1.7;margin-bottom:1.5rem}
+.launch-popup-form{display:flex;gap:.6rem}
+.launch-popup-input{flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.25);border-radius:8px;padding:.75rem 1rem;color:#f8f6f1;font-size:.9rem;font-family:'Inter',sans-serif;outline:none}
+.launch-popup-input::placeholder{color:#9a9db5}
+.launch-popup-input:focus{border-color:#c9a84c}
+.launch-popup-btn{background:linear-gradient(135deg,#c9a84c,#e8c97a);color:#1a1a2e;border:none;border-radius:8px;padding:.75rem 1.25rem;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap}
+.launch-popup-note{color:#9a9db5;font-size:.75rem;text-align:center;margin-top:.85rem}
 @media(max-width:900px){.glayout{grid-template-columns:1fr}.gnav{flex-direction:row;flex-wrap:wrap;position:static}.gnav-item{flex:1;min-width:140px}}
-@media(max-width:768px){.nav-links{display:none}.phgrid{grid-template-columns:1fr}.nform{flex-direction:column}.drawer{width:100%;right:-100%}.btn-ghost{margin-left:0;margin-top:.75rem}.launch-banner{flex-direction:column}.launch-banner-form{width:100%}.launch-banner-input{width:100%;flex:1}}
+@media(max-width:768px){.nav-links{display:none}.phgrid{grid-template-columns:1fr}.nform{flex-direction:column}.drawer{width:100%;right:-100%}.btn-ghost{margin-left:0;margin-top:.75rem}.launch-popup-form{flex-direction:column}}
 </style>
 </head>
 <body>
 
-<div class="launch-banner" id="launchBanner">
-  <p><span>Template Shop Launching Soon</span> — The PM Scheduler and more spreadsheet tools are on their way. Sign up to be notified the moment they go live.</p>
-  <div class="launch-banner-form">
-    <input type="email" class="launch-banner-input" id="bannerEmail" placeholder="your@email.com"/>
-    <button class="launch-banner-btn" onclick="bannerSubscribe()">Notify Me</button>
+<div class="launch-popup-overlay" id="launchPopupOverlay">
+  <div class="launch-popup" id="launchPopup">
+    <button class="launch-popup-close" onclick="closePopup()" aria-label="Close">&#10005;</button>
+    <p class="launch-popup-label">Coming Soon</p>
+    <h2 class="launch-popup-title">Template Shop Launching Soon</h2>
+    <p class="launch-popup-desc">The PM Scheduler and more professional spreadsheet tools are on their way. Sign up to be notified the moment they go live — no spam, just a single email when the shop opens.</p>
+    <div class="launch-popup-form">
+      <input type="email" class="launch-popup-input" id="popupEmail" placeholder="your@email.com"/>
+      <button class="launch-popup-btn" onclick="popupSubscribe()">Notify Me</button>
+    </div>
+    <p class="launch-popup-note">No spam. One email when the shop opens.</p>
   </div>
 </div>
 
@@ -523,6 +536,7 @@ async function submitBuyModal(){
 }
 document.addEventListener('click',function(e){
   if(e.target.id==='buyModal')closeBuyModal();
+  if(e.target.id==='launchPopupOverlay')closePopup();
 });
 function subscribe(){
   var e=document.getElementById('emailInput').value.trim();
@@ -530,12 +544,23 @@ function subscribe(){
   document.getElementById('emailInput').value='';
   showToast("You're on the list. Thank you.");
 }
-function bannerSubscribe(){
-  var e=document.getElementById('bannerEmail').value.trim();
+function closePopup(){
+  var overlay=document.getElementById('launchPopupOverlay');
+  overlay.style.opacity='0';
+  overlay.style.transition='opacity .3s ease';
+  setTimeout(function(){overlay.style.display='none';},300);
+}
+function popupSubscribe(){
+  var e=document.getElementById('popupEmail').value.trim();
   if(!e||e.indexOf('@')<0){showToast('Please enter a valid email address.');return;}
-  document.getElementById('bannerEmail').value='';
-  document.getElementById('launchBanner').innerHTML='<p style="color:#c9a84c;font-weight:500;font-size:.88rem;width:100%;text-align:center;">✓ You are on the list — we will email you when the template shop opens.</p>';
-  showToast("You're on the list. Thank you.");
+  document.getElementById('popupEmail').value='';
+  document.getElementById('launchPopup').innerHTML=
+    '<div style="text-align:center;padding:1rem 0;">'+
+    '<div style="width:56px;height:56px;border-radius:50%;background:rgba(152,195,121,0.12);border:1px solid rgba(152,195,121,0.3);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 1.25rem;">✓</div>'+
+    '<h2 style="font-family:\'Playfair Display\',serif;color:#c9a84c;font-size:1.4rem;font-weight:600;margin-bottom:.75rem;">You\'re on the list.</h2>'+
+    '<p style="color:#9a9db5;font-size:.9rem;line-height:1.7;">We\'ll send you one email when the template shop opens. That\'s it.</p>'+
+    '<button onclick="closePopup()" style="margin-top:1.5rem;background:none;border:1px solid rgba(201,168,76,.3);color:#c9a84c;border-radius:8px;padding:.65rem 1.75rem;font-size:.85rem;font-family:Inter,sans-serif;cursor:pointer;">Close</button>'+
+    '</div>';
 }
 var tt;
 function showToast(msg){
