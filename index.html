@@ -513,20 +513,16 @@ async function sendGidgetMessage() {
   document.getElementById('gidgetSend').disabled = true;
   showTyping();
   try {
-    var response = await fetch('https://api.anthropic.com/v1/messages', {
+    var response = await fetch('https://toolsmith-cmms.vercel.app/api/gidget', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
         system: GIDGET_SYSTEM,
         messages: gidgetHistory
       })
     });
     var data = await response.json();
-    var reply = (data.content && data.content[0] && data.content[0].text)
-      ? data.content[0].text
-      : "I'm sorry, I ran into an issue. Please try again or submit an inquiry directly.";
+    var reply = data.reply || "I'm sorry, I ran into an issue. Please try again or submit an inquiry directly.";
     hideTyping();
     gidgetHistory.push({ role: 'assistant', content: reply });
     addMsg(reply, 'gidget');
