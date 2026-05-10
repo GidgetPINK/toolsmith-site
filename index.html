@@ -3,233 +3,283 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>The Toolsmith</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<title>The Toolsmith — Custom CMMS for Small Teams</title>
+<link rel="icon" type="image/png" href="/logo.png"/>
+<link rel="apple-touch-icon" href="/logo.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--charcoal:#1a1a2e;--navy:#16213e;--navy-light:#0f3460;--gold:#c9a84c;--gold-light:#e8c97a;--white:#f8f6f1;--muted:#9a9db5;--card:#1e2245;--cb:rgba(201,168,76,0.18);--r:12px}
+:root{
+  --charcoal:#1a1a2e;--navy:#16213e;--navy-light:#0f3460;--gold:#c9a84c;
+  --gold-light:#e8c97a;--white:#f8f6f1;--muted:#9a9db5;--card:#1e2245;
+  --cb:rgba(201,168,76,0.18);--r:12px;--green:#98c379;--red:#e06c75
+}
 html{scroll-behavior:smooth}
-body{background:var(--charcoal);color:var(--white);font-family:'Inter',sans-serif;font-weight:300;line-height:1.7}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 5%;background:rgba(26,26,46,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--cb)}
-.nav-logo{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);letter-spacing:.04em;text-decoration:none}
+body{background:var(--charcoal);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 5%;background:rgba(26,26,46,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--cb)}
+.nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.nav-logo img{height:36px;width:36px;border-radius:6px;object-fit:cover}
+.nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);letter-spacing:.04em;font-weight:600}
 .nav-links{display:flex;gap:2rem;align-items:center;list-style:none}
-.nav-links a{color:var(--muted);font-size:.88rem;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.nav-links a{color:var(--muted);font-size:.85rem;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;font-weight:400}
 .nav-links a:hover{color:var(--gold-light)}
-.cart-btn{position:relative;cursor:pointer;background:none;border:1px solid var(--gold);color:var(--gold);padding:.45rem 1.1rem;border-radius:6px;font-size:.85rem;font-family:'Inter',sans-serif;letter-spacing:.06em;text-transform:uppercase;transition:background .2s,color .2s}
-.cart-btn:hover{background:var(--gold);color:var(--charcoal)}
-.cart-count{position:absolute;top:-8px;right:-8px;background:var(--gold);color:var(--charcoal);width:18px;height:18px;border-radius:50%;font-size:.7rem;font-weight:700;display:none;align-items:center;justify-content:center}
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10rem 5% 6rem;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(15,52,96,.55) 0%,transparent 70%),linear-gradient(180deg,var(--charcoal) 0%,var(--navy) 100%);position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-.eyebrow{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem;font-weight:500;position:relative}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:700;line-height:1.1;color:var(--white);margin-bottom:1.5rem;position:relative}
+.nav-cta{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);padding:.5rem 1.25rem;border-radius:6px;font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:opacity .2s;font-family:'DM Sans',sans-serif;cursor:pointer;border:none}
+.nav-cta:hover{opacity:.88}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10rem 5% 6rem;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(15,52,96,.6) 0%,transparent 70%),linear-gradient(180deg,var(--charcoal) 0%,var(--navy) 100%);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.hero-eyebrow{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.25rem;font-weight:500;position:relative}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,7vw,5.5rem);font-weight:700;line-height:1.05;color:var(--white);margin-bottom:1.5rem;position:relative}
 .hero h1 span{color:var(--gold)}
-.hero>p{max-width:540px;color:var(--muted);font-size:1.05rem;margin-bottom:2.8rem;position:relative}
-.hero-cta{position:relative}
-.btn-primary{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);padding:.9rem 2.4rem;border-radius:8px;font-weight:600;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:opacity .2s,transform .2s;font-family:'Inter',sans-serif}
+.hero-sub{max-width:560px;color:var(--muted);font-size:1.05rem;margin-bottom:2.5rem;position:relative;line-height:1.75}
+.hero-badges{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:2.5rem;position:relative}
+.badge{background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);color:var(--gold-light);padding:.35rem .85rem;border-radius:20px;font-size:.78rem;letter-spacing:.05em}
+.hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative}
+.btn-primary{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);padding:.9rem 2.25rem;border-radius:8px;font-weight:600;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:opacity .2s,transform .2s;font-family:'DM Sans',sans-serif}
 .btn-primary:hover{opacity:.88;transform:translateY(-1px)}
-.btn-ghost{display:inline-block;background:transparent;color:var(--gold-light);padding:.9rem 2.4rem;border-radius:8px;font-weight:500;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:1px solid var(--cb);cursor:pointer;transition:border-color .2s,color .2s;font-family:'Inter',sans-serif;margin-left:1rem}
+.btn-ghost{display:inline-block;background:transparent;color:var(--gold-light);padding:.9rem 2.25rem;border-radius:8px;font-weight:500;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:1px solid var(--cb);cursor:pointer;transition:border-color .2s,color .2s;font-family:'DM Sans',sans-serif}
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
 section{padding:6rem 5%}
-.slabel{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;font-weight:500}
-.stitle{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:600;margin-bottom:1rem;line-height:1.2}
-.ssub{color:var(--muted);max-width:520px;font-size:.98rem;margin-bottom:3.5rem}
+.slabel{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;font-weight:500}
+.stitle{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:600;margin-bottom:1rem;line-height:1.15}
+.ssub{color:var(--muted);max-width:540px;font-size:.98rem;margin-bottom:3.5rem;line-height:1.75}
 .divider{width:48px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:1rem 0 1.5rem}
-#shop{background:var(--navy)}
-.filters{display:flex;gap:.75rem;margin-bottom:2.5rem;flex-wrap:wrap}
-.filter-btn{padding:.4rem 1.1rem;border-radius:20px;border:1px solid var(--cb);background:none;color:var(--muted);font-size:.82rem;font-family:'Inter',sans-serif;letter-spacing:.05em;cursor:pointer;transition:all .2s}
-.filter-btn.active,.filter-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.08)}
-.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.75rem}
-.pcard{background:var(--card);border:1px solid var(--cb);border-radius:var(--r);overflow:hidden;transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
-.pcard:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.4),0 0 0 1px rgba(201,168,76,.25)}
-.pbadge{position:absolute;top:14px;left:14px;background:var(--gold);color:var(--charcoal);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .65rem;border-radius:4px}
-.pimg{position:relative;height:180px;background:linear-gradient(135deg,var(--navy-light),var(--charcoal));display:flex;align-items:center;justify-content:center}
-.picon{font-size:3.2rem;opacity:.85}
-.pbody{padding:1.5rem;flex:1;display:flex;flex-direction:column}
-.pcat{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;font-weight:500}
-.pname{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;margin-bottom:.6rem;line-height:1.3}
-.pdesc{color:var(--muted);font-size:.88rem;flex:1;margin-bottom:1.25rem;line-height:1.6}
-.pfooter{display:flex;align-items:center;justify-content:space-between}
-.pprice{font-size:1.3rem;font-weight:600;color:var(--gold-light)}
-.atc{background:rgba(201,168,76,.12);border:1px solid var(--gold);color:var(--gold);padding:.5rem 1.1rem;border-radius:6px;font-size:.82rem;font-family:'Inter',sans-serif;font-weight:500;letter-spacing:.05em;cursor:pointer;transition:background .2s,color .2s}
-.atc:hover{background:var(--gold);color:var(--charcoal)}
-#guides{background:var(--charcoal)}
-.gtabs{display:flex;gap:.65rem;margin-bottom:2.5rem;flex-wrap:wrap}
-.gtab{padding:.4rem 1.1rem;border-radius:20px;border:1px solid var(--cb);background:none;color:var(--muted);font-size:.82rem;font-family:'Inter',sans-serif;letter-spacing:.05em;cursor:pointer;transition:all .2s}
-.gtab.active,.gtab:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.08)}
-.glayout{display:grid;grid-template-columns:280px 1fr;gap:2rem;align-items:start}
-.gnav{display:flex;flex-direction:column;gap:.5rem;position:sticky;top:100px}
-.gnav-item{display:flex;align-items:center;gap:.75rem;padding:.85rem 1rem;border-radius:10px;border:1px solid transparent;cursor:pointer;transition:all .2s;background:none;font-family:'Inter',sans-serif;text-align:left;width:100%;color:var(--white)}
-.gnav-item:hover{border-color:var(--cb);background:var(--card)}
-.gnav-item.active{border-color:var(--gold);background:rgba(201,168,76,.08)}
-.gnav-icon{font-size:1.4rem;flex-shrink:0}
-.gnav-text{display:flex;flex-direction:column}
-.gnav-label{font-size:.72rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;font-weight:500}
-.gnav-name{font-size:.88rem;color:var(--white);font-weight:400;line-height:1.3;margin-top:.15rem}
-.gcontent{background:var(--card);border:1px solid var(--cb);border-radius:var(--r);overflow:hidden;min-height:400px}
-.gpanel{display:none}
-.gpanel.active{display:block}
-.gpanel-hdr{padding:2rem 2rem 1.5rem;border-bottom:1px solid var(--cb);display:flex;gap:1.25rem;align-items:flex-start}
-.gpanel-icon{font-size:2.4rem}
-.gpanel-cat{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem;font-weight:500}
-.gpanel-title{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:600;line-height:1.2}
-.gpanel-body{padding:2rem}
-.goverview{color:var(--muted);font-size:.93rem;line-height:1.75;margin-bottom:2rem}
-.gsteps-lbl{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:1.25rem}
-.gsteps{display:flex;flex-direction:column}
-.gstep{display:flex;gap:1.25rem;padding:1.25rem 0;border-bottom:1px solid rgba(201,168,76,.08)}
-.gstep:last-child{border-bottom:none}
-.stepnum{width:32px;height:32px;flex-shrink:0;border-radius:50%;background:rgba(201,168,76,.12);border:1px solid var(--gold);color:var(--gold);font-size:.78rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:.1rem}
-.stepbody{flex:1}
-.steptitle{font-size:.95rem;font-weight:600;color:var(--white);margin-bottom:.35rem}
-.stepdesc{font-size:.87rem;color:var(--muted);line-height:1.65}
-.gtip{margin-top:2rem;background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.2);border-radius:10px;padding:1.1rem 1.25rem;display:flex;gap:.75rem;align-items:flex-start}
-.gtip-icon{font-size:1rem;flex-shrink:0;margin-top:.1rem}
-.gtip p{font-size:.85rem;color:var(--gold-light);line-height:1.6}
-.gpanel-ftr{padding:1.5rem 2rem;border-top:1px solid var(--cb);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-.gprice-note{font-size:.85rem;color:var(--muted)}
-.gprice-note strong{color:var(--gold-light);font-size:1.05rem}
-#philosophy{background:var(--navy)}
-.phgrid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+#services{background:var(--navy)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.75rem;margin-bottom:3rem}
+.service-card{background:var(--card);border:1px solid var(--cb);border-radius:var(--r);padding:2rem;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.service-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.4),0 0 0 1px rgba(201,168,76,.2)}
+.service-card.featured{border-color:rgba(201,168,76,.4);background:linear-gradient(135deg,#1e2245,#16213e)}
+.service-tier{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;font-weight:500}
+.service-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;margin-bottom:.4rem;line-height:1.2}
+.service-price{font-size:1.1rem;color:var(--gold-light);font-weight:500;margin-bottom:1rem}
+.service-price span{font-size:.85rem;color:var(--muted);font-weight:300}
+.service-desc{color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:1.5rem;flex:1}
+.service-features{list-style:none;margin-bottom:1.75rem;display:flex;flex-direction:column;gap:.6rem}
+.service-features li{display:flex;gap:.75rem;align-items:flex-start;font-size:.88rem;color:var(--white);line-height:1.5}
+.service-features li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;margin-top:.1rem}
+.service-btn{background:rgba(201,168,76,.1);border:1px solid var(--gold);color:var(--gold);padding:.65rem 1.25rem;border-radius:7px;font-size:.82rem;font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:.05em;cursor:pointer;text-align:center;transition:background .2s,color .2s;text-decoration:none;display:block}
+.service-btn:hover{background:var(--gold);color:var(--charcoal)}
+.service-btn.primary-btn{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);border:none;font-weight:600}
+.service-btn.primary-btn:hover{opacity:.88}
+.ai-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(152,195,121,.1);border:1px solid rgba(152,195,121,.25);color:#98c379;padding:.25rem .75rem;border-radius:20px;font-size:.72rem;letter-spacing:.06em;margin-bottom:1rem}
+.includes-grid{background:rgba(201,168,76,.05);border:1px solid var(--cb);border-radius:12px;padding:1.75rem 2rem;margin-bottom:3rem}
+.includes-items{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem;margin-top:1rem}
+.includes-item{display:flex;gap:.6rem;align-items:flex-start;font-size:.87rem;color:var(--muted)}
+.includes-item::before{content:'✓';color:var(--gold);flex-shrink:0;font-weight:700}
+.cmms-card{background:var(--card);border:1px solid var(--cb);border-radius:var(--r);padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center}
+.cmms-card-left h3{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;margin-bottom:.75rem}
+.cmms-card-left p{color:var(--muted);font-size:.93rem;line-height:1.75;margin-bottom:1.5rem}
+.cmms-plans{display:flex;gap:1rem;flex-wrap:wrap}
+.cmms-plan{background:rgba(255,255,255,.04);border:1px solid var(--cb);border-radius:10px;padding:1.25rem;flex:1;min-width:140px}
+.cmms-plan-name{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem;font-weight:500}
+.cmms-plan-price{font-size:1.4rem;font-weight:600;color:var(--white);margin-bottom:.25rem}
+.cmms-plan-price span{font-size:.75rem;color:var(--muted);font-weight:300}
+.cmms-plan-desc{font-size:.78rem;color:var(--muted);line-height:1.5}
+#philosophy{background:var(--charcoal)}
+.phgrid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
 .pillars{display:flex;flex-direction:column;gap:1.5rem}
 .pillar{display:flex;gap:1.25rem;align-items:flex-start}
 .pill-icon{width:44px;height:44px;flex-shrink:0;background:rgba(201,168,76,.1);border:1px solid var(--cb);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
-.pillar h4{font-size:1rem;font-weight:600;margin-bottom:.3rem;color:var(--white)}
-.pillar p{font-size:.88rem;color:var(--muted);line-height:1.6}
+.pillar h4{font-size:.98rem;font-weight:600;margin-bottom:.3rem;color:var(--white)}
+.pillar p{font-size:.88rem;color:var(--muted);line-height:1.65}
 #newsletter{background:linear-gradient(135deg,var(--navy-light),var(--charcoal));text-align:center}
-.nbox{max-width:540px;margin:0 auto;background:var(--card);border:1px solid var(--cb);border-radius:16px;padding:3rem 2.5rem}
+.nbox{max-width:520px;margin:0 auto;background:var(--card);border:1px solid var(--cb);border-radius:16px;padding:3rem 2.5rem}
 .nform{display:flex;gap:.75rem;margin-top:1.75rem}
-.ninput{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--cb);border-radius:8px;padding:.8rem 1.1rem;color:var(--white);font-family:'Inter',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s}
+.ninput{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--cb);border-radius:8px;padding:.8rem 1.1rem;color:var(--white);font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s}
 .ninput::placeholder{color:var(--muted)}
 .ninput:focus{border-color:var(--gold)}
 footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-.flogo{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.1rem}
+.flogo{display:flex;align-items:center;gap:.5rem;font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:1.1rem;font-weight:600}
+.flogo img{height:28px;width:28px;border-radius:4px;object-fit:cover}
 .fnote{color:var(--muted);font-size:.8rem}
 .flinks{display:flex;gap:1.5rem}
 .flinks a{color:var(--muted);font-size:.8rem;text-decoration:none;transition:color .2s}
 .flinks a:hover{color:var(--gold)}
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s}
-.overlay.open{opacity:1;pointer-events:all}
-.drawer{position:fixed;top:0;right:-420px;width:420px;height:100vh;background:var(--navy);border-left:1px solid var(--cb);z-index:201;transition:right .35s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;padding:2rem;overflow:hidden}
-.drawer.open{right:0}
-.drw-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:2rem}
-.drw-hdr h3{font-family:'Playfair Display',serif;font-size:1.4rem}
-.close-drw{background:none;border:none;color:var(--muted);font-size:1.5rem;cursor:pointer;line-height:1}
-.close-drw:hover{color:var(--white)}
-.citems{flex:1;overflow-y:auto;display:flex;flex-direction:column;gap:1rem}
-.cempty{color:var(--muted);font-size:.9rem;text-align:center;margin-top:3rem}
-.citem{display:flex;gap:1rem;align-items:center;background:var(--card);border:1px solid var(--cb);border-radius:10px;padding:1rem}
-.citem-icon{font-size:1.8rem}
-.citem-info{flex:1}
-.citem-name{font-size:.95rem;font-weight:500;margin-bottom:.2rem}
-.citem-price{font-size:.85rem;color:var(--gold)}
-.rem-item{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.1rem}
-.rem-item:hover{color:#e06c75}
-.cfoot{margin-top:2rem;border-top:1px solid var(--cb);padding-top:1.5rem}
-.ctotal{display:flex;justify-content:space-between;margin-bottom:1.5rem;font-size:1.05rem}
-.ctotal span:last-child{font-weight:600;color:var(--gold-light)}
-.chkbtn{width:100%;padding:1rem;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);border:none;border-radius:8px;font-family:'Inter',sans-serif;font-size:.9rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:opacity .2s}
-.chkbtn:hover{opacity:.88}
-.snote{text-align:center;color:var(--muted);font-size:.75rem;margin-top:.75rem}
-.toast{position:fixed;bottom:2rem;right:2rem;background:var(--card);border:1px solid var(--gold);border-radius:10px;padding:.9rem 1.4rem;font-size:.88rem;color:var(--white);transform:translateY(80px);opacity:0;transition:all .3s;z-index:300;max-width:320px}
-.toast.show{transform:translateY(0);opacity:1}
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:400;display:none;align-items:center;justify-content:center;padding:1rem}
-.modal-overlay.open{display:flex}
-.modal-box{background:#1e2245;border:1px solid rgba(201,168,76,0.3);border-radius:14px;padding:2.5rem;width:100%;max-width:420px}
-.modal-logo{font-family:'Playfair Display',serif;color:#c9a84c;font-size:1.2rem;font-weight:600;margin-bottom:.25rem}
-.modal-sub{color:#9a9db5;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.75rem}
-.modal-title{color:#f8f6f1;font-size:1.05rem;font-weight:600;margin-bottom:.5rem}
-.modal-desc{color:#9a9db5;font-size:.88rem;line-height:1.6;margin-bottom:1.5rem}
-.modal-input{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.25);border-radius:8px;padding:.85rem 1rem;color:#f8f6f1;font-size:.95rem;outline:none;font-family:'Inter',sans-serif;box-sizing:border-box;margin-bottom:.75rem}
-.modal-input:focus{border-color:#c9a84c}
-.modal-input::placeholder{color:#9a9db5}
-.modal-btn{width:100%;background:linear-gradient(135deg,#c9a84c,#e8c97a);color:#1a1a2e;border:none;border-radius:8px;padding:.9rem;font-size:.9rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;font-family:'Inter',sans-serif;margin-bottom:.75rem}
-.modal-btn:disabled{opacity:.6;cursor:not-allowed}
-.modal-cancel{width:100%;background:none;border:none;color:#9a9db5;font-size:.85rem;cursor:pointer;font-family:'Inter',sans-serif;padding:.5rem}
-.modal-cancel:hover{color:#f8f6f1}
-.modal-error{color:#e06c75;font-size:.82rem;margin-bottom:.75rem;padding:.6rem .85rem;background:rgba(224,108,117,.1);border-radius:6px;border:1px solid rgba(224,108,117,.2);display:none}
-.modal-secure{color:#9a9db5;font-size:.75rem;text-align:center;margin-top:.5rem}
-.launch-popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:500;display:flex;align-items:center;justify-content:center;padding:1rem;opacity:0;animation:fadeInOverlay .4s ease .8s forwards}
-@keyframes fadeInOverlay{to{opacity:1}}
-.launch-popup{background:#1e2245;border:1px solid rgba(201,168,76,0.3);border-radius:14px;padding:2.5rem;width:100%;max-width:480px;position:relative;transform:translateY(20px);opacity:0;animation:slideUpPopup .4s ease .8s forwards}
-@keyframes slideUpPopup{to{transform:translateY(0);opacity:1}}
-.launch-popup-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:#9a9db5;font-size:1.2rem;cursor:pointer;line-height:1;padding:.25rem;transition:color .2s}
-.launch-popup-close:hover{color:#f8f6f1}
-.launch-popup-label{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#c9a84c;font-weight:500;margin-bottom:.75rem}
-.launch-popup-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:#f8f6f1;margin-bottom:.75rem;line-height:1.2}
-.launch-popup-desc{color:#9a9db5;font-size:.88rem;line-height:1.7;margin-bottom:1.5rem}
-.launch-popup-form{display:flex;gap:.6rem}
-.launch-popup-input{flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.25);border-radius:8px;padding:.75rem 1rem;color:#f8f6f1;font-size:.9rem;font-family:'Inter',sans-serif;outline:none}
-.launch-popup-input::placeholder{color:#9a9db5}
-.launch-popup-input:focus{border-color:#c9a84c}
-.launch-popup-btn{background:linear-gradient(135deg,#c9a84c,#e8c97a);color:#1a1a2e;border:none;border-radius:8px;padding:.75rem 1.25rem;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;font-family:'Inter',sans-serif;white-space:nowrap}
-.launch-popup-note{color:#9a9db5;font-size:.75rem;text-align:center;margin-top:.85rem}
-@media(max-width:900px){.glayout{grid-template-columns:1fr}.gnav{flex-direction:row;flex-wrap:wrap;position:static}.gnav-item{flex:1;min-width:140px}}
-@media(max-width:768px){.nav-links{display:none}.phgrid{grid-template-columns:1fr}.nform{flex-direction:column}.drawer{width:100%;right:-100%}.btn-ghost{margin-left:0;margin-top:.75rem}.launch-popup-form{flex-direction:column}}
+.toast{position:fixed;bottom:2rem;left:50%;transform:translateX(-50%) translateY(80px);background:var(--card);border:1px solid var(--gold);border-radius:10px;padding:.9rem 1.4rem;font-size:.88rem;color:var(--white);opacity:0;transition:all .3s;z-index:300;max-width:320px;text-align:center;pointer-events:none}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+.inq-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:400;display:none;align-items:center;justify-content:center;padding:1rem}
+.inq-overlay.open{display:flex}
+.inq-box{background:#1e2245;border:1px solid rgba(201,168,76,.3);border-radius:14px;padding:2.5rem;width:100%;max-width:520px;position:relative;max-height:90vh;overflow-y:auto}
+.inq-close{position:absolute;top:1rem;right:1rem;background:none;border:none;color:var(--muted);font-size:1.2rem;cursor:pointer;line-height:1;transition:color .2s}
+.inq-close:hover{color:var(--white)}
+.inq-title{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--white);font-weight:600;margin-bottom:.5rem}
+.inq-sub{color:var(--muted);font-size:.88rem;line-height:1.6;margin-bottom:1.75rem}
+.inq-field{margin-bottom:1rem}
+.inq-label{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;font-weight:500}
+.inq-input,.inq-select,.inq-textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.2);border-radius:8px;padding:.75rem 1rem;color:var(--white);font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s}
+.inq-input:focus,.inq-select:focus,.inq-textarea:focus{border-color:var(--gold)}
+.inq-input::placeholder,.inq-textarea::placeholder{color:var(--muted)}
+.inq-select{appearance:none;cursor:pointer}
+.inq-select option{background:#1e2245;color:var(--white)}
+.inq-textarea{resize:vertical;min-height:100px}
+.inq-btn{width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);border:none;border-radius:8px;padding:.9rem;font-size:.9rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:.5rem}
+.inq-btn:disabled{opacity:.6;cursor:not-allowed}
+.inq-note{color:var(--muted);font-size:.75rem;text-align:center;margin-top:.75rem}
+.gidget-bubble{position:fixed;bottom:2rem;right:2rem;z-index:500}
+.gidget-btn{width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-light));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(201,168,76,.4);transition:transform .2s,box-shadow .2s;position:relative}
+.gidget-btn:hover{transform:scale(1.08);box-shadow:0 6px 28px rgba(201,168,76,.55)}
+.gidget-btn svg{width:26px;height:26px;fill:var(--charcoal)}
+.gidget-notif{position:absolute;top:-4px;right:-4px;width:18px;height:18px;background:var(--red);border-radius:50%;border:2px solid var(--charcoal);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:var(--white);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+.gidget-window{position:fixed;bottom:6.5rem;right:2rem;width:380px;max-height:520px;background:#1e2245;border:1px solid rgba(201,168,76,.25);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.5);z-index:500;display:none;flex-direction:column;overflow:hidden}
+.gidget-window.open{display:flex}
+.gidget-header{background:linear-gradient(135deg,var(--charcoal),var(--navy));padding:1rem 1.25rem;display:flex;align-items:center;gap:.75rem;border-bottom:1px solid var(--cb)}
+.gidget-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-light));display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.gidget-info{flex:1}
+.gidget-name{font-weight:600;font-size:.92rem;color:var(--white)}
+.gidget-status{font-size:.72rem;color:var(--green);display:flex;align-items:center;gap:.3rem}
+.gidget-status::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block}
+.gidget-close-btn{background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.1rem;line-height:1;padding:.25rem;transition:color .2s}
+.gidget-close-btn:hover{color:var(--white)}
+.gidget-messages{flex:1;overflow-y:auto;padding:1rem;display:flex;flex-direction:column;gap:.75rem;scroll-behavior:smooth}
+.gidget-messages::-webkit-scrollbar{width:4px}
+.gidget-messages::-webkit-scrollbar-thumb{background:rgba(201,168,76,.2);border-radius:2px}
+.msg{max-width:85%;padding:.7rem .95rem;border-radius:12px;font-size:.86rem;line-height:1.55}
+.msg-gidget{background:rgba(255,255,255,.06);color:var(--white);align-self:flex-start;border-bottom-left-radius:3px}
+.msg-user{background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.2);color:var(--white);align-self:flex-end;border-bottom-right-radius:3px}
+.msg-typing{background:rgba(255,255,255,.06);align-self:flex-start;padding:.7rem 1rem;border-radius:12px;border-bottom-left-radius:3px}
+.typing-dots{display:flex;gap:4px;align-items:center}
+.typing-dots span{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:dot .9s infinite}
+.typing-dots span:nth-child(2){animation-delay:.15s}
+.typing-dots span:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+.gidget-input-row{padding:.75rem 1rem;border-top:1px solid var(--cb);display:flex;gap:.6rem;align-items:flex-end}
+.gidget-input{flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.2);border-radius:10px;padding:.6rem .85rem;color:var(--white);font-family:'DM Sans',sans-serif;font-size:.88rem;outline:none;resize:none;max-height:80px;line-height:1.4;transition:border-color .2s}
+.gidget-input:focus{border-color:var(--gold)}
+.gidget-input::placeholder{color:var(--muted)}
+.gidget-send{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-light));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:opacity .2s}
+.gidget-send:hover{opacity:.85}
+.gidget-send svg{width:16px;height:16px;fill:var(--charcoal)}
+.gidget-send:disabled{opacity:.4;cursor:not-allowed}
+@media(max-width:900px){.cmms-card{grid-template-columns:1fr}.phgrid{grid-template-columns:1fr}.gidget-window{width:calc(100vw - 2rem);right:1rem;bottom:5.5rem}}
+@media(max-width:768px){.nav-links{display:none}.nform{flex-direction:column}.inq-box{padding:1.75rem}}
 </style>
 </head>
 <body>
 
-<div class="launch-popup-overlay" id="launchPopupOverlay">
-  <div class="launch-popup" id="launchPopup">
-    <button class="launch-popup-close" onclick="closePopup()" aria-label="Close">&#10005;</button>
-    <p class="launch-popup-label">Coming Soon</p>
-    <h2 class="launch-popup-title">Template Shop Launching Soon</h2>
-    <p class="launch-popup-desc">The PM Scheduler and more professional spreadsheet tools are on their way. Sign up to be notified the moment they go live — no spam, just a single email when the shop opens.</p>
-    <div class="launch-popup-form">
-      <input type="email" class="launch-popup-input" id="popupEmail" placeholder="your@email.com"/>
-      <button class="launch-popup-btn" onclick="popupSubscribe()">Notify Me</button>
-    </div>
-    <p class="launch-popup-note">No spam. One email when the shop opens.</p>
-  </div>
-</div>
-
 <nav>
-  <a href="#" class="nav-logo">The Toolsmith</a>
+  <a href="#" class="nav-logo">
+    <img src="/logo.png" alt="The Toolsmith"/>
+    <span class="nav-logo-text">The Toolsmith</span>
+  </a>
   <ul class="nav-links">
-    <li><a href="#shop">Shop</a></li>
-    <li><a href="#guides">How-To Guides</a></li>
+    <li><a href="#services">Services</a></li>
     <li><a href="#philosophy">Philosophy</a></li>
     <li><a href="#newsletter">Newsletter</a></li>
   </ul>
-  <button class="cart-btn" onclick="toggleCart()">Cart <span class="cart-count" id="cartCount">0</span></button>
+  <button class="nav-cta" onclick="openInquiry()">Get a Quote</button>
 </nav>
 
 <section class="hero">
-  <p class="eyebrow">Precision-Built Tools for Operations Teams</p>
-  <h1>Spreadsheets &amp; Apps<br/>that <span>Actually Work</span></h1>
-  <p>Production-ready spreadsheet templates and CMMS applications — for the people who keep the machines running.</p>
+  <p class="hero-eyebrow">Custom Maintenance Software for Small Teams</p>
+  <h1>Your Own CMMS.<br/><span>Built for You.</span></h1>
+  <p class="hero-sub">Enterprise maintenance software costs too much and does too much. The Toolsmith builds lean, focused CMMS applications for small maintenance teams — AI-assisted builds delivered fast, at a price that actually makes sense.</p>
+  <div class="hero-badges">
+    <span class="badge">AI-Assisted Development</span>
+    <span class="badge">Small Team Focused</span>
+    <span class="badge">Fast Turnaround</span>
+    <span class="badge">Transparent Pricing</span>
+  </div>
   <div class="hero-cta">
-    <a href="#shop" class="btn-primary">Browse the Shop</a>
-    <a href="#guides" class="btn-ghost">How-To Guides</a>
+    <button class="btn-primary" onclick="openInquiry()">Start a Custom Build</button>
+    <a href="#services" class="btn-ghost">See How It Works</a>
   </div>
 </section>
 
-<section id="shop">
-  <p class="slabel">The Shop</p>
-  <h2 class="stitle">Tools Built for the Real World</h2>
+<section id="services">
+  <p class="slabel">What We Build</p>
+  <h2 class="stitle">Three Ways to Get Started</h2>
   <div class="divider"></div>
-  <p class="ssub">Start your free CMMS trial today. The PM Scheduler is available now in Google Sheets. More templates coming soon.</p>
-  <div class="filters">
-    <button class="filter-btn active" onclick="filterProducts('all',this)">All</button>
-    <button class="filter-btn" onclick="filterProducts('excel',this)">Spreadsheet Templates</button>
-    <button class="filter-btn" onclick="filterProducts('cmms',this)">CMMS Apps</button>
-  </div>
-  <div class="pgrid" id="productsGrid"></div>
-</section>
+  <p class="ssub">Every build is AI-assisted — which means faster delivery and lower cost than a traditional development agency, without cutting corners on quality.</p>
 
-<section id="guides">
-  <p class="slabel">Documentation</p>
-  <h2 class="stitle">How to Use Each Tool</h2>
-  <div class="divider"></div>
-  <p class="ssub">Step-by-step walkthroughs for every product in the shop — so you hit the ground running on day one.</p>
-  <div class="gtabs">
-    <button class="gtab active" onclick="filterGuides('all',this)">All Tools</button>
-    <button class="gtab" onclick="filterGuides('excel',this)">Spreadsheet Templates</button>
-    <button class="gtab" onclick="filterGuides('cmms',this)">CMMS Apps</button>
+  <div class="services-grid">
+    <div class="service-card">
+      <span class="ai-badge">⚡ AI-Assisted Build</span>
+      <p class="service-tier">Starter</p>
+      <h3 class="service-name">Ready to Launch</h3>
+      <p class="service-price">$500 – $800 <span>one-time setup</span></p>
+      <p class="service-desc">You get a fully working CMMS with your name on it. Same proven stack, your branding, your domain. Up and running in one to two weeks.</p>
+      <ul class="service-features">
+        <li>Your own domain and branding — looks like yours, not ours</li>
+        <li>Work order creation, assignment, and tracking</li>
+        <li>Technician accounts and manager dashboard</li>
+        <li>Priority queues and real-time status tracking</li>
+        <li>Mobile-friendly — works on any device</li>
+        <li>Hosted and maintained — nothing to install</li>
+      </ul>
+      <button class="service-btn" onclick="openInquiry()">Get a Quote</button>
+    </div>
+
+    <div class="service-card featured">
+      <span class="ai-badge">⚡ AI-Assisted Build</span>
+      <p class="service-tier">Standard — Most Popular</p>
+      <h3 class="service-name">Built to Fit</h3>
+      <p class="service-price">$1,200 – $2,000 <span>one-time setup</span></p>
+      <p class="service-desc">Everything in Starter plus the features your team actually needs — built around your workflow, not a generic template.</p>
+      <ul class="service-features">
+        <li>Everything in Starter</li>
+        <li>Full asset registry and management</li>
+        <li>Preventive maintenance scheduling</li>
+        <li>Parts and inventory tracking</li>
+        <li>Compliance and downtime reporting</li>
+        <li>Custom fields tailored to your operation</li>
+        <li>Delivered in two to four weeks</li>
+      </ul>
+      <button class="service-btn primary-btn" onclick="openInquiry()">Get a Quote</button>
+    </div>
+
+    <div class="service-card">
+      <span class="ai-badge">⚡ AI-Assisted Build</span>
+      <p class="service-tier">Premium</p>
+      <h3 class="service-name">Fully Custom</h3>
+      <p class="service-price">$2,500+ <span>scoped per project</span></p>
+      <p class="service-desc">A completely custom build from the ground up. If your operation has unique requirements that off-the-shelf software cannot handle, this is where we start.</p>
+      <ul class="service-features">
+        <li>Full requirements discovery session</li>
+        <li>Custom database design and architecture</li>
+        <li>Integrations with your existing systems</li>
+        <li>Advanced reporting and analytics</li>
+        <li>Multi-site and multi-team support</li>
+        <li>Detailed project scope and timeline upfront</li>
+      </ul>
+      <button class="service-btn" onclick="openInquiry()">Get a Quote</button>
+    </div>
   </div>
-  <div class="glayout">
-    <div class="gnav" id="guideNav"></div>
-    <div class="gcontent" id="guideContent"></div>
+
+  <div class="includes-grid">
+    <p class="slabel">All Custom Builds Include</p>
+    <div class="includes-items">
+      <div class="includes-item">$49 – $99/month hosting and support</div>
+      <div class="includes-item">Your own database — you own your data</div>
+      <div class="includes-item">SSL, backups, and uptime monitoring</div>
+      <div class="includes-item">Stripe billing integration if needed</div>
+      <div class="includes-item">Source code ownership — no lock-in</div>
+      <div class="includes-item">30-day post-launch support included</div>
+    </div>
+  </div>
+
+  <p class="slabel">Prefer Self-Service?</p>
+  <div class="cmms-card">
+    <div class="cmms-card-left">
+      <h3>Toolsmith CMMS</h3>
+      <p>Not ready for a custom build? Start with our ready-made CMMS app. No setup required — create an account and your team is running work orders the same day.</p>
+      <a href="https://toolsmith-cmms.vercel.app/register" class="btn-primary" style="text-decoration:none;display:inline-block;">Start Free Trial</a>
+    </div>
+    <div>
+      <div class="cmms-plans">
+        <div class="cmms-plan">
+          <p class="cmms-plan-name">Lite</p>
+          <p class="cmms-plan-price">$19<span>/mo</span></p>
+          <p class="cmms-plan-desc">Work orders, technician queues, manager dashboard. Whole team, one price.</p>
+        </div>
+        <div class="cmms-plan">
+          <p class="cmms-plan-name">Pro</p>
+          <p class="cmms-plan-price">$49<span>/mo</span></p>
+          <p class="cmms-plan-desc">Everything in Lite plus assets, PM scheduling, reporting, and parts tracking.</p>
+        </div>
+      </div>
+      <p style="font-size:.78rem;color:var(--muted);margin-top:.85rem">14-day free trial — no credit card required to start.</p>
+    </div>
   </div>
 </section>
 
@@ -237,16 +287,17 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
   <div class="phgrid">
     <div>
       <p class="slabel">The Approach</p>
-      <h2 class="stitle">Tools Without the Noise</h2>
+      <h2 class="stitle">Built Different.<br/>On Purpose.</h2>
       <div class="divider"></div>
-      <p style="color:var(--muted);font-size:.98rem;line-height:1.8;margin-bottom:1.5rem">Good tools disappear into the work. They don't demand attention — they redirect it toward what matters: keeping equipment running, catching failures before they happen, and making the numbers legible to the people who need them.</p>
-      <p style="color:var(--muted);font-size:.98rem;line-height:1.8">Every spreadsheet and every app here started as something I actually needed. If it ended up here, it proved itself first.</p>
+      <p style="color:var(--muted);font-size:.98rem;line-height:1.85;margin-bottom:1.25rem">Most CMMS tools are built for enterprise teams with enterprise budgets. Small maintenance teams get left with spreadsheets or software that costs more than it saves.</p>
+      <p style="color:var(--muted);font-size:.98rem;line-height:1.85;margin-bottom:1.25rem">The Toolsmith is different. Every build starts with your actual workflow, not a feature checklist. AI-assisted development keeps costs low and delivery fast — without sacrificing quality or ownership.</p>
+      <p style="color:var(--muted);font-size:.98rem;line-height:1.85">You get source code ownership, your own database, your own domain, and a system built around your team — not the other way around.</p>
     </div>
     <div class="pillars">
-      <div class="pillar"><div class="pill-icon">⚙️</div><div><h4>Built for Maintainers</h4><p>Designed around the reality of a maintenance department — not a textbook scenario.</p></div></div>
-      <div class="pillar"><div class="pill-icon">📐</div><div><h4>No Bloat</h4><p>Every column, every field, every formula earns its place. Nothing is there to impress.</p></div></div>
-      <div class="pillar"><div class="pill-icon">⬇️</div><div><h4>Instant Delivery</h4><p>Your template link arrives by email the moment payment clears.</p></div></div>
-      <div class="pillar"><div class="pill-icon">🔄</div><div><h4>Iterative by Design</h4><p>Tools I sell continue to evolve. Buyers receive update notifications by email.</p></div></div>
+      <div class="pillar"><div class="pill-icon">⚙️</div><div><h4>Built for Maintainers</h4><p>Designed around the reality of a maintenance department — not a textbook scenario or an enterprise org chart.</p></div></div>
+      <div class="pillar"><div class="pill-icon">🤖</div><div><h4>AI-Assisted, Human-Led</h4><p>AI accelerates the build and keeps costs low. Every decision is reviewed and quality-controlled by a human who understands maintenance operations.</p></div></div>
+      <div class="pillar"><div class="pill-icon">📐</div><div><h4>No Bloat</h4><p>Every feature earns its place. You get exactly what your team needs — nothing more, nothing less.</p></div></div>
+      <div class="pillar"><div class="pill-icon">🔑</div><div><h4>You Own It</h4><p>Source code, database, domain — all yours. No vendor lock-in, no surprise price hikes, no dependency on our continued existence.</p></div></div>
     </div>
   </div>
 </section>
@@ -254,8 +305,8 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
 <section id="newsletter">
   <div class="nbox">
     <p class="slabel" style="text-align:center">Stay in the Loop</p>
-    <h2 class="stitle" style="text-align:center;font-size:1.9rem">New Tools. New Notes.</h2>
-    <p style="color:var(--muted);font-size:.9rem;text-align:center;margin-top:.5rem">Low-volume updates when something new ships or when a learning note is worth sharing. No filler.</p>
+    <h2 class="stitle" style="text-align:center;font-size:1.9rem">Build Notes &amp; Updates</h2>
+    <p style="color:var(--muted);font-size:.9rem;text-align:center;margin-top:.5rem">Low-volume updates on new features, build case studies, and maintenance tech worth knowing about. No filler.</p>
     <div class="nform">
       <input type="email" class="ninput" placeholder="your@email.com" id="emailInput"/>
       <button class="btn-primary" onclick="subscribe()">Subscribe</button>
@@ -265,312 +316,294 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
 </section>
 
 <footer>
-  <span class="flogo">The Toolsmith</span>
-  <span class="fnote">© 2025 · Templates delivered by email · CMMS hosted on Vercel</span>
-  <div class="flinks"><a href="#">Terms</a><a href="#">Refund Policy</a><a href="#">Contact</a></div>
+  <div class="flogo">
+    <img src="/logo.png" alt="The Toolsmith"/>
+    The Toolsmith
+  </div>
+  <span class="fnote">© 2025 · Custom CMMS for Small Teams · AI-Assisted Builds</span>
+  <div class="flinks">
+    <a href="#">Terms</a>
+    <a href="#">Privacy</a>
+    <a href="#" onclick="openInquiry();return false;">Contact</a>
+  </div>
 </footer>
 
-<div class="overlay" id="overlay" onclick="toggleCart()"></div>
-<div class="drawer" id="drawer">
-  <div class="drw-hdr"><h3>Your Cart</h3><button class="close-drw" onclick="toggleCart()">&#10005;</button></div>
-  <div class="citems" id="cartItems"><p class="cempty">Your cart is empty.</p></div>
-  <div class="cfoot" id="cartFoot" style="display:none">
-    <div class="ctotal"><span>Total</span><span id="cartTotal">$0.00</span></div>
-    <button class="chkbtn" onclick="checkout()">Proceed to Checkout</button>
-    <p class="snote">&#128274; Secure checkout via Stripe</p>
+<!-- INQUIRY MODAL -->
+<div class="inq-overlay" id="inqOverlay">
+  <div class="inq-box" id="inqBox">
+    <button class="inq-close" onclick="closeInquiry()">&#10005;</button>
+    <h2 class="inq-title">Let's Talk About Your Build</h2>
+    <p class="inq-sub">Tell us about your team and what you need. We will review your project and send a detailed proposal within one business day.</p>
+    <div class="inq-field">
+      <label class="inq-label">Your Name *</label>
+      <input type="text" class="inq-input" id="inqName" placeholder="Jane Smith"/>
+    </div>
+    <div class="inq-field">
+      <label class="inq-label">Email Address *</label>
+      <input type="email" class="inq-input" id="inqEmail" placeholder="jane@yourcompany.com"/>
+    </div>
+    <div class="inq-field">
+      <label class="inq-label">Company / Organization</label>
+      <input type="text" class="inq-input" id="inqCompany" placeholder="Acme Maintenance Co."/>
+    </div>
+    <div class="inq-field">
+      <label class="inq-label">Team Size</label>
+      <select class="inq-select" id="inqTeamSize">
+        <option value="">Select team size</option>
+        <option>1 – 5 people</option>
+        <option>6 – 15 people</option>
+        <option>16 – 30 people</option>
+        <option>30+ people</option>
+      </select>
+    </div>
+    <div class="inq-field">
+      <label class="inq-label">Tell Us About Your Project *</label>
+      <textarea class="inq-textarea" id="inqProject" placeholder="What does your maintenance operation look like today? What are you trying to fix or improve? Which tier are you considering?"></textarea>
+    </div>
+    <button class="inq-btn" id="inqBtn" onclick="submitInquiry()">Send Inquiry</button>
+    <p class="inq-note">We respond within one business day. Your information is never shared.</p>
   </div>
 </div>
 
-<div class="modal-overlay" id="buyModal">
-  <div class="modal-box">
-    <p class="modal-logo">The Toolsmith</p>
-    <p class="modal-sub">Secure Checkout</p>
-    <p class="modal-title" id="modalProductName">Preventive Maintenance Scheduler</p>
-    <p class="modal-desc">Enter your email address. After payment your template link will be delivered to your inbox instantly.</p>
-    <p class="modal-error" id="modalError"></p>
-    <input type="email" class="modal-input" id="modalEmail" placeholder="your@email.com"/>
-    <button class="modal-btn" id="modalBtn" onclick="submitBuyModal()">Proceed to Checkout — $29</button>
-    <button class="modal-cancel" onclick="closeBuyModal()">Cancel</button>
-    <p class="modal-secure">&#128274; Secure checkout via Stripe. Your email is used only for delivery.</p>
+<!-- GIDGET -->
+<div class="gidget-bubble">
+  <button class="gidget-btn" onclick="toggleGidget()" aria-label="Chat with Gidget">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.06L2 22l4.94-1.37A9.96 9.96 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.66 0-3.22-.47-4.55-1.28l-.32-.2-3.34.93.93-3.34-.2-.32A7.96 7.96 0 014 12c0-4.42 3.58-8 8-8s8 3.58 8 8-3.58 8-8 8zm4.5-5.75c-.25-.12-1.47-.72-1.69-.8-.23-.08-.39-.12-.56.12-.17.25-.64.8-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-2-1.23-.74-.66-1.24-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.41-.56-.42h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28z"/></svg>
+    <span class="gidget-notif">1</span>
+  </button>
+</div>
+
+<div class="gidget-window" id="gidgetWindow">
+  <div class="gidget-header">
+    <div class="gidget-avatar">🛠️</div>
+    <div class="gidget-info">
+      <p class="gidget-name">Gidget</p>
+      <p class="gidget-status">Online — The Toolsmith Assistant</p>
+    </div>
+    <button class="gidget-close-btn" onclick="toggleGidget()">&#10005;</button>
+  </div>
+  <div class="gidget-messages" id="gidgetMessages"></div>
+  <div class="gidget-input-row">
+    <textarea class="gidget-input" id="gidgetInput" placeholder="Ask Gidget anything..." rows="1" onkeydown="handleGidgetKey(event)" oninput="autoResize(this)"></textarea>
+    <button class="gidget-send" id="gidgetSend" onclick="sendGidgetMessage()">
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
   </div>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-var products=[
-  {id:1,category:'excel',icon:'📊',badge:'Available Now',name:'Preventive Maintenance Scheduler',desc:'A 12-month rolling PM calendar with auto-flagging for overdue tasks, parts tracking, and a compliance dashboard. Google Sheets version available now. Excel version coming soon.',price:29,buyNow:true},
-  {id:2,category:'excel',icon:'🔧',badge:null,name:'Equipment Downtime Tracker',desc:'Log every failure event, auto-calculate MTBF and MTTR, and export a monthly reliability report in one click.',price:24},
-  {id:3,category:'cmms',icon:'🛠️',badge:'14-Day Free Trial',name:'Toolsmith CMMS — Lite',desc:'Work order management, technician queues, and a real-time manager dashboard for small maintenance teams. $19/month after your free trial.',price:19,isCmms:true,trialUrl:'https://toolsmith-cmms.vercel.app/register',features:['Work order create, assign, and close','Technician management and queues','Manager dashboard with priority filters','Mobile-friendly for field technicians']},
-  {id:4,category:'excel',icon:'💰',badge:null,name:'Maintenance Budget Planner',desc:'Annual budget template with actuals-vs-plan tracking, cost-per-asset analysis, and a one-page executive summary tab.',price:19},
-  {id:5,category:'cmms',icon:'⚙️',badge:'Most Popular',name:'Toolsmith CMMS — Pro',desc:'The full-featured CMMS — everything in Lite plus asset management, PM scheduling, reporting, and parts tracking. $49/month after your free trial.',price:49,isCmms:true,trialUrl:'https://toolsmith-cmms.vercel.app/register',features:['Everything in Lite','Full asset registry and management','PM scheduling with recurring tasks','Reporting — downtime, compliance, costs','Parts tracking and cost per asset']},
-  {id:6,category:'excel',icon:'📋',badge:null,name:'Inspection Checklist Builder',desc:'Create custom inspection forms, track pass/fail rates by asset, and maintain a full audit trail — no paper required.',price:22}
-];
+const GIDGET_SYSTEM = `You are Gidget, the friendly and knowledgeable assistant for The Toolsmith — a service that builds custom CMMS (Computerized Maintenance Management System) applications for small maintenance teams.
 
-var guides=[
-  {id:1,pid:1,category:'excel',icon:'📊',name:'Preventive Maintenance Scheduler',
-   overview:'This spreadsheet runs a rolling 12-month PM calendar across all your assets. Once you have your equipment list and frequencies entered, the dashboard auto-calculates compliance rates and flags anything overdue in red. Plan on 30 to 60 minutes of initial setup, then about five minutes each week to log completions.',
-   steps:[
-    {t:'Make your copy',d:'Click the Google Sheets link delivered to your email after purchase. Select Make a copy — it saves to your own Google Drive and you own it completely.'},
-    {t:'Add the automation script',d:'In your copy click Extensions > Apps Script. Delete the default code, paste the contents of Code.gs included in your purchase, and click Save. Name the project PM Scheduler.'},
-    {t:'Authorize the script',d:'Select the onOpen function from the dropdown and click Run. Follow the permissions prompts to authorize. Refresh your sheet and the PM Scheduler menu appears in the toolbar.'},
-    {t:'Enter your equipment list',d:'Go to the Equipment Master sheet and add your assets. Each asset gets an ID, name, location, category, and criticality level. Keep IDs short and consistent — they are referenced throughout the workbook.'},
-    {t:'Set up your PM schedule',d:'In the PM Schedule sheet add a row for each PM task. Assign the asset ID, task description, frequency, assigned technician, and priority. The status column updates automatically based on due dates.'},
-    {t:'Log completions in the Task Tracker',d:'When a PM is completed enter the completion date in the Task Tracker. The status changes to COMPLETED automatically. The Dashboard compliance rate updates in real time.'}
-   ],tip:'Add your whole equipment list before creating PM tasks. That way every task can reference a real asset ID from the start and your dashboard filters work correctly from day one.',price:29,buyNow:true},
+Your personality: warm, direct, and genuinely helpful. You speak in plain, easy-to-understand language — no jargon unless the visitor uses it first. You are confident about pricing and never hedge or deflect. You proactively suggest opening the inquiry form when someone seems ready to move forward.
 
-  {id:2,pid:2,category:'excel',icon:'🔧',name:'Equipment Downtime Tracker',
-   overview:'Every unplanned failure event gets a row. The spreadsheet calculates Mean Time Between Failures and Mean Time to Repair automatically, then rolls them up into a monthly reliability report you can export as a PDF in one click. Most teams see the value within the first two or three months of consistent logging.',
-   steps:[
-    {t:'Log each failure event immediately',d:'When equipment goes down, open the Events tab and enter the asset ID, failure date and time, the failure mode from the dropdown, and a short description. Precision here is what makes the MTBF numbers trustworthy.'},
-    {t:'Record the restoration time',d:'When the asset is back online, return to that row and enter the restored date and time. The Downtime Hours column calculates the gap automatically. Do not leave this blank — it breaks the MTTR formula.'},
-    {t:'Classify the failure root cause',d:'The Root Cause column uses a dropdown with eight categories: Wear, Lubrication Failure, Operator Error, Design Defect, Deferred Maintenance, Electrical Fault, External, and Unknown. Consistent classification turns data into patterns.'},
-    {t:'Review MTBF and MTTR on the Metrics tab',d:'The Metrics tab shows MTBF and MTTR for each asset, sortable by either value. Assets with MTBF dropping month-over-month need PM attention. Assets with MTTR climbing indicate a parts or labor problem.'},
-    {t:'Export the monthly report',d:'On the Report tab, select the month from the dropdown in cell B2 and click Export to PDF. It generates a one-page summary showing total downtime hours, top five worst-performing assets, failure mode breakdown, and cost estimate.'}
-   ],tip:'Set the Hourly Downtime Cost in the Setup tab before your first export. Even a rough estimate turns the report from a list of hours into a dollar figure — which is the language that gets budget conversations moving.',price:24},
+ABOUT THE TOOLSMITH:
+The Toolsmith builds custom CMMS software for small maintenance teams who are underserved by expensive enterprise tools. All builds are AI-assisted, which means faster delivery and lower cost — without cutting corners on quality.
 
-  {id:3,pid:3,category:'cmms',icon:'🛠️',name:'Toolsmith CMMS — Lite',
-   overview:'The Lite plan is built for small maintenance teams that need a clean, simple work order system without the complexity of enterprise software. After your 14-day free trial you pay $19 per month for the whole team — no per-seat pricing. Sign up, add your technicians, and you are running work orders the same day.',
-   steps:[
-    {t:'Start your free trial',d:'Click Start Free Trial, pick the Lite plan, and create your manager account. You will be asked for payment details upfront so your subscription activates automatically when the trial ends.'},
-    {t:'Add your technicians',d:'From the manager dashboard click Team, then Add Team Member. Enter their name, email, and a temporary password. They log in from any browser — no app download needed.'},
-    {t:'Create your first work order',d:'Click + New Work Order from the dashboard. Set the title, description, priority level, and assign it to a technician. Critical work orders appear at the top of every queue automatically.'},
-    {t:'Technicians work their queue',d:'Each technician logs in and sees their personal queue sorted by priority. They open a work order, update the status to In Progress, and close it when the job is done.'},
-    {t:'Monitor from the dashboard',d:'The manager dashboard shows all open work orders with priority filters and stat cards. Click any priority card to filter the list instantly.'}
-   ],tip:'Add your whole team before you start creating work orders. That way every work order can be assigned immediately rather than sitting unassigned in the queue.',price:19,isCmms:true,trialUrl:'https://toolsmith-cmms.vercel.app/register'},
+CUSTOM BUILD TIERS:
 
-  {id:5,pid:5,category:'cmms',icon:'⚙️',name:'Toolsmith CMMS — Pro',
-   overview:'The Pro plan includes everything in Lite plus the full asset registry, PM scheduling, reporting, and parts tracking. At $49 per month for the whole team it is a fraction of what enterprise CMMS tools charge per user. Your 14-day free trial gives you full Pro access from day one with no commitment.',
-   steps:[
-    {t:'Start your free trial',d:'Click Start Free Trial, pick the Pro plan, and create your manager account. Full Pro features are available immediately from the moment you sign in.'},
-    {t:'Build your asset registry',d:'From the dashboard sidebar click + Add Asset. Enter the asset name, location, and category. Every asset appears in the sidebar and becomes available in the work order form dropdown.'},
-    {t:'Create work orders linked to assets',d:'When creating a work order, select the asset from the dropdown or add a new one inline. Click any asset in the sidebar to filter work orders by that asset instantly.'},
-    {t:'Set up PM schedules',d:'Coming soon — PM scheduling will let you create recurring maintenance tasks tied to assets with frequency settings.'},
-    {t:'Run reports',d:'Coming soon — the reporting dashboard will show downtime by asset, PM compliance rates, cost per asset, and technician workload.'}
-   ],tip:'Upgrade from Lite to Pro at any time from inside the app. Your existing work orders, technicians, and settings carry over automatically.',price:49,isCmms:true,trialUrl:'https://toolsmith-cmms.vercel.app/register'},
+1. STARTER ($500 to $800 one-time setup)
+- Best for: Small teams who need a basic work order system up and running fast
+- Delivered in 1 to 2 weeks
+- Plain language explanation: Think of it like getting a brand new truck already painted your company colors — you just add your people and get to work
+- Includes: Work order creation, assignment, and tracking. Technician accounts and manager dashboard. Priority queues and status tracking. Mobile-friendly. Hosted and maintained — nothing to install.
 
-  {id:4,pid:4,category:'excel',icon:'💰',name:'Maintenance Budget Planner',
-   overview:'An annual budget template built around the way maintenance departments actually spend money: labor, parts, contractors, and capital. Enter your budget by category each January, then log actuals monthly. The executive summary tab produces a one-page variance report you can take directly into a budget meeting.',
-   steps:[
-    {t:'Enter your annual budget in the Plan tab',d:'The Plan tab has rows for each spend category pre-built. Enter your budgeted amount for each category across the 12 monthly columns.'},
-    {t:'Log monthly actuals in the Actuals tab',d:'At the close of each month, enter what you actually spent by category. Pull the numbers from your AP system or purchase orders.'},
-    {t:'Assign costs to assets in the Asset Cost tab',d:'Every expense row can be tagged to an asset ID. This surfaces which assets are consuming disproportionate budget.'},
-    {t:'Review the Variance tab monthly',d:'The Variance tab shows budget vs. actual by category and by asset. Red cells indicate overspend.'},
-    {t:'Present the Executive Summary',d:'The Summary tab auto-generates a one-page view: total spend vs. budget YTD, top five cost drivers, and a bar chart of monthly actuals vs. plan.'}
-   ],tip:'Use the Contractor category for any outside labor — even one-time calls. Separating contractor spend from internal labor gives you a cleaner picture of true in-house capacity.',price:19},
+2. STANDARD ($1,200 to $2,000 one-time setup) — MOST POPULAR
+- Best for: Teams who need more than basic work orders
+- Delivered in 2 to 4 weeks
+- Plain language explanation: You tell us how your team works, and we build the software to match — not the other way around
+- Includes: Everything in Starter, plus full asset registry, preventive maintenance scheduling, parts and inventory tracking, compliance and downtime reporting, custom fields tailored to their operation
 
-  {id:6,pid:6,category:'excel',icon:'📋',name:'Inspection Checklist Builder',
-   overview:'Build custom inspection forms for any asset type — lubrication routes, operator rounds, safety checks, or statutory inspections. Pass/fail rates by asset roll up automatically so you can see deterioration trends before they become failures.',
-   steps:[
-    {t:'Create a checklist template in the Builder tab',d:'Each row is one inspection item. Enter the check description, the acceptable range or condition, the measurement unit if applicable, and whether a failed item should trigger an alert flag.'},
-    {t:'Assign the template to an asset or asset group',d:'Once a template is built, assign it to one or more Asset IDs. An asset can have multiple templates at different frequencies.'},
-    {t:'Complete inspections in the Inspection tab',d:'Enter the Asset ID, date, and inspector name, then work through each item entering the measured value or selecting Pass/Fail.'},
-    {t:'Flag and follow up on failures',d:'Any item marked Fail generates an entry in the Failures tab automatically. Add a corrective action and a target closure date.'},
-    {t:'Analyze trends in the Pass/Fail Summary',d:'The Summary tab shows pass rate by asset over the trailing six months. A declining trend is an early warning that deserves a PM adjustment.'}
-   ],tip:'Keep inspection items specific and measurable wherever possible. "Oil level between MIN and MAX on sight glass" is far more useful than "check oil level" when trending data six months from now.',price:22}
-];
+3. PREMIUM ($2,500+ scoped per project)
+- Best for: Operations with unique requirements that off-the-shelf software cannot handle
+- Timeline scoped per project after discovery session
+- Plain language explanation: If your operation is complicated enough that nothing on the market fits, we figure out exactly what you need and build it from scratch
+- Includes: Custom database design, integrations with existing systems, advanced reporting, multi-site support, full project scope upfront
 
-// ── SHOP ──
-function renderProducts(filter){
-  filter=filter||'all';
-  var list=filter==='all'?products:products.filter(function(p){return p.category===filter});
-  document.getElementById('productsGrid').innerHTML=list.map(function(p){
-    var featuresHtml='';
-    if(p.features){
-      featuresHtml='<ul style="list-style:none;margin-bottom:1.25rem;">'+
-        p.features.map(function(f){
-          return '<li style="font-size:0.82rem;color:#9a9db5;padding:0.25rem 0;display:flex;gap:0.5rem;align-items:flex-start;">'+
-            '<span style="color:#c9a84c;flex-shrink:0;">✓</span>'+f+'</li>';
-        }).join('')+'</ul>';
-    }
-    var actionBtn=p.isCmms
-      ? '<a href="'+p.trialUrl+'" style="display:inline-block;background:linear-gradient(135deg,#c9a84c,#e8c97a);color:#1a1a2e;padding:0.5rem 1.1rem;border-radius:6px;font-size:0.82rem;font-family:Inter,sans-serif;font-weight:700;letter-spacing:0.05em;text-decoration:none;text-transform:uppercase;">Start Free Trial</a>'
-      : p.buyNow
-      ? '<button onclick="buyTemplate(\''+p.id+'\')" style="background:linear-gradient(135deg,#c9a84c,#e8c97a);color:#1a1a2e;border:none;padding:0.5rem 1.1rem;border-radius:6px;font-size:0.82rem;font-family:Inter,sans-serif;font-weight:700;letter-spacing:0.05em;cursor:pointer;text-transform:uppercase;">Buy Now — $'+p.price+'</button>'
-      : '<span style="display:inline-block;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.3);color:#c9a84c;padding:0.5rem 1.1rem;border-radius:6px;font-size:0.78rem;font-family:Inter,sans-serif;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Coming Soon</span>';
-    var priceLabel=p.isCmms
-      ? '<span class="pprice">$'+p.price+'<span style="font-size:0.7rem;font-weight:400;color:#9a9db5;">/mo</span></span>'
-      : '<span class="pprice">$'+p.price+'</span>';
-    return '<div class="pcard"><div class="pimg">'+(p.badge?'<span class="pbadge">'+p.badge+'</span>':'')+
-      '<span class="picon">'+p.icon+'</span></div>'+
-      '<div class="pbody"><p class="pcat">'+(p.category==='excel'?'Spreadsheet Template':'CMMS App')+'</p>'+
-      '<h3 class="pname">'+p.name+'</h3><p class="pdesc">'+p.desc+'</p>'+
-      featuresHtml+
-      '<div class="pfooter">'+priceLabel+actionBtn+'</div></div></div>';
-  }).join('');
-}
-function filterProducts(cat,btn){
-  document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active')});
-  btn.classList.add('active');
-  renderProducts(cat);
-}
+ALL BUILDS INCLUDE: $49 to $99 per month hosting and support, their own database instance, SSL and backups, source code ownership, 30-day post-launch support
 
-// ── GUIDES ──
-var activeGFilter='all';
-var activeGId=1;
-function visibleGuides(){return activeGFilter==='all'?guides:guides.filter(function(g){return g.category===activeGFilter})}
-function renderGuides(){
-  var vis=visibleGuides();
-  if(!vis.length)return;
-  if(!vis.find(function(g){return g.id===activeGId}))activeGId=vis[0].id;
-  document.getElementById('guideNav').innerHTML=vis.map(function(g){
-    return '<button class="gnav-item'+(g.id===activeGId?' active':'')+'" onclick="selectGuide('+g.id+')">'+
-      '<span class="gnav-icon">'+g.icon+'</span>'+
-      '<span class="gnav-text"><span class="gnav-label">'+(g.category==='excel'?'Spreadsheet':'CMMS App')+'</span>'+
-      '<span class="gnav-name">'+g.name+'</span></span></button>';
-  }).join('');
-  document.getElementById('guideContent').innerHTML=vis.map(function(g){
-    var sh=g.steps.map(function(s,i){
-      return '<div class="gstep"><span class="stepnum">'+(i+1)+'</span>'+
-        '<div class="stepbody"><p class="steptitle">'+s.t+'</p><p class="stepdesc">'+s.d+'</p></div></div>';
-    }).join('');
-    var footerBtn=g.isCmms
-      ? '<a href="'+g.trialUrl+'" class="btn-primary" style="text-decoration:none;">Start Free Trial</a>'
-      : g.buyNow
-      ? '<button class="btn-primary" onclick="buyTemplate(\''+g.pid+'\')">Buy Now — $'+g.price+'</button>'
-      : '<span style="display:inline-block;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.3);color:#c9a84c;padding:0.5rem 1.5rem;border-radius:6px;font-size:0.82rem;font-family:Inter,sans-serif;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;">Coming Soon</span>';
-    var priceNote=g.isCmms
-      ? '14-day free trial — then <strong>$'+g.price+'/month</strong>'
-      : g.buyNow
-      ? 'One-time purchase — <strong>$'+g.price+'</strong>'
-      : 'Coming soon — <strong>$'+g.price+'</strong> when available';
-    return '<div class="gpanel'+(g.id===activeGId?' active':'')+'" id="gp'+g.id+'">'+
-      '<div class="gpanel-hdr"><span class="gpanel-icon">'+g.icon+'</span>'+
-      '<div><p class="gpanel-cat">'+(g.category==='excel'?'Spreadsheet Template':'CMMS App')+'</p>'+
-      '<h3 class="gpanel-title">'+g.name+'</h3></div></div>'+
-      '<div class="gpanel-body"><p class="goverview">'+g.overview+'</p>'+
-      '<p class="gsteps-lbl">Step-by-Step Walkthrough</p>'+
-      '<div class="gsteps">'+sh+'</div>'+
-      '<div class="gtip"><span class="gtip-icon">&#128161;</span><p>'+g.tip+'</p></div></div>'+
-      '<div class="gpanel-ftr"><p class="gprice-note">'+priceNote+'</p>'+footerBtn+'</div></div>';
-  }).join('');
-}
-function selectGuide(id){activeGId=id;renderGuides()}
-function filterGuides(cat,btn){
-  document.querySelectorAll('.gtab').forEach(function(b){b.classList.remove('active')});
-  btn.classList.add('active');
-  activeGFilter=cat;
-  renderGuides();
-}
+SELF-SERVE CMMS APP:
+- Lite Plan: $19 per month for the whole team. Work orders, technician queues, manager dashboard, mobile access. 14-day free trial.
+- Pro Plan: $49 per month for the whole team. Everything in Lite plus asset management, PM scheduling, reporting, parts tracking. 14-day free trial.
+- Sign up at: toolsmith-cmms.vercel.app/register
 
-// ── CART ──
-var cart=[];
-function addToCart(id){
-  var p=products.find(function(x){return x.id===id});
-  if(cart.find(function(i){return i.id===id})){showToast('"'+p.name+'" is already in your cart.');return}
-  cart.push(p);updateCartUI();showToast('Added: '+p.name);
-}
-function removeFromCart(id){cart=cart.filter(function(i){return i.id!==id});updateCartUI()}
-function updateCartUI(){
-  var n=cart.length;
-  var el=document.getElementById('cartCount');
-  el.textContent=n;el.style.display=n>0?'flex':'none';
-  var ci=document.getElementById('cartItems');
-  var cf=document.getElementById('cartFoot');
-  if(!n){ci.innerHTML='<p class="cempty">Your cart is empty.</p>';cf.style.display='none';return}
-  cf.style.display='block';
-  ci.innerHTML=cart.map(function(i){
-    return '<div class="citem"><span class="citem-icon">'+i.icon+'</span>'+
-      '<div class="citem-info"><p class="citem-name">'+i.name+'</p><p class="citem-price">$'+i.price+'</p></div>'+
-      '<button class="rem-item" onclick="removeFromCart('+i.id+')">&#10005;</button></div>';
-  }).join('');
-  document.getElementById('cartTotal').textContent='$'+cart.reduce(function(s,i){return s+i.price},0).toFixed(2);
-}
-function toggleCart(){
-  document.getElementById('drawer').classList.toggle('open');
-  document.getElementById('overlay').classList.toggle('open');
-}
-function checkout(){
-  if(!cart.length)return;
-  showToast('Stripe integration ready — connect your backend to go live.');
-}
-var currentBuyPrice=29;
-function buyTemplate(productId){
-  var p=products.find(function(x){return x.id==productId});
-  if(p){
-    document.getElementById('modalProductName').textContent=p.name;
-    currentBuyPrice=p.price;
-    document.getElementById('modalBtn').textContent='Proceed to Checkout — $'+p.price;
+CMMS APP TROUBLESHOOTING:
+- Login problems: Use the forgot password link on the login page. If account is deactivated, contact your manager.
+- Work orders not showing up: Check the priority filter pills on the dashboard — click any active filter to clear it.
+- Cannot add assets: Asset management is a Pro feature. Lite users see an upgrade prompt in the asset sidebar.
+- Team members cannot log in: The manager must add them in the Team tab with their email and a temporary password.
+- Billing questions: Stripe handles all payments. Check your email for receipts. Contact us for incorrect charges.
+- Mobile issues: The app is browser-based — use Chrome or Safari on mobile for best results.
+- Password change: Go to the menu and select Change Password after logging in.
+
+INQUIRY FLOW:
+When someone wants to get a quote, start a project, or learn more about working together, let them know you can open the inquiry form for them. In your reply include the exact phrase "let me open that form for you" and the system will open it automatically. Be proactive — suggest the form when someone asks about pricing, timelines, or getting started.
+
+IMPORTANT RULES:
+- Always be honest that builds are AI-assisted — frame it as a benefit (faster, cheaper, not a limitation)
+- Never promise exact delivery dates — give ranges only
+- If someone asks something you do not know, say so and suggest they submit an inquiry
+- Keep responses concise — 2 to 4 sentences unless they ask for detail
+- Never make up features or pricing not listed above
+- You are a she`;
+
+let gidgetOpen = false;
+let gidgetHistory = [];
+let gidgetTyping = false;
+let gidgetGreeted = false;
+
+function toggleGidget() {
+  gidgetOpen = !gidgetOpen;
+  document.getElementById('gidgetWindow').classList.toggle('open', gidgetOpen);
+  var notif = document.querySelector('.gidget-notif');
+  if (notif) notif.style.display = 'none';
+  if (gidgetOpen && !gidgetGreeted) {
+    gidgetGreeted = true;
+    setTimeout(function() {
+      addMsg("Hi! I'm Gidget 👋 I'm here to help you learn about The Toolsmith's custom CMMS builds, answer questions about the self-serve app, or help you get a quote. What can I help you with today?", 'gidget');
+    }, 400);
   }
-  document.getElementById('modalEmail').value='';
-  document.getElementById('modalError').style.display='none';
-  document.getElementById('modalBtn').disabled=false;
-  document.getElementById('buyModal').classList.add('open');
-  setTimeout(function(){document.getElementById('modalEmail').focus();},100);
+  if (gidgetOpen) setTimeout(function(){ document.getElementById('gidgetInput').focus(); }, 300);
 }
-function closeBuyModal(){
-  document.getElementById('buyModal').classList.remove('open');
+
+function addMsg(text, sender) {
+  var c = document.getElementById('gidgetMessages');
+  var m = document.createElement('div');
+  m.className = 'msg msg-' + sender;
+  m.textContent = text;
+  c.appendChild(m);
+  c.scrollTop = c.scrollHeight;
 }
-async function submitBuyModal(){
-  var email=document.getElementById('modalEmail').value.trim();
-  var errEl=document.getElementById('modalError');
-  var btn=document.getElementById('modalBtn');
-  errEl.style.display='none';
-  if(!email||email.indexOf('@')<0){
-    errEl.textContent='Please enter a valid email address.';
-    errEl.style.display='block';
-    return;
-  }
-  btn.disabled=true;
-  btn.textContent='Redirecting to Stripe...';
-  try{
-    var response=await fetch('https://toolsmith-cmms.vercel.app/api/create-template-checkout',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({email:email,productName:'pm_scheduler'})
+
+function showTyping() {
+  var c = document.getElementById('gidgetMessages');
+  var t = document.createElement('div');
+  t.className = 'msg msg-typing';
+  t.id = 'typingIndicator';
+  t.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+  c.appendChild(t);
+  c.scrollTop = c.scrollHeight;
+}
+
+function hideTyping() {
+  var el = document.getElementById('typingIndicator');
+  if (el) el.remove();
+}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 80) + 'px';
+}
+
+function handleGidgetKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendGidgetMessage(); }
+}
+
+async function sendGidgetMessage() {
+  if (gidgetTyping) return;
+  var input = document.getElementById('gidgetInput');
+  var text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  input.style.height = 'auto';
+  addMsg(text, 'user');
+  gidgetHistory.push({ role: 'user', content: text });
+  gidgetTyping = true;
+  document.getElementById('gidgetSend').disabled = true;
+  showTyping();
+  try {
+    var response = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: GIDGET_SYSTEM,
+        messages: gidgetHistory
+      })
     });
-    var data=await response.json();
-    if(data.url){window.location.href=data.url;}
-    else{
-      errEl.textContent='Something went wrong. Please try again.';
-      errEl.style.display='block';
-      btn.disabled=false;
-      btn.textContent='Proceed to Checkout — $'+currentBuyPrice;
+    var data = await response.json();
+    var reply = (data.content && data.content[0] && data.content[0].text)
+      ? data.content[0].text
+      : "I'm sorry, I ran into an issue. Please try again or submit an inquiry directly.";
+    hideTyping();
+    gidgetHistory.push({ role: 'assistant', content: reply });
+    addMsg(reply, 'gidget');
+    if (reply.toLowerCase().includes('let me open that form for you')) {
+      setTimeout(function(){ openInquiry(); }, 800);
     }
-  }catch(err){
-    errEl.textContent='Something went wrong. Please try again.';
-    errEl.style.display='block';
-    btn.disabled=false;
-    btn.textContent='Proceed to Checkout — $'+currentBuyPrice;
+  } catch(err) {
+    hideTyping();
+    addMsg("I'm having a little trouble right now. You can submit an inquiry directly and we will get back to you within one business day.", 'gidget');
+  }
+  gidgetTyping = false;
+  document.getElementById('gidgetSend').disabled = false;
+}
+
+function openInquiry() {
+  document.getElementById('inqOverlay').classList.add('open');
+}
+function closeInquiry() {
+  document.getElementById('inqOverlay').classList.remove('open');
+}
+document.addEventListener('click', function(e) {
+  if (e.target.id === 'inqOverlay') closeInquiry();
+});
+
+async function submitInquiry() {
+  var name = document.getElementById('inqName').value.trim();
+  var email = document.getElementById('inqEmail').value.trim();
+  var company = document.getElementById('inqCompany').value.trim();
+  var teamSize = document.getElementById('inqTeamSize').value;
+  var project = document.getElementById('inqProject').value.trim();
+  var btn = document.getElementById('inqBtn');
+  if (!name || !email || !project) { showToast('Please fill in your name, email, and project description.'); return; }
+  if (email.indexOf('@') < 0) { showToast('Please enter a valid email address.'); return; }
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  try {
+    var res = await fetch('https://toolsmith-cmms.vercel.app/api/send-inquiry-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: name, email: email, company: company, teamSize: teamSize, projectDescription: project })
+    });
+    var data = await res.json();
+    if (data.success) {
+      document.getElementById('inqBox').innerHTML =
+        '<div style="text-align:center;padding:2rem 0;">' +
+        '<div style="width:64px;height:64px;border-radius:50%;background:rgba(152,195,121,0.12);border:1px solid rgba(152,195,121,0.3);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 1.5rem;">✓</div>' +
+        '<h2 style="font-family:\'Cormorant Garamond\',serif;color:#c9a84c;font-size:1.8rem;font-weight:600;margin-bottom:1rem;">Got it, ' + name + '.</h2>' +
+        '<p style="color:#9a9db5;font-size:.93rem;line-height:1.75;margin-bottom:1.5rem;">Your inquiry has been received. We will review your project and send a detailed proposal within one business day. Check your inbox for a confirmation email.</p>' +
+        '<button onclick="closeInquiry()" style="background:none;border:1px solid rgba(201,168,76,.3);color:#c9a84c;border-radius:8px;padding:.65rem 1.75rem;font-size:.85rem;font-family:\'DM Sans\',sans-serif;cursor:pointer;">Close</button>' +
+        '</div>';
+    } else {
+      showToast('Something went wrong. Please try again.');
+      btn.disabled = false;
+      btn.textContent = 'Send Inquiry';
+    }
+  } catch(err) {
+    showToast('Something went wrong. Please try again.');
+    btn.disabled = false;
+    btn.textContent = 'Send Inquiry';
   }
 }
-document.addEventListener('click',function(e){
-  if(e.target.id==='buyModal')closeBuyModal();
-  if(e.target.id==='launchPopupOverlay')closePopup();
-});
-function subscribe(){
-  var e=document.getElementById('emailInput').value.trim();
-  if(!e||e.indexOf('@')<0){showToast('Please enter a valid email address.');return}
-  document.getElementById('emailInput').value='';
+
+function subscribe() {
+  var e = document.getElementById('emailInput').value.trim();
+  if (!e || e.indexOf('@') < 0) { showToast('Please enter a valid email address.'); return; }
+  document.getElementById('emailInput').value = '';
   showToast("You're on the list. Thank you.");
 }
-function closePopup(){
-  var overlay=document.getElementById('launchPopupOverlay');
-  overlay.style.opacity='0';
-  overlay.style.transition='opacity .3s ease';
-  setTimeout(function(){overlay.style.display='none';},300);
-}
-function popupSubscribe(){
-  var e=document.getElementById('popupEmail').value.trim();
-  if(!e||e.indexOf('@')<0){showToast('Please enter a valid email address.');return;}
-  document.getElementById('popupEmail').value='';
-  document.getElementById('launchPopup').innerHTML=
-    '<div style="text-align:center;padding:1rem 0;">'+
-    '<div style="width:56px;height:56px;border-radius:50%;background:rgba(152,195,121,0.12);border:1px solid rgba(152,195,121,0.3);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 1.25rem;">✓</div>'+
-    '<h2 style="font-family:\'Playfair Display\',serif;color:#c9a84c;font-size:1.4rem;font-weight:600;margin-bottom:.75rem;">You\'re on the list.</h2>'+
-    '<p style="color:#9a9db5;font-size:.9rem;line-height:1.7;">We\'ll send you one email when the template shop opens. That\'s it.</p>'+
-    '<button onclick="closePopup()" style="margin-top:1.5rem;background:none;border:1px solid rgba(201,168,76,.3);color:#c9a84c;border-radius:8px;padding:.65rem 1.75rem;font-size:.85rem;font-family:Inter,sans-serif;cursor:pointer;">Close</button>'+
-    '</div>';
-}
-var tt;
-function showToast(msg){
-  var t=document.getElementById('toast');
-  t.textContent=msg;t.classList.add('show');
-  clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('show')},2800);
-}
 
-renderProducts();
-renderGuides();
+var tt;
+function showToast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(tt);
+  tt = setTimeout(function(){ t.classList.remove('show'); }, 2800);
+}
 </script>
 </body>
 </html>
