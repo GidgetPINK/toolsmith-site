@@ -151,8 +151,55 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
 .gidget-send:hover{opacity:.85}
 .gidget-send svg{width:16px;height:16px;fill:var(--charcoal)}
 .gidget-send:disabled{opacity:.4;cursor:not-allowed}
-@media(max-width:900px){.cmms-card{grid-template-columns:1fr}.phgrid{grid-template-columns:1fr}.gidget-window{width:calc(100vw - 2rem);right:1rem;bottom:5.5rem}}
-@media(max-width:768px){.nav-links{display:none}.nform{flex-direction:column}.inq-box{padding:1.75rem}}
+@media(max-width:900px){
+  .cmms-card{grid-template-columns:1fr}
+  .phgrid{grid-template-columns:1fr;gap:2.5rem}
+  .gidget-window{width:calc(100vw - 2rem);right:1rem;bottom:5.5rem}
+}
+@media(max-width:768px){
+  nav{padding:.75rem 4%}
+  .nav-logo img{height:30px;width:30px}
+  .nav-logo-text{font-size:1.15rem}
+  .nav-links{display:none}
+  .nav-cta{padding:.4rem .85rem;font-size:.72rem;letter-spacing:.04em}
+  .hero{padding:7rem 5% 4rem;min-height:auto}
+  .hero h1{font-size:2.4rem;line-height:1.1}
+  .hero-eyebrow{font-size:.68rem;letter-spacing:.18em;margin-bottom:1rem}
+  .hero-sub{font-size:.93rem;margin-bottom:1.75rem;line-height:1.65}
+  .hero-badges{gap:.45rem;margin-bottom:1.75rem}
+  .badge{font-size:.7rem;padding:.28rem .7rem}
+  .hero-cta{flex-direction:column;width:100%;gap:.65rem}
+  .hero-cta .btn-primary,.hero-cta .btn-ghost{width:100%;padding:.8rem 1rem;font-size:.82rem;margin:0}
+  section{padding:4rem 5%}
+  .stitle{font-size:1.8rem}
+  .ssub{font-size:.9rem;margin-bottom:2.5rem}
+  .services-grid{gap:1.25rem;margin-bottom:2rem}
+  .service-card{padding:1.5rem}
+  .service-name{font-size:1.4rem}
+  .service-price{font-size:1rem}
+  .includes-grid{padding:1.25rem 1.5rem}
+  .cmms-card{padding:1.75rem;gap:1.5rem}
+  .cmms-card-left h3{font-size:1.6rem}
+  .cmms-plans{flex-direction:column;gap:.75rem}
+  .pillars{gap:1.25rem}
+  .pillar{gap:1rem}
+  .pill-icon{width:38px;height:38px;font-size:1rem}
+  .nbox{padding:2rem 1.5rem}
+  .nform{flex-direction:column}
+  footer{flex-direction:column;text-align:center;gap:.75rem;padding:2rem 5%}
+  .flinks{justify-content:center;flex-wrap:wrap}
+  .inq-box{padding:1.5rem}
+  .inq-title{font-size:1.4rem}
+  .gidget-btn{width:52px;height:52px}
+  .gidget-bubble{bottom:1.25rem;right:1.25rem}
+  .gidget-window{bottom:5rem;right:1rem;max-height:70vh}
+}
+@media(max-width:380px){
+  .hero h1{font-size:2.05rem}
+  .nav-cta{font-size:.65rem;padding:.35rem .65rem}
+  .stitle{font-size:1.55rem}
+  .service-card{padding:1.25rem}
+}
 </style>
 </head>
 <body>
@@ -446,15 +493,7 @@ IMPORTANT RULES:
 - If someone asks something you do not know, say so and suggest they submit an inquiry
 - Keep responses concise — 2 to 4 sentences unless they ask for detail
 - Never make up features or pricing not listed above
-- You are a she
-
-CRITICAL CONTACT RULES — NEVER VIOLATE THESE:
-- NEVER invent or provide a phone number under any circumstances. The Toolsmith does not publish a public phone number.
-- NEVER invent contact details — no addresses, no hours of operation, no fax numbers, no support phone lines.
-- When someone asks to speak to a person, contact the team, get on a call, or talk to someone real, respond by saying you can open the inquiry form for them. Include the exact phrase "let me open that form for you" so the form opens automatically.
-- When someone specifically asks for a phone number, tell them: "We schedule phone calls with an advisor after you submit the inquiry form. Once your form is in, we will reach out within one business day to set up a call at a time that works for you. Let me open that form for you so we can get that scheduled."
-- The ONLY way someone can contact a human at The Toolsmith is by submitting the inquiry form. The form triggers the followup process.
-- You are happy to answer any question about the services, pricing, the CMMS app, troubleshooting, the build process, or anything else mentioned on the site. Offer assistance proactively.`;
+- You are a she`;
 
 let gidgetOpen = false;
 let gidgetHistory = [];
@@ -521,16 +560,20 @@ async function sendGidgetMessage() {
   document.getElementById('gidgetSend').disabled = true;
   showTyping();
   try {
-    var response = await fetch('https://toolsmith-cmms.vercel.app/api/gidget', {
+    var response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
         system: GIDGET_SYSTEM,
         messages: gidgetHistory
       })
     });
     var data = await response.json();
-    var reply = data.reply || "I'm sorry, I ran into an issue. Please try again or submit an inquiry directly.";
+    var reply = (data.content && data.content[0] && data.content[0].text)
+      ? data.content[0].text
+      : "I'm sorry, I ran into an issue. Please try again or submit an inquiry directly.";
     hideTyping();
     gidgetHistory.push({ role: 'assistant', content: reply });
     addMsg(reply, 'gidget');
