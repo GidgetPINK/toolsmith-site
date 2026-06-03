@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Privacy Policy — The Toolsmith</title>
+<meta name="description" content="Privacy Policy for The Toolsmith CMMS. Learn how we collect, process, and protect your personal information."/>
+<link rel="icon" type="image/png" href="/logo.png"/>
+<link rel="apple-touch-icon" href="/logo.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --charcoal:#1a1a2e;--navy:#16213e;--navy-light:#0f3460;--gold:#c9a84c;
+  --gold-light:#e8c97a;--white:#f8f6f1;--muted:#9a9db5;--card:#1e2245;
+  --cb:rgba(201,168,76,0.18);--r:12px
+}
+html{scroll-behavior:smooth}
+body{background:var(--charcoal);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+a{color:var(--gold-light);text-decoration:underline;text-decoration-color:rgba(201,168,76,0.4);text-underline-offset:3px;transition:color .2s,text-decoration-color .2s}
+a:hover{color:var(--gold);text-decoration-color:var(--gold)}
+
+/* Nav matches index.html exactly */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 5%;background:rgba(26,26,46,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--cb)}
+.nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.nav-logo img{height:36px;width:36px;border-radius:6px;object-fit:cover}
+.nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);letter-spacing:.04em;font-weight:600}
+.nav-back{color:var(--muted);font-size:.85rem;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;font-weight:400;display:flex;align-items:center;gap:.5rem}
+.nav-back:hover{color:var(--gold-light)}
+.nav-back::before{content:'←';font-size:1rem;line-height:1}
+
+/* Page hero */
+.doc-hero{padding:9rem 5% 3rem;text-align:center;background:radial-gradient(ellipse 70% 50% at 50% 40%,rgba(15,52,96,.5) 0%,transparent 70%),linear-gradient(180deg,var(--charcoal) 0%,var(--navy) 100%);position:relative;overflow:hidden}
+.doc-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.doc-eyebrow{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;font-weight:500;position:relative}
+.doc-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:700;line-height:1.1;color:var(--white);position:relative;margin-bottom:.75rem}
+.doc-meta{color:var(--muted);font-size:.9rem;position:relative}
+.divider{width:48px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1.5rem auto 0;position:relative}
+
+/* Document body */
+.doc-wrap{max-width:780px;margin:0 auto;padding:4rem 5% 5rem;position:relative}
+.doc-content{font-size:1rem;line-height:1.85;color:var(--white)}
+.doc-content p{margin-bottom:1.25rem;color:var(--white)}
+.doc-content h2{font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--gold);margin:3.5rem 0 1rem;line-height:1.25;scroll-margin-top:6rem;position:relative;padding-top:1rem;border-top:1px solid var(--cb)}
+.doc-content h2:first-of-type{padding-top:0;border-top:none;margin-top:0}
+.doc-content h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--gold-light);margin:2rem 0 .75rem;line-height:1.3}
+.doc-content ul{list-style:none;margin:0 0 1.5rem 0;padding:0}
+.doc-content ul li{position:relative;padding-left:1.5rem;margin-bottom:.6rem;color:var(--white)}
+.doc-content ul li::before{content:'◆';position:absolute;left:0;top:0;color:var(--gold);font-size:.65rem;line-height:1.85}
+.doc-content ul ul{margin-top:.6rem;margin-bottom:.6rem}
+.doc-content ul ul li::before{content:'·';font-size:1.2rem;line-height:1.4}
+.doc-content strong{color:var(--white);font-weight:600}
+.doc-content em{color:var(--muted);font-style:italic}
+.doc-content .in-short{background:rgba(201,168,76,.06);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1rem 0 1.5rem;color:var(--muted);font-size:.95rem}
+.doc-content .in-short strong{color:var(--gold-light)}
+
+/* TOC summary */
+.summary-card{background:var(--card);border:1px solid var(--cb);border-radius:var(--r);padding:2rem;margin-bottom:3rem;position:relative;overflow:hidden}
+.summary-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.summary-card h2{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);margin:0 0 1rem;padding:0;border:none;font-weight:600}
+.summary-card p{font-size:.92rem;color:var(--muted);margin-bottom:.75rem;line-height:1.7}
+.summary-card p:last-child{margin-bottom:0}
+.summary-card strong{color:var(--gold-light);font-weight:600}
+
+.toc-card{background:rgba(255,255,255,.02);border:1px solid var(--cb);border-radius:var(--r);padding:1.75rem 2rem;margin-bottom:3rem}
+.toc-card h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--gold);margin:0 0 1rem;font-weight:600}
+.toc-list{display:flex;flex-direction:column;gap:.5rem;list-style:none;padding:0;margin:0}
+.toc-list li{padding:0}
+.toc-list li::before{display:none}
+.toc-list a{display:flex;gap:.75rem;color:var(--muted);text-decoration:none;font-size:.9rem;padding:.25rem 0;transition:color .2s;align-items:baseline}
+.toc-list a:hover{color:var(--gold-light)}
+.toc-num{color:var(--gold);font-weight:500;flex-shrink:0;min-width:1.5rem}
+
+/* Data table */
+.data-table-wrap{overflow-x:auto;margin:1.25rem 0 1.5rem;border:1px solid var(--cb);border-radius:8px}
+.data-table{width:100%;border-collapse:collapse;font-size:.88rem;min-width:560px}
+.data-table th{background:rgba(201,168,76,.08);color:var(--gold);font-weight:600;text-align:left;padding:.75rem 1rem;border-bottom:1px solid var(--cb);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase}
+.data-table td{padding:.85rem 1rem;border-bottom:1px solid rgba(201,168,76,.08);color:var(--white);vertical-align:top}
+.data-table tr:last-child td{border-bottom:none}
+.data-table td:first-child{font-weight:500;width:30%}
+.data-table td:last-child{width:80px;text-align:center;font-weight:600}
+.data-table .yes{color:var(--gold-light)}
+.data-table .no{color:var(--muted)}
+
+/* Footer matches index.html */
+footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.flogo{display:flex;align-items:center;gap:.5rem;font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:1.1rem;font-weight:600}
+.flogo img{height:28px;width:28px;border-radius:4px;object-fit:cover}
+.fnote{color:var(--muted);font-size:.8rem}
+.flinks{display:flex;gap:1.5rem}
+.flinks a{color:var(--muted);font-size:.8rem;text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--gold)}
+
+@media (max-width:640px){
+  .doc-hero{padding:7.5rem 5% 2.5rem}
+  .doc-wrap{padding:3rem 5% 4rem}
+  .doc-content h2{font-size:1.45rem;margin-top:2.5rem}
+  .summary-card,.toc-card{padding:1.5rem}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/logo.png" alt="The Toolsmith"/>
+    <span class="nav-logo-text">The Toolsmith</span>
+  </a>
+  <a href="/" class="nav-back">Back to home</a>
+</nav>
+
+<section class="doc-hero">
+  <div class="doc-eyebrow">Legal</div>
+  <h1>Privacy Policy</h1>
+  <div class="doc-meta">Last updated June 2, 2026</div>
+  <div class="divider"></div>
+</section>
+
+<div class="doc-wrap">
+<div class="doc-content">
+
+<p>This Privacy Notice for <strong>The Toolsmith LLC</strong> ("we," "us," or "our") describes how and why we might access, collect, store, use, and share ("process") your personal information when you use our services ("Services"), including when you:</p>
+
+<ul>
+  <li>Visit our website at <a href="https://www.thetoolsmithapp.com/">https://www.thetoolsmithapp.com/</a> or any website of ours that links to this Privacy Notice</li>
+  <li>Use The Toolsmith CMMS, a computerized maintenance management system that helps facility managers and maintenance teams track assets, manage work orders, schedule preventive maintenance, and coordinate technicians. The service is delivered via a web-based application with both desktop and mobile interfaces.</li>
+  <li>Engage with us in other related ways, including any marketing or events</li>
+</ul>
+
+<p><strong>Questions or concerns?</strong> Reading this Privacy Notice will help you understand your privacy rights and choices. We are responsible for making decisions about how your personal information is processed. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <a href="mailto:gidgetpink@gmail.com">gidgetpink@gmail.com</a>.</p>
+
+<div class="summary-card">
+<h2>Summary of Key Points</h2>
+<p><em>This summary provides key points from our Privacy Notice. You can find more details about any of these topics by clicking the link following each point or by using the table of contents below.</em></p>
+
+<p><strong>What personal information do we process?</strong> When you visit, use, or navigate our Services, we may process personal information depending on how you interact with us, the choices you make, and the products and features you use.</p>
+
+<p><strong>Do we process any sensitive personal information?</strong> We do not process sensitive personal information.</p>
+
+<p><strong>Do we collect any information from third parties?</strong> We may collect information from public databases, marketing partners, and other outside sources.</p>
+
+<p><strong>How do we process your information?</strong> We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. We process your information only when we have a valid legal reason to do so.</p>
+
+<p><strong>How do we keep your information safe?</strong> We have adequate organizational and technical processes and procedures in place to protect your personal information. However, no electronic transmission over the internet can be guaranteed to be 100% secure.</p>
+
+<p><strong>What are your rights?</strong> Depending on where you are located geographically, the applicable privacy law may mean you have certain rights regarding your personal information.</p>
+</div>
+
+<div class="toc-card">
+<h3>Table of Contents</h3>
+<ul class="toc-list">
+  <li><a href="#section-1"><span class="toc-num">1.</span> What information do we collect?</a></li>
+  <li><a href="#section-2"><span class="toc-num">2.</span> How do we process your information?</a></li>
+  <li><a href="#section-3"><span class="toc-num">3.</span> What legal bases do we rely on?</a></li>
+  <li><a href="#section-4"><span class="toc-num">4.</span> When and with whom do we share information?</a></li>
+  <li><a href="#section-5"><span class="toc-num">5.</span> Our stance on third-party websites</a></li>
+  <li><a href="#section-6"><span class="toc-num">6.</span> Cookies and tracking technologies</a></li>
+  <li><a href="#section-7"><span class="toc-num">7.</span> AI-based products</a></li>
+  <li><a href="#section-8"><span class="toc-num">8.</span> How long do we keep your information?</a></li>
+  <li><a href="#section-9"><span class="toc-num">9.</span> How do we keep your information safe?</a></li>
+  <li><a href="#section-10"><span class="toc-num">10.</span> Do we collect information from minors?</a></li>
+  <li><a href="#section-11"><span class="toc-num">11.</span> What are your privacy rights?</a></li>
+  <li><a href="#section-12"><span class="toc-num">12.</span> Controls for Do-Not-Track features</a></li>
+  <li><a href="#section-13"><span class="toc-num">13.</span> US resident privacy rights</a></li>
+  <li><a href="#section-14"><span class="toc-num">14.</span> Updates to this notice</a></li>
+  <li><a href="#section-15"><span class="toc-num">15.</span> How to contact us</a></li>
+  <li><a href="#section-16"><span class="toc-num">16.</span> Review, update, or delete your data</a></li>
+</ul>
+</div>
+
+<h2 id="section-1">1. What information do we collect?</h2>
+<h3>Personal information you disclose to us</h3>
+<div class="in-short"><strong>In Short:</strong> We collect personal information that you provide to us.</div>
+
+<p>We collect personal information that you voluntarily provide to us when you register on the Services, express an interest in obtaining information about us or our products and Services, when you participate in activities on the Services, or otherwise when you contact us.</p>
+
+<p><strong>Personal Information Provided by You.</strong> The personal information that we collect depends on the context of your interactions with us and the Services, the choices you make, and the products and features you use. The personal information we collect may include the following:</p>
+
+<ul>
+  <li>names</li>
+  <li>email addresses</li>
+  <li>passwords</li>
+  <li>billing addresses</li>
+  <li>debit/credit card numbers</li>
+  <li>IP addresses</li>
+  <li>device or browser information</li>
+  <li>cookies or cookie data</li>
+  <li>usage data or analytics</li>
+  <li>photos, images, files or user-generated content</li>
+</ul>
+
+<p><strong>Sensitive Information.</strong> We do not process sensitive information.</p>
+
+<p><strong>Payment Data.</strong> We may collect data necessary to process your payment if you choose to make purchases, such as your payment instrument number and the security code associated with your payment instrument. All payment data is handled and stored by Stripe. You may find their privacy notice link here: <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer">https://stripe.com/privacy</a>.</p>
+
+<p>All personal information that you provide to us must be true, complete, and accurate, and you must notify us of any changes to such personal information.</p>
+
+<h3>Information collected from other sources</h3>
+<div class="in-short"><strong>In Short:</strong> We may collect limited data from public databases, marketing partners, and other outside sources.</div>
+
+<p>In order to enhance our ability to provide relevant services to you and update our records, we may obtain information about you from other sources, such as public databases, joint marketing partners, affiliate programs, data providers, and from other third parties. This information may include mailing addresses, job titles, email addresses, phone numbers, Internet Protocol (IP) addresses, social media profiles, social media URLs, and custom profiles.</p>
+
+<h2 id="section-2">2. How do we process your information?</h2>
+<div class="in-short"><strong>In Short:</strong> We process your information to provide, improve, and administer our Services, communicate with you, for security and fraud prevention, and to comply with law. We may also process your information for other purposes only with your prior explicit consent.</div>
+
+<p><strong>We process your personal information for a variety of reasons, depending on how you interact with our Services, including:</strong></p>
+
+<ul>
+  <li><strong>To facilitate account creation and authentication and otherwise manage user accounts.</strong> We may process your information so you can create and log in to your account, as well as keep your account in working order.</li>
+  <li><strong>To deliver and facilitate delivery of services to the user.</strong> We may process your information to provide you with the requested service.</li>
+  <li><strong>To respond to user inquiries and offer support to users.</strong> We may process your information to respond to your inquiries and solve any potential issues you might have with the requested service.</li>
+  <li><strong>To send administrative information to you.</strong> We may process your information to send you details about our products and services, changes to our terms and policies, and other similar information.</li>
+  <li><strong>To fulfill and manage your orders.</strong> We may process your information to fulfill and manage your orders, payments, returns, and exchanges made through the Services.</li>
+  <li><strong>To enable user-to-user communications.</strong> We may process your information if you choose to use any of our offerings that allow for communication with another user.</li>
+  <li><strong>To request feedback.</strong> We may process your information when necessary to request feedback and to contact you about your use of our Services.</li>
+  <li><strong>To protect our Services.</strong> We may process your information as part of our efforts to keep our Services safe and secure, including fraud monitoring and prevention.</li>
+  <li><strong>To identify usage trends.</strong> We may process information about how you use our Services to better understand how they are being used so we can improve them.</li>
+  <li><strong>To save or protect an individual's vital interest.</strong> We may process your information when necessary to save or protect an individual's vital interest, such as to prevent harm.</li>
+</ul>
+
+<h2 id="section-3">3. What legal bases do we rely on to process your information?</h2>
+<div class="in-short"><strong>In Short:</strong> We only process your personal information when we believe it is necessary and we have a valid legal reason (legal basis) to do so under applicable law, like with your consent, to comply with laws, to provide you with services to enter into or fulfill our contractual obligations, to protect your rights, or to fulfill our legitimate business interests.</div>
+
+<p><strong><em>If you are located in the EU or UK, this section applies to you.</em></strong></p>
+
+<p>The General Data Protection Regulation (GDPR) and UK GDPR require us to explain the valid legal bases we rely on in order to process your personal information. As such, we may rely on the following legal bases to process your personal information:</p>
+
+<ul>
+  <li><strong>Consent.</strong> We may process your information if you have given us permission (consent) to use your personal information for a specific purpose. You can withdraw your consent at any time.</li>
+  <li><strong>Performance of a Contract.</strong> We may process your personal information when we believe it is necessary to fulfill our contractual obligations to you, including providing our Services or at your request prior to entering into a contract with you.</li>
+  <li><strong>Legitimate Interests.</strong> We may process your information when we believe it is reasonably necessary to achieve our legitimate business interests and those interests do not outweigh your interests and fundamental rights and freedoms.</li>
+  <li><strong>Legal Obligations.</strong> We may process your information where we believe it is necessary for compliance with our legal obligations, such as to cooperate with a law enforcement body or regulatory agency, exercise or defend our legal rights, or disclose your information as evidence in litigation in which we are involved.</li>
+  <li><strong>Vital Interests.</strong> We may process your information where we believe it is necessary to protect your vital interests or the vital interests of a third party, such as situations involving potential threats to the safety of any person.</li>
+</ul>
+
+<p><strong><em>If you are located in Canada, this section applies to you.</em></strong></p>
+
+<p>We may process your information if you have given us specific permission (express consent) to use your personal information for a specific purpose, or in situations where your permission can be inferred (implied consent). You can withdraw your consent at any time.</p>
+
+<p>In some exceptional cases, we may be legally permitted under applicable law to process your information without your consent, including, for example:</p>
+
+<ul>
+  <li>If collection is clearly in the interests of an individual and consent cannot be obtained in a timely way</li>
+  <li>For investigations and fraud detection and prevention</li>
+  <li>For business transactions provided certain conditions are met</li>
+  <li>If it is contained in a witness statement and the collection is necessary to assess, process, or settle an insurance claim</li>
+  <li>For identifying injured, ill, or deceased persons and communicating with next of kin</li>
+  <li>If we have reasonable grounds to believe an individual has been, is, or may be victim of financial abuse</li>
+  <li>If disclosure is required to comply with a subpoena, warrant, court order, or rules of the court relating to the production of records</li>
+  <li>If the information is publicly available and is specified by the regulations</li>
+</ul>
+
+<h2 id="section-4">4. When and with whom do we share your personal information?</h2>
+<div class="in-short"><strong>In Short:</strong> We may share information in specific situations described in this section and with the following categories of third parties.</div>
+
+<p><strong>Vendors, Consultants, and Other Third-Party Service Providers.</strong> We may share your data with third-party vendors, service providers, contractors, or agents ("third parties") who perform services for us or on our behalf and require access to such information to do that work. We have contracts in place with our third parties, which are designed to help safeguard your personal information. They cannot do anything with your personal information unless we have instructed them to do it, and they will not share your personal information with any organization apart from us.</p>
+
+<p>The categories of third parties we may share personal information with are as follows:</p>
+
+<ul>
+  <li>AI Platforms</li>
+  <li>Cloud Computing Services</li>
+  <li>Data Storage Service Providers</li>
+  <li>Payment Processors</li>
+  <li>User Account Registration and Authentication Services</li>
+  <li>Website Hosting Service Providers</li>
+</ul>
+
+<p>We also may need to share your personal information in the following situations:</p>
+
+<ul>
+  <li><strong>Business Transfers.</strong> We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.</li>
+</ul>
+
+<h2 id="section-5">5. What is our stance on third-party websites?</h2>
+<div class="in-short"><strong>In Short:</strong> We are not responsible for the safety of any information that you share with third parties that we may link to or who advertise on our Services, but are not affiliated with our Services.</div>
+
+<p>The Services may link to third-party websites, online services, or mobile applications and may contain advertisements from third parties that are not affiliated with us. Accordingly, we do not make any guarantee regarding any such third parties, and we will not be liable for any loss or damage caused by the use of such third-party websites, services, or applications. The inclusion of a link towards a third-party website, service, or application does not imply an endorsement by us. We cannot guarantee the safety and privacy of data you provide to any third-party websites. Any data collected by third parties is not covered by this Privacy Notice. We are not responsible for the content or privacy and security practices and policies of any third parties. You should review the policies of such third parties and contact them directly to respond to your questions.</p>
+
+<h2 id="section-6">6. Do we use cookies and other tracking technologies?</h2>
+<div class="in-short"><strong>In Short:</strong> We may use cookies and other tracking technologies to collect and store your information.</div>
+
+<p>We may use cookies and similar tracking technologies (like web beacons and pixels) to gather information when you interact with our Services. Some online tracking technologies help us maintain the security of our Services and your account, prevent crashes, fix bugs, save your preferences, and assist with basic site functions.</p>
+
+<p>We also permit third parties and service providers to use online tracking technologies on our Services for analytics purposes.</p>
+
+<p>To the extent these online tracking technologies are deemed to be a "sale" or "sharing" (which includes targeted advertising, as defined under the applicable laws) under applicable US state laws, you can opt out of these online tracking technologies by submitting a request as described below under section <a href="#section-13">13. US resident privacy rights</a>.</p>
+
+<h2 id="section-7">7. Do we offer artificial intelligence-based products?</h2>
+<div class="in-short"><strong>In Short:</strong> We offer products, features, or tools powered by artificial intelligence, machine learning, or similar technologies.</div>
+
+<p>As part of our Services, we offer products, features, or tools powered by artificial intelligence, machine learning, or similar technologies (collectively, "AI Products"). These tools are designed to enhance your experience and provide you with innovative solutions. The terms in this Privacy Notice govern your use of the AI Products within our Services.</p>
+
+<h3>Use of AI Technologies</h3>
+
+<p>We provide the AI Products through third-party service providers ("AI Service Providers"), including Groq. As outlined in this Privacy Notice, your input, output, and personal information will be shared with and processed by these AI Service Providers to enable your use of our AI Products. You must not use the AI Products in any way that violates the terms or policies of any AI Service Provider.</p>
+
+<h3>Our AI Products</h3>
+
+<p>Our AI Products are designed for the following functions:</p>
+
+<ul>
+  <li>AI bots</li>
+  <li>Natural language processing</li>
+  <li>AI applications</li>
+</ul>
+
+<h3>How We Process Your Data Using AI</h3>
+
+<p>All personal information processed using our AI Products is handled in line with our Privacy Notice and our agreement with third parties. This ensures security and safeguards your personal information throughout the process.</p>
+
+<h2 id="section-8">8. How long do we keep your information?</h2>
+<div class="in-short"><strong>In Short:</strong> We keep your information for as long as necessary to fulfill the purposes outlined in this Privacy Notice unless otherwise required by law.</div>
+
+<p>We will only keep your personal information for as long as it is necessary for the purposes set out in this Privacy Notice, unless a longer retention period is required or permitted by law (such as tax, accounting, or other legal requirements). No purpose in this notice will require us keeping your personal information for longer than the period of time in which users have an account with us.</p>
+
+<p>When we have no ongoing legitimate business need to process your personal information, we will either delete or anonymize such information, or, if this is not possible (for example, because your personal information has been stored in backup archives), then we will securely store your personal information and isolate it from any further processing until deletion is possible.</p>
+
+<h2 id="section-9">9. How do we keep your information safe?</h2>
+<div class="in-short"><strong>In Short:</strong> We aim to protect your personal information through a system of organizational and technical security measures.</div>
+
+<p>We have implemented appropriate and reasonable technical and organizational security measures designed to protect the security of any personal information we process. However, despite our safeguards and efforts to secure your information, no electronic transmission over the Internet or information storage technology can be guaranteed to be 100% secure, so we cannot promise or guarantee that hackers, cybercriminals, or other unauthorized third parties will not be able to defeat our security and improperly collect, access, steal, or modify your information. Although we will do our best to protect your personal information, transmission of personal information to and from our Services is at your own risk. You should only access the Services within a secure environment.</p>
+
+<h2 id="section-10">10. Do we collect information from minors?</h2>
+<div class="in-short"><strong>In Short:</strong> We do not knowingly collect data from or market to children under 18 years of age or the equivalent age as specified by law in your jurisdiction.</div>
+
+<p>We do not knowingly collect, solicit data from, or market to children under 18 years of age or the equivalent age as specified by law in your jurisdiction, nor do we knowingly sell such personal information. By using the Services, you represent that you are at least 18 or the equivalent age as specified by law in your jurisdiction or that you are the parent or guardian of such a minor and consent to such minor dependent's use of the Services. If we learn that personal information from users less than 18 years of age has been collected, we will deactivate the account and take reasonable measures to promptly delete such data from our records. If you become aware of any data we may have collected from children under age 18, please contact us at <a href="mailto:gidgetpink@gmail.com">gidgetpink@gmail.com</a>.</p>
+
+<h2 id="section-11">11. What are your privacy rights?</h2>
+<div class="in-short"><strong>In Short:</strong> Depending on your state of residence in the US or in some regions, such as the European Economic Area (EEA), United Kingdom (UK), Switzerland, and Canada, you have rights that allow you greater access to and control over your personal information. You may review, change, or terminate your account at any time, depending on your country, province, or state of residence.</div>
+
+<p>In some regions (like the EEA, UK, Switzerland, and Canada), you have certain rights under applicable data protection laws. These may include the right (i) to request access and obtain a copy of your personal information, (ii) to request rectification or erasure; (iii) to restrict the processing of your personal information; (iv) if applicable, to data portability; and (v) not to be subject to automated decision-making. If a decision that produces legal or similarly significant effects is made solely by automated means, we will inform you, explain the main factors, and offer a simple way to request human review. In certain circumstances, you may also have the right to object to the processing of your personal information.</p>
+
+<p>You can make such a request by contacting us by using the contact details provided in the section <a href="#section-15">15. How to contact us</a> below.</p>
+
+<p>We will consider and act upon any request in accordance with applicable data protection laws.</p>
+
+<p>If you are located in the EEA or UK and you believe we are unlawfully processing your personal information, you also have the right to complain to your <a href="https://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm" target="_blank" rel="noopener noreferrer">Member State data protection authority</a> or <a href="https://ico.org.uk/make-a-complaint/data-protection-complaints/data-protection-complaints/" target="_blank" rel="noopener noreferrer">UK data protection authority</a>.</p>
+
+<p>If you are located in Switzerland, you may contact the <a href="https://www.edoeb.admin.ch/edoeb/en/home.html" target="_blank" rel="noopener noreferrer">Federal Data Protection and Information Commissioner</a>.</p>
+
+<h3>Withdrawing your consent</h3>
+
+<p>If we are relying on your consent to process your personal information, which may be express or implied consent depending on the applicable law, you have the right to withdraw your consent at any time. You can withdraw your consent at any time by contacting us by using the contact details provided in the section below.</p>
+
+<p>However, please note that this will not affect the lawfulness of the processing before its withdrawal nor, when applicable law allows, will it affect the processing of your personal information conducted in reliance on lawful processing grounds other than consent.</p>
+
+<h3>Opting out of marketing and promotional communications</h3>
+
+<p>You can unsubscribe from our marketing and promotional communications at any time by clicking on the unsubscribe link in the emails that we send, or by contacting us using the details provided in the section below. You will then be removed from the marketing lists. However, we may still communicate with you to send you service-related messages that are necessary for the administration and use of your account, to respond to service requests, or for other non-marketing purposes.</p>
+
+<h3>Account Information</h3>
+
+<p>If you would at any time like to review or change the information in your account or terminate your account, you can:</p>
+
+<ul>
+  <li>Log in to your account settings and update your user account.</li>
+  <li>Contact us using the contact information provided.</li>
+</ul>
+
+<p>Upon your request to terminate your account, we will deactivate or delete your account and information from our active databases. However, we may retain some information in our files to prevent fraud, troubleshoot problems, assist with any investigations, enforce our legal terms, or comply with applicable legal requirements.</p>
+
+<h3>Cookies and similar technologies</h3>
+
+<p>Most Web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove cookies and to reject cookies. If you choose to remove cookies or reject cookies, this could affect certain features or services of our Services.</p>
+
+<p>If you have questions or comments about your privacy rights, you may email us at <a href="mailto:gidgetpink@gmail.com">gidgetpink@gmail.com</a>.</p>
+
+<h2 id="section-12">12. Controls for Do-Not-Track features</h2>
+
+<p>Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track ("DNT") feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. At this stage, no uniform technology standard for recognizing and implementing DNT signals has been finalized. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this Privacy Notice.</p>
+
+<p>California law requires us to let you know how we respond to web browser DNT signals. Because there currently is not an industry or legal standard for recognizing or honoring DNT signals, we do not respond to them at this time.</p>
+
+<h2 id="section-13">13. Do United States residents have specific privacy rights?</h2>
+<div class="in-short"><strong>In Short:</strong> If you are a resident of California, Colorado, Connecticut, Delaware, Florida, Indiana, Iowa, Kentucky, Maryland, Minnesota, Montana, Nebraska, New Hampshire, New Jersey, Oregon, Rhode Island, Tennessee, Texas, Utah, or Virginia, you may have the right to request access to and receive details about the personal information we maintain about you and how we have processed it, correct inaccuracies, get a copy of, or delete your personal information. You may also have the right to withdraw your consent to our processing of your personal information. These rights may be limited in some circumstances by applicable law.</div>
+
+<h3>Categories of Personal Information We Collect</h3>
+
+<p>The table below shows the categories of personal information we have collected in the past twelve (12) months. The table includes illustrative examples of each category.</p>
+
+<div class="data-table-wrap">
+<table class="data-table">
+<thead>
+<tr><th>Category</th><th>Examples</th><th>Collected</th></tr>
+</thead>
+<tbody>
+<tr><td>A. Identifiers</td><td>Contact details, such as real name, alias, postal address, telephone or mobile contact number, unique personal identifier, online identifier, Internet Protocol address, email address, and account name</td><td class="yes">YES</td></tr>
+<tr><td>B. Personal information as defined in the California Customer Records statute</td><td>Name, contact information, education, employment, employment history, and financial information</td><td class="yes">YES</td></tr>
+<tr><td>C. Protected classification characteristics under state or federal law</td><td>Gender, age, date of birth, race and ethnicity, national origin, marital status, and other demographic data</td><td class="no">NO</td></tr>
+<tr><td>D. Commercial information</td><td>Transaction information, purchase history, financial details, and payment information</td><td class="yes">YES</td></tr>
+<tr><td>E. Biometric information</td><td>Fingerprints and voiceprints</td><td class="no">NO</td></tr>
+<tr><td>F. Internet or other similar network activity</td><td>Browsing history, search history, online behavior, interest data, and interactions with our and other websites, applications, systems, and advertisements</td><td class="yes">YES</td></tr>
+<tr><td>G. Geolocation data</td><td>Device location</td><td class="no">NO</td></tr>
+<tr><td>H. Audio, electronic, sensory, or similar information</td><td>Images and audio, video or call recordings created in connection with our business activities</td><td class="no">NO</td></tr>
+<tr><td>I. Professional or employment-related information</td><td>Business contact details in order to provide you our Services at a business level or job title, work history, and professional qualifications if you apply for a job with us</td><td class="no">NO</td></tr>
+<tr><td>J. Education Information</td><td>Student records and directory information</td><td class="no">NO</td></tr>
+<tr><td>K. Inferences drawn from collected personal information</td><td>Inferences drawn from any of the collected personal information listed above to create a profile or summary about, for example, an individual's preferences and characteristics</td><td class="no">NO</td></tr>
+<tr><td>L. Sensitive personal Information</td><td>(Not collected)</td><td class="no">NO</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>We may also collect other personal information outside of these categories through instances where you interact with us in person, online, or by phone or mail in the context of:</p>
+
+<ul>
+  <li>Receiving help through our customer support channels;</li>
+  <li>Participation in customer surveys or contests; and</li>
+  <li>Facilitation in the delivery of our Services and to respond to your inquiries.</li>
+</ul>
+
+<p>We will use and retain the collected personal information as needed to provide the Services. The retention period for each category (A, B, D, F) is: as long as the user has an account with us.</p>
+
+<h3>Sources of Personal Information</h3>
+
+<p>Learn more about the sources of personal information we collect in <a href="#section-1">1. What information do we collect?</a></p>
+
+<h3>How We Use and Share Personal Information</h3>
+
+<p>Learn more about how we use your personal information in the section <a href="#section-2">2. How do we process your information?</a></p>
+
+<p><strong>Will your information be shared with anyone else?</strong></p>
+
+<p>We may disclose your personal information with our service providers pursuant to a written contract between us and each service provider. Learn more about how we disclose personal information in the section <a href="#section-4">4. When and with whom do we share your personal information?</a></p>
+
+<p>We may use your personal information for our own business purposes, such as for undertaking internal research for technological development and demonstration. This is not considered to be "selling" of your personal information.</p>
+
+<p>We have not sold or shared any personal information to third parties for a business or commercial purpose in the preceding twelve (12) months. We have disclosed the following categories of personal information to third parties for a business or commercial purpose in the preceding twelve (12) months:</p>
+
+<ul>
+  <li>Category A. Identifiers</li>
+  <li>Category B. Personal information as defined in the California Customer Records law</li>
+  <li>Category D. Commercial information</li>
+</ul>
+
+<h3>Your Rights</h3>
+
+<p>You have rights under certain US state data protection laws. However, these rights are not absolute, and in certain cases, we may decline your request as permitted by law. These rights include:</p>
+
+<ul>
+  <li><strong>Right to know</strong> whether or not we are processing your personal data</li>
+  <li><strong>Right to access</strong> your personal data</li>
+  <li><strong>Right to correct</strong> inaccuracies in your personal data</li>
+  <li><strong>Right to request</strong> the deletion of your personal data</li>
+  <li><strong>Right to obtain a copy</strong> of the personal data you previously shared with us</li>
+  <li><strong>Right to non-discrimination</strong> for exercising your rights</li>
+  <li><strong>Right to opt out</strong> of the processing of your personal data if it is used for targeted advertising (or sharing as defined under California's privacy law), the sale of personal data, or profiling in furtherance of decisions that produce legal or similarly significant effects ("profiling")</li>
+</ul>
+
+<p>Depending upon the state where you live, you may also have the following rights:</p>
+
+<ul>
+  <li>Right to access the categories of personal data being processed (as permitted by applicable law, including the privacy law in Minnesota)</li>
+  <li>Right to obtain a list of the categories of third parties to which we have disclosed personal data (as permitted by applicable law, including the privacy law in California, Delaware, and Maryland)</li>
+  <li>Right to obtain a list of specific third parties to which we have disclosed personal data (as permitted by applicable law, including the privacy law in Minnesota and Oregon)</li>
+  <li>Right to obtain a list of third parties to which we have sold personal data (as permitted by applicable law, including the privacy law in Connecticut)</li>
+  <li>Right to review, understand, question, and depending on where you live, correct how personal data has been profiled (as permitted by applicable law, including the privacy law in Connecticut and Minnesota)</li>
+  <li>Right to limit use and disclosure of sensitive personal data (as permitted by applicable law, including the privacy law in California)</li>
+  <li>Right to opt out of the collection of sensitive data and personal data collected through the operation of a voice or facial recognition feature (as permitted by applicable law, including the privacy law in Florida)</li>
+</ul>
+
+<h3>How to Exercise Your Rights</h3>
+
+<p>To exercise these rights, you can contact us by visiting <a href="https://www.thetoolsmithapp.com/">https://www.thetoolsmithapp.com/</a>, by emailing us at <a href="mailto:gidgetpink@gmail.com">gidgetpink@gmail.com</a>, or by referring to the contact details at the bottom of this document.</p>
+
+<p>Under certain US state data protection laws, you can designate an authorized agent to make a request on your behalf. We may deny a request from an authorized agent that does not submit proof that they have been validly authorized to act on your behalf in accordance with applicable laws.</p>
+
+<h3>Request Verification</h3>
+
+<p>Upon receiving your request, we will need to verify your identity to determine you are the same person about whom we have the information in our system. We will only use personal information provided in your request to verify your identity or authority to make the request. However, if we cannot verify your identity from the information already maintained by us, we may request that you provide additional information for the purposes of verifying your identity and for security or fraud-prevention purposes.</p>
+
+<p>If you submit the request through an authorized agent, we may need to collect additional information to verify your identity before processing your request and the agent will need to provide a written and signed permission from you to submit such request on your behalf.</p>
+
+<h3>Appeals</h3>
+
+<p>Under certain US state data protection laws, if we decline to take action regarding your request, you may appeal our decision by emailing us at <a href="mailto:gidgetpink@gmail.com">gidgetpink@gmail.com</a>. We will inform you in writing of any action taken or not taken in response to the appeal, including a written explanation of the reasons for the decisions. If your appeal is denied, you may submit a complaint to your state attorney general.</p>
+
+<h2 id="section-14">14. Do we make updates to this notice?</h2>
+<div class="in-short"><strong>In Short:</strong> Yes, we will update this notice as necessary to stay compliant with relevant laws.</div>
+
+<p>We may update this Privacy Notice from time to time. The updated version will be indicated by an updated "Revised" date at the top of this Privacy Notice. If we make material changes to this Privacy Notice, we may notify you either by prominently posting a notice of such changes or by directly sending you a notification. We encourage you to review this Privacy Notice frequently to be informed of how we are protecting your information.</p>
+
+<h2 id="section-15">15. How can you contact us about this notice?</h2>
+
+<p>If you have questions or comments about this notice, you may email us at <a href="mailto:gidgetpink@gmail.com">gidgetpink@gmail.com</a> or contact us by post at:</p>
+
+<p>
+The Toolsmith LLC<br/>
+805 Wellman Ave NE<br/>
+Huntsville, AL 35801<br/>
+United States
+</p>
+
+<h2 id="section-16">16. How can you review, update, or delete the data we collect from you?</h2>
+
+<p>Based on the applicable laws of your country or state of residence in the US, you may have the right to request access to the personal information we collect from you, details about how we have processed it, correct inaccuracies, or delete your personal information. You may also have the right to withdraw your consent to our processing of your personal information. These rights may be limited in some circumstances by applicable law. To request to review, update, or delete your personal information, please visit <a href="https://www.thetoolsmithapp.com/">https://www.thetoolsmithapp.com/</a> or email us at <a href="mailto:gidgetpink@gmail.com">gidgetpink@gmail.com</a>.</p>
+
+</div>
+</div>
+
+<footer>
+  <div class="flogo">
+    <img src="/logo.png" alt="The Toolsmith"/>
+    <span>The Toolsmith</span>
+  </div>
+  <div class="fnote">© 2026 The Toolsmith LLC. All rights reserved.</div>
+  <div class="flinks">
+    <a href="/">Home</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </div>
+</footer>
+
+</body>
+</html>
