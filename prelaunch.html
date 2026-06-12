@@ -466,8 +466,7 @@
   </footer>
 
   <script>
-    const SUPABASE_URL = 'https://fwxdvjtvaudsbfvsoowj.supabase.co';
-    const SUPABASE_ANON_KEY ='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ3eGR2anR2YXVkc2JmdnNvb3dqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI1NTAwNzksImV4cCI6MjA4ODEyNjA3OX0.3DDwowmwrN-hT0vU5OPBn1e00rDCcupAFhFzKzMh3zc'
+    
 
     const form = document.getElementById('waitlist-form');
     const formWrapper = document.getElementById('form-wrapper');
@@ -506,40 +505,27 @@
       submitBtn.textContent = 'Submitting...';
 
       try {
-        const response = await fetch(SUPABASE_URL + '/rest/v1/waitlist_signups', {
+        const response = await fetch('/api/waitlist-signup', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json',
-            'apikey': SUPABASE_ANON_KEY,
-            'Authorization': 'Bearer ' + SUPABASE_ANON_KEY,
-            'Prefer': 'return=minimal'
+            'Content-Type': 'application/json'
           },
           body: JSON.stringify({
             name: name,
             email: email,
             biggest_headache: headache || null,
-            source: 'prelaunch-landing',
             user_agent: navigator.userAgent
           })
         });
 
-        if (response.ok || response.status === 201) {
+        const data = await response.json();
+
+        if (response.ok) {
           formWrapper.style.display = 'none';
           formSuccess.classList.add('show');
           formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        } else if (response.status === 409 || response.status === 400) {
-          const text = await response.text();
-          if (text.includes('duplicate') || text.includes('unique')) {
-            showError('That email is already on the waitlist. Thanks for your enthusiasm!');
-          } else if (text.includes('email_format')) {
-            showError('Please enter a valid email address');
-          } else {
-            showError('Something went wrong. Please try again.');
-          }
-          submitBtn.disabled = false;
-          submitBtn.textContent = 'Join the waitlist';
         } else {
-          showError('Something went wrong. Please try again.');
+          showError(data.error || 'Something went wrong. Please try again.');
           submitBtn.disabled = false;
           submitBtn.textContent = 'Join the waitlist';
         }
