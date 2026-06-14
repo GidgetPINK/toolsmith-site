@@ -124,8 +124,11 @@ function buildEmailHtml(name) {
         <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="560" style="max-width:560px;background:#16213e;border:1px solid rgba(201,168,76,0.18);border-radius:14px;">
           <tr>
             <td style="padding:40px 36px;">
-              <p style="margin:0 0 8px 0;color:#c9a84c;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-family:'Helvetica Neue',Arial,sans-serif;">You're on the list</p>
-              <h1 style="margin:0 0 24px 0;font-family:Georgia,serif;color:#f8f6f1;font-size:28px;font-weight:500;line-height:1.25;">Welcome to The Toolsmith</h1>
+              <div style="text-align:center;margin-bottom:24px;">
+                <img src="https://thetoolsmithapp.com/logo.png" alt="The Toolsmith" style="width:80px;height:auto;display:inline-block;" />
+              </div>
+              <p style="margin:0 0 8px 0;color:#c9a84c;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-family:'Helvetica Neue',Arial,sans-serif;text-align:center;">You're on the list</p>
+              <h1 style="margin:0 0 24px 0;font-family:Georgia,serif;color:#f8f6f1;font-size:28px;font-weight:500;line-height:1.25;text-align:center;">Welcome to The Toolsmith</h1>
               
               <p style="margin:0 0 20px 0;color:#c5c8d9;font-size:16px;line-height:1.65;font-family:Georgia,serif;">
                 Hey ${name},
