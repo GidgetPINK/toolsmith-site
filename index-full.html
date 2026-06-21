@@ -44,7 +44,7 @@ section{padding:6rem 5%}
 .stitle{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:600;margin-bottom:1rem;line-height:1.15}
 .ssub{color:var(--muted);max-width:540px;font-size:.98rem;margin-bottom:3.5rem;line-height:1.75}
 .divider{width:48px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:1rem 0 1.5rem}
-.pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.75rem;margin-bottom:2rem;max-width:720px}
+.pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.75rem;margin-bottom:2rem;max-width:720px;margin-left:auto;margin-right:auto;text-align:left}
 .pricing-card{background:var(--card);border:1px solid var(--cb);border-radius:var(--r);padding:2rem;display:flex;flex-direction:column;position:relative;overflow:hidden}
 .pricing-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
 .pricing-card.featured{border-color:rgba(201,168,76,.4);background:linear-gradient(135deg,#1e2245,#16213e)}
@@ -62,7 +62,7 @@ section{padding:6rem 5%}
 .pricing-btn.primary-btn{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);border:none;font-weight:600}
 .pricing-btn.primary-btn:hover{opacity:.88}
 .coming-soon-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);color:var(--gold);padding:.25rem .75rem;border-radius:20px;font-size:.72rem;letter-spacing:.06em;margin-bottom:1rem}
-.app-store-note{text-align:center;margin-top:2rem;padding:1.25rem;background:rgba(201,168,76,.05);border:1px solid var(--cb);border-radius:12px;max-width:720px}
+.app-store-note{text-align:center;margin-top:2rem;padding:1.25rem;background:rgba(201,168,76,.05);border:1px solid var(--cb);border-radius:12px;max-width:720px;margin-left:auto;margin-right:auto}
 .app-store-note p{color:var(--muted);font-size:.88rem}
 .app-store-note strong{color:var(--gold-light);font-weight:500}
 #features{background:var(--navy)}
@@ -274,7 +274,7 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
   </div>
 </section>
 
-<section id="pricing" style="background:var(--charcoal);">
+<section id="pricing" style="background:var(--charcoal);text-align:center;">
   <p class="slabel">Simple Pricing</p>
   <h2 class="stitle">One Price. Whole Team. No Per-User Fees.</h2>
   <div class="divider"></div>
