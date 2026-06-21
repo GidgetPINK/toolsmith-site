@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>The Toolsmith — Custom CMMS for Small Teams</title>
+<title>The Toolsmith CMMS - Maintenance Software for Small Teams</title>
+<meta name="description" content="The Toolsmith CMMS. Work orders, team chat, and asset tracking for senior living communities, churches, schools, and small facilities. Start your free trial."/>
 <link rel="icon" type="image/png" href="/logo.png"/>
 <link rel="apple-touch-icon" href="/logo.png"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -43,7 +44,32 @@ section{padding:6rem 5%}
 .stitle{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:600;margin-bottom:1rem;line-height:1.15}
 .ssub{color:var(--muted);max-width:540px;font-size:.98rem;margin-bottom:3.5rem;line-height:1.75}
 .divider{width:48px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:1rem 0 1.5rem}
-#services{background:var(--navy)}
+.pricing-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.75rem;margin-bottom:2rem;max-width:720px}
+.pricing-card{background:var(--card);border:1px solid var(--cb);border-radius:var(--r);padding:2rem;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.pricing-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.pricing-card.featured{border-color:rgba(201,168,76,.4);background:linear-gradient(135deg,#1e2245,#16213e)}
+.pricing-tier{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem;font-weight:500}
+.pricing-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;margin-bottom:.4rem;line-height:1.2}
+.pricing-price{font-size:1.3rem;color:var(--gold-light);font-weight:500;margin-bottom:.25rem}
+.pricing-price span{font-size:.82rem;color:var(--muted);font-weight:300}
+.pricing-annual{font-size:.78rem;color:var(--muted);margin-bottom:1rem}
+.pricing-desc{color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:1.5rem;flex:1}
+.pricing-features{list-style:none;margin-bottom:1.75rem;display:flex;flex-direction:column;gap:.6rem}
+.pricing-features li{display:flex;gap:.75rem;align-items:flex-start;font-size:.88rem;color:var(--white);line-height:1.5}
+.pricing-features li::before{content:'\2713';color:var(--gold);font-weight:700;flex-shrink:0;margin-top:.1rem}
+.pricing-btn{background:rgba(201,168,76,.1);border:1px solid var(--gold);color:var(--gold);padding:.65rem 1.25rem;border-radius:7px;font-size:.82rem;font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:.05em;cursor:pointer;text-align:center;transition:background .2s,color .2s;text-decoration:none;display:block}
+.pricing-btn:hover{background:var(--gold);color:var(--charcoal)}
+.pricing-btn.primary-btn{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);border:none;font-weight:600}
+.pricing-btn.primary-btn:hover{opacity:.88}
+.coming-soon-badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);color:var(--gold);padding:.25rem .75rem;border-radius:20px;font-size:.72rem;letter-spacing:.06em;margin-bottom:1rem}
+.app-store-note{text-align:center;margin-top:2rem;padding:1.25rem;background:rgba(201,168,76,.05);border:1px solid var(--cb);border-radius:12px;max-width:720px}
+.app-store-note p{color:var(--muted);font-size:.88rem}
+.app-store-note strong{color:var(--gold-light);font-weight:500}
+#features{background:var(--navy)}
+.feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2.5rem 3rem}
+.feature h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--gold);margin-bottom:.75rem}
+.feature p{color:var(--muted);font-size:.95rem;line-height:1.7}
+#custom-builds{background:var(--charcoal)}
 .services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.75rem;margin-bottom:3rem}
 .service-card{background:var(--card);border:1px solid var(--cb);border-radius:var(--r);padding:2rem;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden}
 .service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
@@ -56,7 +82,7 @@ section{padding:6rem 5%}
 .service-desc{color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:1.5rem;flex:1}
 .service-features{list-style:none;margin-bottom:1.75rem;display:flex;flex-direction:column;gap:.6rem}
 .service-features li{display:flex;gap:.75rem;align-items:flex-start;font-size:.88rem;color:var(--white);line-height:1.5}
-.service-features li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;margin-top:.1rem}
+.service-features li::before{content:'\2713';color:var(--gold);font-weight:700;flex-shrink:0;margin-top:.1rem}
 .service-btn{background:rgba(201,168,76,.1);border:1px solid var(--gold);color:var(--gold);padding:.65rem 1.25rem;border-radius:7px;font-size:.82rem;font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:.05em;cursor:pointer;text-align:center;transition:background .2s,color .2s;text-decoration:none;display:block}
 .service-btn:hover{background:var(--gold);color:var(--charcoal)}
 .service-btn.primary-btn{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);border:none;font-weight:600}
@@ -65,17 +91,8 @@ section{padding:6rem 5%}
 .includes-grid{background:rgba(201,168,76,.05);border:1px solid var(--cb);border-radius:12px;padding:1.75rem 2rem;margin-bottom:3rem}
 .includes-items{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem;margin-top:1rem}
 .includes-item{display:flex;gap:.6rem;align-items:flex-start;font-size:.87rem;color:var(--muted)}
-.includes-item::before{content:'✓';color:var(--gold);flex-shrink:0;font-weight:700}
-.cmms-card{background:var(--card);border:1px solid var(--cb);border-radius:var(--r);padding:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center}
-.cmms-card-left h3{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;margin-bottom:.75rem}
-.cmms-card-left p{color:var(--muted);font-size:.93rem;line-height:1.75;margin-bottom:1.5rem}
-.cmms-plans{display:flex;gap:1rem;flex-wrap:wrap}
-.cmms-plan{background:rgba(255,255,255,.04);border:1px solid var(--cb);border-radius:10px;padding:1.25rem;flex:1;min-width:140px}
-.cmms-plan-name{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:.35rem;font-weight:500}
-.cmms-plan-price{font-size:1.4rem;font-weight:600;color:var(--white);margin-bottom:.25rem}
-.cmms-plan-price span{font-size:.75rem;color:var(--muted);font-weight:300}
-.cmms-plan-desc{font-size:.78rem;color:var(--muted);line-height:1.5}
-#philosophy{background:var(--charcoal)}
+.includes-item::before{content:'\2713';color:var(--gold);flex-shrink:0;font-weight:700}
+#philosophy{background:var(--navy)}
 .phgrid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
 .pillars{display:flex;flex-direction:column;gap:1.5rem}
 .pillar{display:flex;gap:1.25rem;align-items:flex-start}
@@ -152,7 +169,7 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
 .gidget-send svg{width:16px;height:16px;fill:var(--charcoal)}
 .gidget-send:disabled{opacity:.4;cursor:not-allowed}
 @media(max-width:900px){
-  .cmms-card{grid-template-columns:1fr}
+  .pricing-grid{grid-template-columns:1fr}
   .phgrid{grid-template-columns:1fr;gap:2.5rem}
   .gidget-window{width:calc(100vw - 2rem);right:1rem;bottom:5.5rem}
 }
@@ -173,14 +190,12 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
   section{padding:4rem 5%}
   .stitle{font-size:1.8rem}
   .ssub{font-size:.9rem;margin-bottom:2.5rem}
+  .feature-grid{grid-template-columns:1fr;gap:2rem}
   .services-grid{gap:1.25rem;margin-bottom:2rem}
   .service-card{padding:1.5rem}
   .service-name{font-size:1.4rem}
   .service-price{font-size:1rem}
   .includes-grid{padding:1.25rem 1.5rem}
-  .cmms-card{padding:1.75rem;gap:1.5rem}
-  .cmms-card-left h3{font-size:1.6rem}
-  .cmms-plans{flex-direction:column;gap:.75rem}
   .pillars{gap:1.25rem}
   .pillar{gap:1rem}
   .pill-icon{width:38px;height:38px;font-size:1rem}
@@ -210,84 +225,156 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
     <span class="nav-logo-text">The Toolsmith</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#philosophy">Philosophy</a></li>
-    <li><a href="#newsletter">Newsletter</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#custom-builds">Custom Builds</a></li>
   </ul>
-  <button class="nav-cta" onclick="openInquiry()">Get a Quote</button>
+  <a href="https://toolsmith-cmms.vercel.app/register" class="nav-cta">Start Free Trial</a>
 </nav>
 
 <section class="hero">
-  <p class="hero-eyebrow">Custom Maintenance Software for Small Teams</p>
-  <h1>Your Own CMMS.<br/><span>Built for You.</span></h1>
-  <p class="hero-sub">Enterprise maintenance software costs too much and does too much. The Toolsmith builds lean, focused CMMS applications for small maintenance teams — AI-assisted builds delivered fast, at a price that actually makes sense.</p>
+  <p class="hero-eyebrow">Maintenance Management for Small Teams</p>
+  <h1>Stop Managing Maintenance<br/><span>with Spreadsheets.</span></h1>
+  <p class="hero-sub">The Toolsmith CMMS gives your maintenance team work orders, team chat, and asset tracking in one place. Built for senior living communities, churches, schools, and small facilities.</p>
   <div class="hero-badges">
-    <span class="badge">AI-Assisted Development</span>
-    <span class="badge">Small Team Focused</span>
-    <span class="badge">Fast Turnaround</span>
-    <span class="badge">Transparent Pricing</span>
+    <span class="badge">Work Orders</span>
+    <span class="badge">Team Chat</span>
+    <span class="badge">Asset Tracking</span>
+    <span class="badge">Mobile Friendly</span>
   </div>
   <div class="hero-cta">
-    <button class="btn-primary" onclick="openInquiry()">Start a Custom Build</button>
-    <a href="#services" class="btn-ghost">See How It Works</a>
+    <a href="https://toolsmith-cmms.vercel.app/register" class="btn-primary">Start Free Trial</a>
+    <a href="#pricing" class="btn-ghost">See Pricing</a>
   </div>
 </section>
 
-<section id="services">
-  <p class="slabel">What We Build</p>
-  <h2 class="stitle">Three Ways to Get Started</h2>
+<section id="features">
+  <p class="slabel">What You Get</p>
+  <h2 class="stitle">Everything Your Team Needs. Nothing It Doesn't.</h2>
   <div class="divider"></div>
-  <p class="ssub">Every build is AI-assisted — which means faster delivery and lower cost than a traditional development agency, without cutting corners on quality.</p>
+  <p class="ssub">No bloat. No per-user pricing. One flat rate for your whole team.</p>
+
+  <div class="feature-grid">
+    <div class="feature">
+      <h3>Work Orders That Move</h3>
+      <p>Create a job, assign it, and track it from open to done. Your techs see their queue on their phone. Managers see the full picture on the dashboard. Priority levels keep the important stuff on top.</p>
+    </div>
+    <div class="feature">
+      <h3>Chat That Lives on the Job</h3>
+      <p>Every work order has its own message thread. Techs ask questions, managers give direction, and the full conversation stays attached to that job forever. No more digging through old texts to find how something got fixed.</p>
+    </div>
+    <div class="feature">
+      <h3>Built for Phones, Not Just Desktops</h3>
+      <p>Your techs are on ladders and in crawlspaces, not sitting at a desk. The Toolsmith works on any phone, any tablet, any browser. No app install required.</p>
+    </div>
+    <div class="feature">
+      <h3>Your Whole Team, One Price</h3>
+      <p>Most maintenance software charges per user, which means you pay more as your team grows. The Toolsmith charges one flat price for your entire team. Add your people and get to work.</p>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" style="background:var(--charcoal);">
+  <p class="slabel">Simple Pricing</p>
+  <h2 class="stitle">One Price. Whole Team. No Per-User Fees.</h2>
+  <div class="divider"></div>
+  <p class="ssub">14-day free trial on every plan. No credit card required to start.</p>
+
+  <div class="pricing-grid">
+    <div class="pricing-card featured">
+      <p class="pricing-tier">For teams up to 10</p>
+      <h3 class="pricing-name">Lite</h3>
+      <p class="pricing-price">$19<span>/mo</span></p>
+      <p class="pricing-annual">or $190/year (save $38)</p>
+      <p class="pricing-desc">Everything a small maintenance team needs to stop using spreadsheets and start running real work orders.</p>
+      <ul class="pricing-features">
+        <li>Work order creation, assignment, and tracking</li>
+        <li>Work order chat with live updates</li>
+        <li>Technician mobile queue</li>
+        <li>Manager dashboard with priority filters</li>
+        <li>Up to 10 team members</li>
+        <li>Email notifications</li>
+      </ul>
+      <a href="https://toolsmith-cmms.vercel.app/register" class="pricing-btn primary-btn" style="text-decoration:none;">Start Free Trial</a>
+    </div>
+
+    <div class="pricing-card">
+      <span class="coming-soon-badge">Coming Soon</span>
+      <p class="pricing-tier">For growing teams</p>
+      <h3 class="pricing-name">Pro</h3>
+      <p class="pricing-price">$49<span>/mo</span></p>
+      <p class="pricing-annual">or $490/year (save $98)</p>
+      <p class="pricing-desc">Everything in Lite plus asset management, preventive maintenance, and the Gidget AI assistant.</p>
+      <ul class="pricing-features">
+        <li>Everything in Lite</li>
+        <li>Full asset registry and management</li>
+        <li>Preventive maintenance scheduling</li>
+        <li>Parts and inventory tracking</li>
+        <li>Downtime tracking and reporting</li>
+        <li>Gidget AI assistant</li>
+        <li>Unlimited team members</li>
+      </ul>
+      <button class="pricing-btn" onclick="openProWaitlist()">Join the Pro Waitlist</button>
+    </div>
+  </div>
+
+  <div class="app-store-note">
+    <p><strong>Available in the App Store and Google Play soon.</strong> Use the web app today at <a href="https://toolsmith-cmms.vercel.app" style="color:var(--gold);text-decoration:none;">toolsmith-cmms.vercel.app</a></p>
+  </div>
+</section>
+
+<section id="custom-builds" style="background:var(--navy);">
+  <p class="slabel">Need Something Custom?</p>
+  <h2 class="stitle">We Build CMMS Apps for Your Workflow</h2>
+  <div class="divider"></div>
+  <p class="ssub">If the self-serve app doesn't fit your operation, we'll build one that does. AI-assisted development keeps costs low and delivery fast.</p>
 
   <div class="services-grid">
     <div class="service-card">
-      <span class="ai-badge">⚡ AI-Assisted Build</span>
+      <span class="ai-badge">AI-Assisted Build</span>
       <p class="service-tier">Starter</p>
       <h3 class="service-name">Ready to Launch</h3>
-      <p class="service-price">$500 – $800 <span>one-time setup</span></p>
-      <p class="service-desc">You get a fully working CMMS with your name on it. Same proven stack, your branding, your domain. Up and running in one to two weeks.</p>
+      <p class="service-price">$500 - $800 <span>one-time setup</span></p>
+      <p class="service-desc">A fully working CMMS with your branding, your domain, up and running in one to two weeks.</p>
       <ul class="service-features">
-        <li>Your own domain and branding — looks like yours, not ours</li>
+        <li>Your own domain and branding</li>
         <li>Work order creation, assignment, and tracking</li>
         <li>Technician accounts and manager dashboard</li>
-        <li>Priority queues and real-time status tracking</li>
-        <li>Mobile-friendly — works on any device</li>
-        <li>Hosted and maintained — nothing to install</li>
+        <li>Mobile-friendly on any device</li>
+        <li>Hosted and maintained</li>
       </ul>
       <button class="service-btn" onclick="openInquiry()">Get a Quote</button>
     </div>
 
     <div class="service-card featured">
-      <span class="ai-badge">⚡ AI-Assisted Build</span>
-      <p class="service-tier">Standard — Most Popular</p>
+      <span class="ai-badge">AI-Assisted Build</span>
+      <p class="service-tier">Standard</p>
       <h3 class="service-name">Built to Fit</h3>
-      <p class="service-price">$1,200 – $2,000 <span>one-time setup</span></p>
-      <p class="service-desc">Everything in Starter plus the features your team actually needs — built around your workflow, not a generic template.</p>
+      <p class="service-price">$1,200 - $2,000 <span>one-time setup</span></p>
+      <p class="service-desc">Everything in Starter plus the features your team actually needs, built around your workflow.</p>
       <ul class="service-features">
         <li>Everything in Starter</li>
         <li>Full asset registry and management</li>
         <li>Preventive maintenance scheduling</li>
         <li>Parts and inventory tracking</li>
-        <li>Compliance and downtime reporting</li>
-        <li>Custom fields tailored to your operation</li>
+        <li>Custom fields for your operation</li>
         <li>Delivered in two to four weeks</li>
       </ul>
       <button class="service-btn primary-btn" onclick="openInquiry()">Get a Quote</button>
     </div>
 
     <div class="service-card">
-      <span class="ai-badge">⚡ AI-Assisted Build</span>
+      <span class="ai-badge">AI-Assisted Build</span>
       <p class="service-tier">Premium</p>
       <h3 class="service-name">Fully Custom</h3>
       <p class="service-price">$2,500+ <span>scoped per project</span></p>
-      <p class="service-desc">A completely custom build from the ground up. If your operation has unique requirements that off-the-shelf software cannot handle, this is where we start.</p>
+      <p class="service-desc">A completely custom build from the ground up for operations with unique requirements.</p>
       <ul class="service-features">
         <li>Full requirements discovery session</li>
-        <li>Custom database design and architecture</li>
+        <li>Custom database design</li>
         <li>Integrations with your existing systems</li>
         <li>Advanced reporting and analytics</li>
         <li>Multi-site and multi-team support</li>
-        <li>Detailed project scope and timeline upfront</li>
       </ul>
       <button class="service-btn" onclick="openInquiry()">Get a Quote</button>
     </div>
@@ -296,36 +383,12 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
   <div class="includes-grid">
     <p class="slabel">All Custom Builds Include</p>
     <div class="includes-items">
-      <div class="includes-item">$49 – $99/month hosting and support</div>
-      <div class="includes-item">Your own database — you own your data</div>
+      <div class="includes-item">$49 - $99/month hosting and support</div>
+      <div class="includes-item">Your own database - you own your data</div>
       <div class="includes-item">SSL, backups, and uptime monitoring</div>
+      <div class="includes-item">Source code ownership - no lock-in</div>
       <div class="includes-item">Stripe billing integration if needed</div>
-      <div class="includes-item">Source code ownership — no lock-in</div>
       <div class="includes-item">30-day post-launch support included</div>
-    </div>
-  </div>
-
-  <p class="slabel">Prefer Self-Service?</p>
-  <div class="cmms-card">
-    <div class="cmms-card-left">
-      <h3>Toolsmith CMMS</h3>
-      <p>Not ready for a custom build? Start with our ready-made CMMS app. No setup required — create an account and your team is running work orders the same day.</p>
-      <a href="https://toolsmith-cmms.vercel.app/register" class="btn-primary" style="text-decoration:none;display:inline-block;">Start Free Trial</a>
-    </div>
-    <div>
-      <div class="cmms-plans">
-        <div class="cmms-plan">
-          <p class="cmms-plan-name">Lite</p>
-          <p class="cmms-plan-price">$19<span>/mo</span></p>
-          <p class="cmms-plan-desc">Work orders, technician queues, manager dashboard. Whole team, one price.</p>
-        </div>
-        <div class="cmms-plan">
-          <p class="cmms-plan-name">Pro</p>
-          <p class="cmms-plan-price">$49<span>/mo</span></p>
-          <p class="cmms-plan-desc">Everything in Lite plus assets, PM scheduling, reporting, and parts tracking.</p>
-        </div>
-      </div>
-      <p style="font-size:.78rem;color:var(--muted);margin-top:.85rem">14-day free trial — no credit card required to start.</p>
     </div>
   </div>
 </section>
@@ -337,14 +400,14 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
       <h2 class="stitle">Built Different.<br/>On Purpose.</h2>
       <div class="divider"></div>
       <p style="color:var(--muted);font-size:.98rem;line-height:1.85;margin-bottom:1.25rem">Most CMMS tools are built for enterprise teams with enterprise budgets. Small maintenance teams get left with spreadsheets or software that costs more than it saves.</p>
-      <p style="color:var(--muted);font-size:.98rem;line-height:1.85;margin-bottom:1.25rem">The Toolsmith is different. Every build starts with your actual workflow, not a feature checklist. AI-assisted development keeps costs low and delivery fast — without sacrificing quality or ownership.</p>
-      <p style="color:var(--muted);font-size:.98rem;line-height:1.85">You get source code ownership, your own database, your own domain, and a system built around your team — not the other way around.</p>
+      <p style="color:var(--muted);font-size:.98rem;line-height:1.85;margin-bottom:1.25rem">The Toolsmith is different. One flat price for your whole team. Features that actually matter. No training manuals, no implementation consultants, no six-month rollout.</p>
+      <p style="color:var(--muted);font-size:.98rem;line-height:1.85">Sign up, invite your team, and start running work orders the same day.</p>
     </div>
     <div class="pillars">
-      <div class="pillar"><div class="pill-icon">⚙️</div><div><h4>Built for Maintainers</h4><p>Designed around the reality of a maintenance department — not a textbook scenario or an enterprise org chart.</p></div></div>
-      <div class="pillar"><div class="pill-icon">🤖</div><div><h4>AI-Assisted, Human-Led</h4><p>AI accelerates the build and keeps costs low. Every decision is reviewed and quality-controlled by a human who understands maintenance operations.</p></div></div>
-      <div class="pillar"><div class="pill-icon">📐</div><div><h4>No Bloat</h4><p>Every feature earns its place. You get exactly what your team needs — nothing more, nothing less.</p></div></div>
-      <div class="pillar"><div class="pill-icon">🔑</div><div><h4>You Own It</h4><p>Source code, database, domain — all yours. No vendor lock-in, no surprise price hikes, no dependency on our continued existence.</p></div></div>
+      <div class="pillar"><div class="pill-icon">&#9881;</div><div><h4>Built for Maintainers</h4><p>Designed around the reality of a maintenance department, not a textbook scenario or an enterprise org chart.</p></div></div>
+      <div class="pillar"><div class="pill-icon">&#128241;</div><div><h4>Mobile First</h4><p>Your techs are on the move. The Toolsmith works on any phone, any browser, no app install required.</p></div></div>
+      <div class="pillar"><div class="pill-icon">&#128208;</div><div><h4>No Bloat</h4><p>Every feature earns its place. You get what your team needs and nothing that gets in the way.</p></div></div>
+      <div class="pillar"><div class="pill-icon">&#128176;</div><div><h4>Honest Pricing</h4><p>One flat price for your whole team. No per-user fees, no surprise charges, no feature gates that nickel-and-dime you.</p></div></div>
     </div>
   </div>
 </section>
@@ -352,8 +415,8 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
 <section id="newsletter">
   <div class="nbox">
     <p class="slabel" style="text-align:center">Stay in the Loop</p>
-    <h2 class="stitle" style="text-align:center;font-size:1.9rem">Build Notes &amp; Updates</h2>
-    <p style="color:var(--muted);font-size:.9rem;text-align:center;margin-top:.5rem">Low-volume updates on new features, build case studies, and maintenance tech worth knowing about. No filler.</p>
+    <h2 class="stitle" style="text-align:center;font-size:1.9rem">Build Notes and Updates</h2>
+    <p style="color:var(--muted);font-size:.9rem;text-align:center;margin-top:.5rem">Low-volume updates on new features and maintenance tech worth knowing about. No filler.</p>
     <div class="nform">
       <input type="email" class="ninput" placeholder="your@email.com" id="emailInput"/>
       <button class="btn-primary" onclick="subscribe()">Subscribe</button>
@@ -367,15 +430,14 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
     <img src="/logo.png" alt="The Toolsmith"/>
     The Toolsmith
   </div>
-  <span class="fnote">© 2025 · The Toolsmith CMMS</span>
+  <span class="fnote">&copy; 2026 The Toolsmith LLC. Built in Alabama.</span>
   <div class="flinks">
-    <a href="#">Terms</a>
     <a href="/privacy">Privacy</a>
     <a href="#" onclick="openInquiry();return false;">Contact</a>
   </div>
 </footer>
 
-<!-- INQUIRY MODAL -->
+<!-- INQUIRY MODAL (for custom builds) -->
 <div class="inq-overlay" id="inqOverlay">
   <div class="inq-box" id="inqBox">
     <button class="inq-close" onclick="closeInquiry()">&#10005;</button>
@@ -397,18 +459,37 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
       <label class="inq-label">Team Size</label>
       <select class="inq-select" id="inqTeamSize">
         <option value="">Select team size</option>
-        <option>1 – 5 people</option>
-        <option>6 – 15 people</option>
-        <option>16 – 30 people</option>
+        <option>1 - 5 people</option>
+        <option>6 - 15 people</option>
+        <option>16 - 30 people</option>
         <option>30+ people</option>
       </select>
     </div>
     <div class="inq-field">
       <label class="inq-label">Tell Us About Your Project *</label>
-      <textarea class="inq-textarea" id="inqProject" placeholder="What does your maintenance operation look like today? What are you trying to fix or improve? Which tier are you considering?"></textarea>
+      <textarea class="inq-textarea" id="inqProject" placeholder="What does your maintenance operation look like today? What are you trying to fix or improve?"></textarea>
     </div>
     <button class="inq-btn" id="inqBtn" onclick="submitInquiry()">Send Inquiry</button>
     <p class="inq-note">We respond within one business day. Your information is never shared.</p>
+  </div>
+</div>
+
+<!-- PRO WAITLIST MODAL -->
+<div class="inq-overlay" id="proWaitlistOverlay">
+  <div class="inq-box" id="proWaitlistBox">
+    <button class="inq-close" onclick="closeProWaitlist()">&#10005;</button>
+    <h2 class="inq-title">Get on the Pro Waitlist</h2>
+    <p class="inq-sub">Pro is coming soon with asset management, preventive maintenance scheduling, downtime tracking, and the Gidget AI assistant. Drop your info and we will let you know the moment it launches.</p>
+    <div class="inq-field">
+      <label class="inq-label">Your Name *</label>
+      <input type="text" class="inq-input" id="proName" placeholder="Jane Smith"/>
+    </div>
+    <div class="inq-field">
+      <label class="inq-label">Email Address *</label>
+      <input type="email" class="inq-input" id="proEmail" placeholder="jane@yourcompany.com"/>
+    </div>
+    <button class="inq-btn" id="proBtn" onclick="submitProWaitlist()">Join the Waitlist</button>
+    <p class="inq-note">No spam, no sales pitches. Just one note when Pro is ready.</p>
   </div>
 </div>
 
@@ -422,10 +503,10 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
 
 <div class="gidget-window" id="gidgetWindow">
   <div class="gidget-header">
-    <div class="gidget-avatar">🛠️</div>
+    <div class="gidget-avatar">&#128736;</div>
     <div class="gidget-info">
       <p class="gidget-name">Gidget</p>
-      <p class="gidget-status">Online — The Toolsmith Assistant</p>
+      <p class="gidget-status">Online</p>
     </div>
     <button class="gidget-close-btn" onclick="toggleGidget()">&#10005;</button>
   </div>
@@ -441,64 +522,12 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
 <div class="toast" id="toast"></div>
 
 <script>
-const GIDGET_SYSTEM = `You are Gidget, the friendly and knowledgeable assistant for The Toolsmith — a service that builds custom CMMS (Computerized Maintenance Management System) applications for small maintenance teams.
+var GIDGET_SYSTEM = "You are Gidget, the friendly and knowledgeable assistant for The Toolsmith CMMS, a maintenance management app for small teams.\n\nYour personality: warm, direct, and genuinely helpful. You speak in plain, easy-to-understand language. You are confident about pricing and never hedge or deflect.\n\nABOUT THE TOOLSMITH CMMS:\nThe Toolsmith CMMS is maintenance management software for small teams at senior living communities, churches, schools, and small facilities. It replaces spreadsheets and text messages with real work orders, team chat, and asset tracking.\n\nPLANS:\n\nLite Plan ($19/month or $190/year for the whole team):\n- Work order creation, assignment, and tracking\n- Work order chat with live updates\n- Technician mobile queue\n- Manager dashboard with priority filters\n- Up to 10 team members\n- Email notifications\n- 14-day free trial\n\nPro Plan (Coming Soon, $49/month or $490/year for the whole team):\n- Everything in Lite\n- Full asset registry and management\n- Preventive maintenance scheduling\n- Parts and inventory tracking\n- Downtime tracking and reporting\n- Gidget AI assistant (that is you!)\n- Unlimited team members\n- 14-day free trial\n\nSign up at: toolsmith-cmms.vercel.app/register\n\nCUSTOM BUILDS:\nFor teams that need something beyond the self-serve app, The Toolsmith also builds custom CMMS applications. Three tiers: Starter ($500-$800), Standard ($1,200-$2,000), Premium ($2,500+). All AI-assisted for faster delivery and lower cost. When someone asks about custom builds, you can suggest opening the inquiry form. Include the phrase 'let me open that form for you' and the system will open it automatically.\n\nTROUBLESHOOTING:\n- Login problems: Use the forgot password link on the login page.\n- Work orders not showing: Check the priority filter pills on the dashboard.\n- Cannot add assets: Asset management is a Pro feature (coming soon).\n- Team members cannot log in: The manager must add them in the Team tab.\n- Mobile: The app is browser-based. Use Chrome or Safari for best results.\n\nIMPORTANT RULES:\n- Lead with the CMMS app when people ask about the product\n- Only mention custom builds if someone specifically asks or has needs beyond the app\n- Keep responses concise, 2 to 4 sentences unless they ask for detail\n- Never make up features or pricing not listed above\n- You are a she";
 
-Your personality: warm, direct, and genuinely helpful. You speak in plain, easy-to-understand language — no jargon unless the visitor uses it first. You are confident about pricing and never hedge or deflect. You proactively suggest opening the inquiry form when someone seems ready to move forward.
-
-ABOUT THE TOOLSMITH:
-The Toolsmith builds custom CMMS software for small maintenance teams who are underserved by expensive enterprise tools. All builds are AI-assisted, which means faster delivery and lower cost — without cutting corners on quality.
-
-CUSTOM BUILD TIERS:
-
-1. STARTER ($500 to $800 one-time setup)
-- Best for: Small teams who need a basic work order system up and running fast
-- Delivered in 1 to 2 weeks
-- Plain language explanation: Think of it like getting a brand new truck already painted your company colors — you just add your people and get to work
-- Includes: Work order creation, assignment, and tracking. Technician accounts and manager dashboard. Priority queues and status tracking. Mobile-friendly. Hosted and maintained — nothing to install.
-
-2. STANDARD ($1,200 to $2,000 one-time setup) — MOST POPULAR
-- Best for: Teams who need more than basic work orders
-- Delivered in 2 to 4 weeks
-- Plain language explanation: You tell us how your team works, and we build the software to match — not the other way around
-- Includes: Everything in Starter, plus full asset registry, preventive maintenance scheduling, parts and inventory tracking, compliance and downtime reporting, custom fields tailored to their operation
-
-3. PREMIUM ($2,500+ scoped per project)
-- Best for: Operations with unique requirements that off-the-shelf software cannot handle
-- Timeline scoped per project after discovery session
-- Plain language explanation: If your operation is complicated enough that nothing on the market fits, we figure out exactly what you need and build it from scratch
-- Includes: Custom database design, integrations with existing systems, advanced reporting, multi-site support, full project scope upfront
-
-ALL BUILDS INCLUDE: $49 to $99 per month hosting and support, their own database instance, SSL and backups, source code ownership, 30-day post-launch support
-
-SELF-SERVE CMMS APP:
-- Lite Plan: $19 per month for the whole team. Work orders, technician queues, manager dashboard, mobile access. 14-day free trial.
-- Pro Plan: $49 per month for the whole team. Everything in Lite plus asset management, PM scheduling, reporting, parts tracking. 14-day free trial.
-- Sign up at: toolsmith-cmms.vercel.app/register
-
-CMMS APP TROUBLESHOOTING:
-- Login problems: Use the forgot password link on the login page. If account is deactivated, contact your manager.
-- Work orders not showing up: Check the priority filter pills on the dashboard — click any active filter to clear it.
-- Cannot add assets: Asset management is a Pro feature. Lite users see an upgrade prompt in the asset sidebar.
-- Team members cannot log in: The manager must add them in the Team tab with their email and a temporary password.
-- Billing questions: Stripe handles all payments. Check your email for receipts. Contact us for incorrect charges.
-- Mobile issues: The app is browser-based — use Chrome or Safari on mobile for best results.
-- Password change: Go to the menu and select Change Password after logging in.
-
-INQUIRY FLOW:
-When someone wants to get a quote, start a project, or learn more about working together, let them know you can open the inquiry form for them. In your reply include the exact phrase "let me open that form for you" and the system will open it automatically. Be proactive — suggest the form when someone asks about pricing, timelines, or getting started.
-
-IMPORTANT RULES:
-- Always be honest that builds are AI-assisted — frame it as a benefit (faster, cheaper, not a limitation)
-- Never promise exact delivery dates — give ranges only
-- If someone asks something you do not know, say so and suggest they submit an inquiry
-- Keep responses concise — 2 to 4 sentences unless they ask for detail
-- Never make up features or pricing not listed above
-- You are a she`;
-
-let gidgetOpen = false;
-let gidgetHistory = [];
-let gidgetTyping = false;
-let gidgetGreeted = false;
+var gidgetOpen = false;
+var gidgetHistory = [];
+var gidgetTyping = false;
+var gidgetGreeted = false;
 
 function toggleGidget() {
   gidgetOpen = !gidgetOpen;
@@ -508,7 +537,7 @@ function toggleGidget() {
   if (gidgetOpen && !gidgetGreeted) {
     gidgetGreeted = true;
     setTimeout(function() {
-      addMsg("Hi! I'm Gidget 👋 I'm here to help you learn about The Toolsmith's custom CMMS builds, answer questions about the self-serve app, or help you get a quote. What can I help you with today?", 'gidget');
+      addMsg("Hi! I'm Gidget. I can help you learn about The Toolsmith CMMS, answer questions about Lite or Pro plans, or walk you through getting started. What can I help you with?", 'gidget');
     }, 400);
   }
   if (gidgetOpen) setTimeout(function(){ document.getElementById('gidgetInput').focus(); }, 300);
@@ -564,7 +593,7 @@ async function sendGidgetMessage() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
+        model: 'claude-sonnet-4-6',
         max_tokens: 1000,
         system: GIDGET_SYSTEM,
         messages: gidgetHistory
@@ -573,16 +602,16 @@ async function sendGidgetMessage() {
     var data = await response.json();
     var reply = (data.content && data.content[0] && data.content[0].text)
       ? data.content[0].text
-      : "I'm sorry, I ran into an issue. Please try again or submit an inquiry directly.";
+      : "I'm sorry, I ran into an issue. Please try again.";
     hideTyping();
     gidgetHistory.push({ role: 'assistant', content: reply });
     addMsg(reply, 'gidget');
-    if (reply.toLowerCase().includes('let me open that form for you')) {
+    if (reply.toLowerCase().indexOf('let me open that form for you') !== -1) {
       setTimeout(function(){ openInquiry(); }, 800);
     }
   } catch(err) {
     hideTyping();
-    addMsg("I'm having a little trouble right now. You can submit an inquiry directly and we will get back to you within one business day.", 'gidget');
+    addMsg("I'm having a little trouble right now. You can start a free trial directly at the link above.", 'gidget');
   }
   gidgetTyping = false;
   document.getElementById('gidgetSend').disabled = false;
@@ -594,8 +623,17 @@ function openInquiry() {
 function closeInquiry() {
   document.getElementById('inqOverlay').classList.remove('open');
 }
+
+function openProWaitlist() {
+  document.getElementById('proWaitlistOverlay').classList.add('open');
+}
+function closeProWaitlist() {
+  document.getElementById('proWaitlistOverlay').classList.remove('open');
+}
+
 document.addEventListener('click', function(e) {
   if (e.target.id === 'inqOverlay') closeInquiry();
+  if (e.target.id === 'proWaitlistOverlay') closeProWaitlist();
 });
 
 async function submitInquiry() {
@@ -619,10 +657,10 @@ async function submitInquiry() {
     if (data.success) {
       document.getElementById('inqBox').innerHTML =
         '<div style="text-align:center;padding:2rem 0;">' +
-        '<div style="width:64px;height:64px;border-radius:50%;background:rgba(152,195,121,0.12);border:1px solid rgba(152,195,121,0.3);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 1.5rem;">✓</div>' +
-        '<h2 style="font-family:\'Cormorant Garamond\',serif;color:#c9a84c;font-size:1.8rem;font-weight:600;margin-bottom:1rem;">Got it, ' + name + '.</h2>' +
-        '<p style="color:#9a9db5;font-size:.93rem;line-height:1.75;margin-bottom:1.5rem;">Your inquiry has been received. We will review your project and send a detailed proposal within one business day. Check your inbox for a confirmation email.</p>' +
-        '<button onclick="closeInquiry()" style="background:none;border:1px solid rgba(201,168,76,.3);color:#c9a84c;border-radius:8px;padding:.65rem 1.75rem;font-size:.85rem;font-family:\'DM Sans\',sans-serif;cursor:pointer;">Close</button>' +
+        '<div style="width:64px;height:64px;border-radius:50%;background:rgba(152,195,121,0.12);border:1px solid rgba(152,195,121,0.3);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 1.5rem;">&#10003;</div>' +
+        '<h2 style="font-family:Cormorant Garamond,serif;color:#c9a84c;font-size:1.8rem;font-weight:600;margin-bottom:1rem;">Got it, ' + name + '.</h2>' +
+        '<p style="color:#9a9db5;font-size:.93rem;line-height:1.75;margin-bottom:1.5rem;">Your inquiry has been received. We will review your project and send a detailed proposal within one business day.</p>' +
+        '<button onclick="closeInquiry()" style="background:none;border:1px solid rgba(201,168,76,.3);color:#c9a84c;border-radius:8px;padding:.65rem 1.75rem;font-size:.85rem;font-family:DM Sans,sans-serif;cursor:pointer;">Close</button>' +
         '</div>';
     } else {
       showToast('Something went wrong. Please try again.');
@@ -633,6 +671,41 @@ async function submitInquiry() {
     showToast('Something went wrong. Please try again.');
     btn.disabled = false;
     btn.textContent = 'Send Inquiry';
+  }
+}
+
+async function submitProWaitlist() {
+  var name = document.getElementById('proName').value.trim();
+  var email = document.getElementById('proEmail').value.trim();
+  var btn = document.getElementById('proBtn');
+  if (!name || !email) { showToast('Please enter your name and email.'); return; }
+  if (email.indexOf('@') < 0) { showToast('Please enter a valid email address.'); return; }
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+  try {
+    var res = await fetch('/api/waitlist-signup', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: name, email: email, biggest_headache: 'Pro waitlist signup', user_agent: navigator.userAgent })
+    });
+    var data = await res.json();
+    if (res.ok) {
+      document.getElementById('proWaitlistBox').innerHTML =
+        '<div style="text-align:center;padding:2rem 0;">' +
+        '<div style="width:64px;height:64px;border-radius:50%;background:rgba(152,195,121,0.12);border:1px solid rgba(152,195,121,0.3);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 1.5rem;">&#10003;</div>' +
+        '<h2 style="font-family:Cormorant Garamond,serif;color:#c9a84c;font-size:1.8rem;font-weight:600;margin-bottom:1rem;">You are on the list, ' + name + '.</h2>' +
+        '<p style="color:#9a9db5;font-size:.93rem;line-height:1.75;margin-bottom:1.5rem;">We will let you know the moment Pro launches. No spam, just one note when it is ready.</p>' +
+        '<button onclick="closeProWaitlist()" style="background:none;border:1px solid rgba(201,168,76,.3);color:#c9a84c;border-radius:8px;padding:.65rem 1.75rem;font-size:.85rem;font-family:DM Sans,sans-serif;cursor:pointer;">Close</button>' +
+        '</div>';
+    } else {
+      showToast(data.error || 'Something went wrong. Please try again.');
+      btn.disabled = false;
+      btn.textContent = 'Join the Waitlist';
+    }
+  } catch(err) {
+    showToast('Something went wrong. Please try again.');
+    btn.disabled = false;
+    btn.textContent = 'Join the Waitlist';
   }
 }
 
