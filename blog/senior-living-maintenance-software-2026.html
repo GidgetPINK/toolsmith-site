@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Maintenance Software for Small Senior Living Communities: What to Look for in 2026 — The Toolsmith</title>
+<meta name="description" content="A practical guide for directors of maintenance at small assisted living and independent living communities evaluating CMMS software. Seven things to check before you sign anything."/>
+<link rel="icon" type="image/png" href="/logo.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-uG5UO1ZLr8pUxlrNe1111.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --charcoal:#1a1a2e;--navy:#16213e;--navy-light:#0f3460;--gold:#c9a84c;
+  --gold-light:#e8c97a;--white:#f8f6f1;--muted:#9a9db5;--card:#1e2245;
+  --cb:rgba(201,168,76,0.18);--r:12px
+}
+html{scroll-behavior:smooth}
+body{background:var(--charcoal);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+a{color:var(--gold-light);text-decoration:underline;text-decoration-color:rgba(201,168,76,0.4);text-underline-offset:3px;transition:color .2s}
+a:hover{color:var(--gold);text-decoration-color:var(--gold)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 5%;background:rgba(26,26,46,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--cb)}
+.nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.nav-logo img{height:36px;width:36px;border-radius:6px;object-fit:cover}
+.nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);letter-spacing:.04em;font-weight:600}
+.nav-back{color:var(--muted);font-size:.85rem;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-weight:400;display:flex;align-items:center;gap:.5rem}
+.nav-back:hover{color:var(--gold-light)}
+.nav-back::before{content:'\2190';font-size:1rem;line-height:1}
+.post-hero{padding:8rem 5% 2.5rem;text-align:center;background:radial-gradient(ellipse 70% 50% at 50% 40%,rgba(15,52,96,.4) 0%,transparent 70%),linear-gradient(180deg,var(--charcoal) 0%,var(--navy) 100%);position:relative;overflow:hidden}
+.post-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.post-meta{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;font-weight:500;position:relative;display:flex;gap:1rem;justify-content:center;align-items:center}
+.post-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--muted)}
+.post-meta .tag{color:var(--muted)}
+.post-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.5rem);font-weight:700;line-height:1.15;color:var(--white);position:relative;max-width:780px;margin:0 auto}
+.divider{width:48px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1.5rem auto 0;position:relative}
+.post-wrap{max-width:720px;margin:0 auto;padding:3rem 5% 5rem}
+.post-content{font-size:1.05rem;line-height:1.85;color:var(--white)}
+.post-content p{margin-bottom:1.5rem;color:var(--white)}
+.post-content h2{font-family:'Cormorant Garamond',serif;font-size:1.85rem;font-weight:600;color:var(--gold);margin:3rem 0 1.25rem;line-height:1.25;padding-top:1.5rem;border-top:1px solid var(--cb)}
+.post-content h2:first-of-type{padding-top:0;border-top:none}
+.post-content h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--gold-light);margin:2rem 0 .75rem;line-height:1.3}
+.post-content ul,.post-content ol{margin:0 0 1.5rem 0;padding:0;list-style:none}
+.post-content ul li,.post-content ol li{position:relative;padding-left:1.5rem;margin-bottom:.75rem;color:var(--white)}
+.post-content ul li::before{content:'\25C6';position:absolute;left:0;top:0;color:var(--gold);font-size:.65rem;line-height:1.85}
+.post-content ol{counter-reset:item}
+.post-content ol li{counter-increment:item}
+.post-content ol li::before{content:counter(item) '.';position:absolute;left:0;top:0;color:var(--gold);font-weight:600;font-size:.95rem}
+.post-content strong{color:var(--white);font-weight:600}
+.post-content em{color:var(--muted);font-style:italic}
+.post-content blockquote{border-left:3px solid var(--gold);background:rgba(201,168,76,.06);border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin:1.5rem 0;color:var(--muted);font-style:italic}
+.post-content blockquote p:last-child{margin-bottom:0}
+.cta-card{background:var(--card);border:1px solid rgba(201,168,76,.3);border-radius:var(--r);padding:2rem;margin:3rem 0 1rem;text-align:center;position:relative;overflow:hidden}
+.cta-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.cta-card h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--white);margin:0 0 .75rem;font-weight:600}
+.cta-card p{color:var(--muted);font-size:.95rem;margin-bottom:1.5rem;line-height:1.7}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);padding:.85rem 2rem;border-radius:8px;font-weight:600;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:opacity .2s}
+.cta-btn:hover{opacity:.9;color:var(--charcoal)}
+.post-footer{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--cb);text-align:center}
+.post-footer p{color:var(--muted);font-size:.9rem;margin-bottom:1rem}
+.post-footer a{color:var(--gold)}
+footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.flogo{display:flex;align-items:center;gap:.5rem;font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:1.1rem;font-weight:600}
+.flogo img{height:28px;width:28px;border-radius:4px;object-fit:cover}
+.fnote{color:var(--muted);font-size:.8rem}
+.flinks{display:flex;gap:1.5rem}
+.flinks a{color:var(--muted);font-size:.8rem;text-decoration:none}
+.flinks a:hover{color:var(--gold)}
+@media (max-width:640px){
+  .post-hero{padding:7rem 5% 2rem}
+  .post-wrap{padding:2.5rem 5% 4rem}
+  .post-content{font-size:1rem}
+  .post-content h2{font-size:1.5rem;margin-top:2.5rem}
+  .post-content h3{font-size:1.2rem}
+  .cta-card{padding:1.5rem}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/logo.png" alt="The Toolsmith"/>
+    <span class="nav-logo-text">The Toolsmith</span>
+  </a>
+  <a href="/blog" class="nav-back">Back to blog</a>
+</nav>
+
+<section class="post-hero">
+  <div class="post-meta">
+    <span>JUNE 23, 2026</span>
+    <span class="dot"></span>
+    <span class="tag">Senior Living</span>
+  </div>
+  <h1>Maintenance Software for Small Senior Living Communities: What to Look for in 2026</h1>
+  <div class="divider"></div>
+</section>
+
+<main class="post-wrap">
+  <article class="post-content">
+
+    <p>If you run maintenance at a small senior living community, you already know the problem. Work orders come in by paper slip, sticky note, hallway conversation, and the occasional 2 AM phone call. The whiteboard in your office is months behind. Your state surveyor is coming in eight weeks and you have no clean way to show what got fixed, when, and by whom.</p>
+
+    <p>You need software. The hard part is figuring out which one.</p>
+
+    <p>The CMMS market is crowded, and most of it is built for somebody else. Manufacturing plants. Hospital systems. Property managers with hundreds of buildings. The few CMMS tools designed with senior living in mind tend to be priced for the big chains, not for a single community with a four-person maintenance team.</p>
+
+    <p>This guide walks through what actually matters when you're evaluating maintenance software for a small assisted living, independent living, or memory care community. It's written for the person making this decision with limited time, a tight budget, and a team that already has plenty to do.</p>
+
+    <h2>Your team has to actually use it</h2>
+
+    <p>The biggest predictor of whether a CMMS will work for you is whether your maintenance techs will actually pick it up and use it on the job. The feature list matters less than you'd think.</p>
+
+    <p>Most CMMS tools were designed for someone sitting at a desk. Your techs aren't at desks. They're in mechanical rooms, on roofs, under sinks, and in resident apartments. If they have to walk back to a computer to log a work order, they won't log it. That work order will live in their head until they forget about it.</p>
+
+    <p>What to look for:</p>
+
+    <ul>
+      <li>The mobile experience is built for phones, not a shrunken version of the desktop view. Buttons are big enough to tap. Forms are short. The screen flow is designed around what a tech actually does on a job.</li>
+      <li>Creating a new work order takes a handful of taps, not a dozen. If it takes longer than 60 seconds, your team will keep using sticky notes.</li>
+      <li>A tech sees only their own assigned work, not the entire queue. Dump 80 open jobs onto a tech's screen and they'll close the app and never open it again.</li>
+      <li>Managers can see everything, with filters by priority, status, and assignee.</li>
+    </ul>
+
+    <p>Ask the vendor for a free trial and have your most reluctant technician try to log a real work order on their phone. If they can't do it in under 90 seconds, the software won't work in your community.</p>
+
+    <h2>State surveys are the real test</h2>
+
+    <p>Every assisted living community in every state goes through routine inspections from a state surveyor. The exact name varies. In Alabama it's the Department of Public Health. In Florida it's the Agency for Health Care Administration. The format is similar across the country.</p>
+
+    <p>Surveyors look at maintenance documentation as part of their life safety review. They want to see that fire doors, exit signs, emergency lights, kitchen equipment, and HVAC systems are being inspected and repaired on a regular basis. The standard for "good documentation" isn't complicated, but it is specific:</p>
+
+    <ol>
+      <li>A record of who reported the issue and when</li>
+      <li>A record of who completed the work and when</li>
+      <li>A description of what was actually done</li>
+      <li>A clear timeline from report to completion</li>
+    </ol>
+
+    <p>A CMMS gives you all four automatically. A spreadsheet, paper logbook, or text message thread doesn't. When the surveyor asks "show me the work history for this fire door," you should be able to pull it up in 30 seconds.</p>
+
+    <p>What to ask the vendor:</p>
+
+    <ul>
+      <li>Can I export a work history report for a specific asset, date range, or category?</li>
+      <li>Are work order records preserved after they're marked closed?</li>
+      <li>Can I print or PDF a clean report to hand to a surveyor or auditor?</li>
+    </ul>
+
+    <h2>The per-user pricing trap</h2>
+
+    <p>This is the single most expensive mistake you can make in this category. Most CMMS tools charge by the user, somewhere between $45 and $120 per technician per month. For a community with a maintenance team of six, that's $270 to $720 per month, or $3,200 to $8,600 per year, before any add-ons.</p>
+
+    <p>The math gets worse when you realize you probably want your executive director, your administrator, and maybe a few department heads to have at least limited access. Now you're paying for ten users. At $75 per user per month, that's $9,000 per year for software that helps you fix toilets.</p>
+
+    <p>Flat-rate pricing is the alternative, where the whole community pays one price regardless of how many people are using the software. Flat-rate tools tend to land between $20 and $50 per month, total. The annual cost comes out closer to $250 to $600 instead of $9,000.</p>
+
+    <p>A few vendors require you to talk to sales before they'll show you pricing. That's usually a sign their pricing scales with company size. If you're a small community, you can usually save time by asking for pricing upfront and walking away if they won't share it.</p>
+
+    <h2>Preventive maintenance, but not too much of it</h2>
+
+    <p>Every CMMS vendor talks about preventive maintenance scheduling. The idea is simple: you set up recurring tasks (change HVAC filters quarterly, test fire extinguishers monthly) and the software reminds you. This is genuinely useful for senior living because so much of your maintenance is life-safety related and has to happen on a calendar regardless of whether anything is broken.</p>
+
+    <p>Where vendors go wrong is in the complexity. Some tools have preventive maintenance modules that require you to map every piece of equipment, build a hierarchy of parent and child assets, configure inheritance rules, and define maintenance trees. By the time you finish the setup, you've spent six months building a digital twin of your building. The maintenance team hasn't done any actual maintenance during that time.</p>
+
+    <p>For most small senior living communities, what you actually need is simpler:</p>
+
+    <ul>
+      <li>A list of your assets (rooftop HVAC unit, kitchen hood, fire panel, emergency generator)</li>
+      <li>A way to schedule recurring tasks against each asset</li>
+      <li>Automatic creation of a work order when the task comes due</li>
+      <li>A way to mark the task done and capture notes about what you found</li>
+    </ul>
+
+    <p>If a vendor demo includes the phrase "maintenance hierarchy" or "asset criticality tree" or "predictive maintenance algorithm," you're looking at enterprise software priced for an enterprise customer. Walk away.</p>
+
+    <h2>Implementation should take a week, not a quarter</h2>
+
+    <p>Watch out for vendors who tell you implementation takes 90 days. That usually means:</p>
+
+    <ul>
+      <li>You'll sit through a series of "discovery" calls with their professional services team</li>
+      <li>They'll hand you a 40-page configuration workbook to fill out</li>
+      <li>They'll charge you $5,000 to $15,000 for the privilege</li>
+      <li>By the time you actually start using the software, your maintenance director has changed jobs</li>
+    </ul>
+
+    <p>For a single small community with a small team, real implementation should be:</p>
+
+    <ol>
+      <li>Sign up and create your organization (5 minutes)</li>
+      <li>Invite your team (5 minutes)</li>
+      <li>Create a few sample work orders to practice (15 minutes)</li>
+      <li>Start using it for real tomorrow</li>
+    </ol>
+
+    <p>You don't need to import three years of paper records, build a complete asset hierarchy, or configure custom workflows before you can use the software. You can do all of that gradually, over the first few months, as you go.</p>
+
+    <h2>Resident requests are different from facility work</h2>
+
+    <p>Here's something many CMMS vendors miss: senior living maintenance isn't just facility maintenance. It's also resident-facing. Mrs. Henderson in apartment 204 has a dripping faucet. Mr. Brody in 318 says the air conditioning is too cold. Activities needs a new TV mounted in the day room.</p>
+
+    <p>These work orders matter, but they have different characteristics than mechanical room work:</p>
+
+    <ul>
+      <li>They're often reported by family members or care staff, not by the resident</li>
+      <li>They need a quick response for resident comfort and satisfaction</li>
+      <li>The tech needs to know the resident's name, room number, and any care notes before walking in</li>
+      <li>Privacy matters. Resident information shouldn't be searchable by every staff member with access to the system</li>
+    </ul>
+
+    <p>Most CMMS tools weren't built with this in mind. They were built for industrial work orders where assets are machines, not people. When you evaluate software, ask the vendor specifically how they handle resident-facing work. If their answer is "you'd just type the room number in the description field," they haven't thought about your use case.</p>
+
+    <p>The good news is you can work around it. A well-organized title field ("Apartment 204 - dripping faucet") and a strong assignment workflow will cover most situations. But know going in that almost no CMMS handles this elegantly today, and choose one where the workaround is at least clean.</p>
+
+    <h2>Mobile is not optional</h2>
+
+    <p>If a vendor's mobile experience is a smaller version of their desktop app crammed onto a phone screen, your team won't use it. Real mobile design for maintenance work means:</p>
+
+    <ul>
+      <li>Buttons big enough to tap with work gloves on</li>
+      <li>One-handed operation, because the other hand is holding a tool</li>
+      <li>Easy photo capture and attachment to work orders</li>
+      <li>A fast, focused queue view for individual techs</li>
+      <li>Notifications when something new comes in or when a chat message is posted</li>
+    </ul>
+
+    <p>Ask for a 14-day free trial and test the mobile experience in the field. Have a tech complete five real work orders on their phone before you commit. If anything feels clunky in the trial, it'll be ten times worse after six months of daily use.</p>
+
+    <h2>A simple checklist for your evaluation</h2>
+
+    <p>If you're short on time, here's the short version. When you compare CMMS options, score each one on these points:</p>
+
+    <ol>
+      <li>Can your most reluctant tech log a work order on their phone in under 90 seconds?</li>
+      <li>Can you export a clean work history report for a state surveyor in under 30 seconds?</li>
+      <li>Is the pricing a flat rate per community, not per user?</li>
+      <li>Can you start using it the same day you sign up, with no required onboarding calls?</li>
+      <li>Does the mobile experience feel built for phones, not just a shrunken desktop view?</li>
+      <li>Can you assign role-based access so techs see only their own work?</li>
+      <li>Is there a free trial of at least 14 days, with no credit card required?</li>
+    </ol>
+
+    <p>Any CMMS that fails three or more of these is the wrong choice for a small senior living community. The right one will hit all seven.</p>
+
+    <h2>One more thing about cost</h2>
+
+    <p>The cheapest CMMS is the one your team actually uses. A $19 per month tool that everyone uses every day is worth far more than a $300 per month tool that sits unused while your team goes back to paper.</p>
+
+    <p>When you're evaluating cost, think about the full picture:</p>
+
+    <ul>
+      <li>The monthly subscription</li>
+      <li>Per-user fees</li>
+      <li>Implementation costs</li>
+      <li>Training time for your team</li>
+      <li>The cost of work that doesn't get done because the system is too hard to use</li>
+    </ul>
+
+    <p>The last one is the most expensive and the least visible. A simple, cheap tool that gets used is worth far more than a powerful, expensive tool that doesn't.</p>
+
+    <div class="cta-card">
+      <h3>Ready to stop managing maintenance with spreadsheets?</h3>
+      <p>The Toolsmith CMMS gives your maintenance team work orders, team chat, and asset tracking in one place. Built for small senior living communities. One flat price for your whole team. 14-day free trial, no credit card required.</p>
+      <a href="https://toolsmith-cmms.app/register" class="cta-btn">Start Free Trial</a>
+    </div>
+
+    <div class="post-footer">
+      <p>Want more articles like this? <a href="/#newsletter">Join the newsletter</a> for low-volume updates on new features and maintenance tech worth knowing about.</p>
+    </div>
+
+  </article>
+</main>
+
+<footer>
+  <div class="flogo">
+    <img src="/logo.png" alt="The Toolsmith"/>
+    <span>The Toolsmith</span>
+  </div>
+  <div class="fnote">&copy; 2026 The Toolsmith. All rights reserved.</div>
+  <div class="flinks">
+    <a href="/">Home</a>
+    <a href="/blog">Blog</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </div>
+</footer>
+
+</body>
+</html>
