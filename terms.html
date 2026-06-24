@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Terms of Service — The Toolsmith</title>
+<meta name="description" content="Terms of Service for The Toolsmith CMMS. The rules and agreement between you and The Toolsmith LLC."/>
+<link rel="icon" type="image/png" href="/logo.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --charcoal:#1a1a2e;--navy:#16213e;--navy-light:#0f3460;--gold:#c9a84c;
+  --gold-light:#e8c97a;--white:#f8f6f1;--muted:#9a9db5;--card:#1e2245;
+  --cb:rgba(201,168,76,0.18);--r:12px
+}
+html{scroll-behavior:smooth}
+body{background:var(--charcoal);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+a{color:var(--gold-light);text-decoration:underline;text-decoration-color:rgba(201,168,76,0.4);text-underline-offset:3px;transition:color .2s,text-decoration-color .2s}
+a:hover{color:var(--gold);text-decoration-color:var(--gold)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 5%;background:rgba(26,26,46,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--cb)}
+.nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.nav-logo img{height:36px;width:36px;border-radius:6px;object-fit:cover}
+.nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);letter-spacing:.04em;font-weight:600}
+.nav-back{color:var(--muted);font-size:.85rem;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;font-weight:400;display:flex;align-items:center;gap:.5rem}
+.nav-back:hover{color:var(--gold-light)}
+.nav-back::before{content:'\2190';font-size:1rem;line-height:1}
+.doc-hero{padding:9rem 5% 3rem;text-align:center;background:radial-gradient(ellipse 70% 50% at 50% 40%,rgba(15,52,96,.5) 0%,transparent 70%),linear-gradient(180deg,var(--charcoal) 0%,var(--navy) 100%);position:relative;overflow:hidden}
+.doc-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.doc-eyebrow{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;font-weight:500;position:relative}
+.doc-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:700;line-height:1.1;color:var(--white);position:relative;margin-bottom:.75rem}
+.doc-meta{color:var(--muted);font-size:.9rem;position:relative}
+.divider{width:48px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1.5rem auto 0;position:relative}
+.doc-wrap{max-width:780px;margin:0 auto;padding:4rem 5% 5rem;position:relative}
+.doc-content{font-size:1rem;line-height:1.85;color:var(--white)}
+.doc-content p{margin-bottom:1.25rem;color:var(--white)}
+.doc-content h2{font-family:'Cormorant Garamond',serif;font-size:1.75rem;font-weight:600;color:var(--gold);margin:3.5rem 0 1rem;line-height:1.25;scroll-margin-top:6rem;position:relative;padding-top:1rem;border-top:1px solid var(--cb)}
+.doc-content h2:first-of-type{padding-top:0;border-top:none;margin-top:0}
+.doc-content h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--gold-light);margin:2rem 0 .75rem;line-height:1.3}
+.doc-content ul{list-style:none;margin:0 0 1.5rem 0;padding:0}
+.doc-content ul li{position:relative;padding-left:1.5rem;margin-bottom:.6rem;color:var(--white)}
+.doc-content ul li::before{content:'\25C6';position:absolute;left:0;top:0;color:var(--gold);font-size:.65rem;line-height:1.85}
+.doc-content strong{color:var(--white);font-weight:600}
+.doc-content em{color:var(--muted);font-style:italic}
+.doc-content .in-short{background:rgba(201,168,76,.06);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:1rem 1.25rem;margin:1rem 0 1.5rem;color:var(--muted);font-size:.95rem}
+.doc-content .in-short strong{color:var(--gold-light)}
+.doc-content .all-caps{text-transform:uppercase;font-size:.92rem;letter-spacing:.02em;line-height:1.75}
+.summary-card{background:var(--card);border:1px solid var(--cb);border-radius:var(--r);padding:2rem;margin-bottom:3rem;position:relative;overflow:hidden}
+.summary-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.summary-card h2{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);margin:0 0 1rem;padding:0;border:none;font-weight:600}
+.summary-card p{font-size:.92rem;color:var(--muted);margin-bottom:.75rem;line-height:1.7}
+.summary-card p:last-child{margin-bottom:0}
+.summary-card strong{color:var(--gold-light);font-weight:600}
+.toc-card{background:rgba(255,255,255,.02);border:1px solid var(--cb);border-radius:var(--r);padding:1.75rem 2rem;margin-bottom:3rem}
+.toc-card h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--gold);margin:0 0 1rem;font-weight:600}
+.toc-list{display:flex;flex-direction:column;gap:.5rem;list-style:none;padding:0;margin:0}
+.toc-list li{padding:0}
+.toc-list li::before{display:none}
+.toc-list a{display:flex;gap:.75rem;color:var(--muted);text-decoration:none;font-size:.9rem;padding:.25rem 0;transition:color .2s;align-items:baseline}
+.toc-list a:hover{color:var(--gold-light)}
+.toc-num{color:var(--gold);font-weight:500;flex-shrink:0;min-width:1.5rem}
+footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.flogo{display:flex;align-items:center;gap:.5rem;font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:1.1rem;font-weight:600}
+.flogo img{height:28px;width:28px;border-radius:4px;object-fit:cover}
+.fnote{color:var(--muted);font-size:.8rem}
+.flinks{display:flex;gap:1.5rem}
+.flinks a{color:var(--muted);font-size:.8rem;text-decoration:none;transition:color .2s}
+.flinks a:hover{color:var(--gold)}
+@media (max-width:640px){
+  .doc-hero{padding:7.5rem 5% 2.5rem}
+  .doc-wrap{padding:3rem 5% 4rem}
+  .doc-content h2{font-size:1.45rem;margin-top:2.5rem}
+  .summary-card,.toc-card{padding:1.5rem}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/logo.png" alt="The Toolsmith"/>
+    <span class="nav-logo-text">The Toolsmith</span>
+  </a>
+  <a href="/" class="nav-back">Back to home</a>
+</nav>
+
+<section class="doc-hero">
+  <p class="doc-eyebrow">Legal</p>
+  <h1>Terms of Service</h1>
+  <div class="doc-meta">Last updated June 23, 2026</div>
+  <div class="divider"></div>
+</section>
+
+<div class="doc-wrap">
+<div class="doc-content">
+
+<p>These Terms of Service ("Terms") form a binding agreement between you and <strong>The Toolsmith LLC</strong> ("we," "us," or "our"), an Alabama limited liability company, governing your access to and use of The Toolsmith CMMS and our related websites at <a href="https://www.thetoolsmithapp.com/">thetoolsmithapp.com</a> and <a href="https://toolsmith-cmms.app/">toolsmith-cmms.app</a> (collectively, the "Services"). By creating an account or using the Services, you agree to these Terms. If you do not agree, do not use the Services.</p>
+
+<div class="summary-card">
+  <h2>Summary of Key Points</h2>
+  <p><strong>What you're agreeing to.</strong> By using The Toolsmith CMMS, you accept these Terms and our <a href="/privacy">Privacy Policy</a>.</p>
+  <p><strong>Free trial.</strong> Every paid plan starts with a 14-day free trial. No credit card is required to start. Cancel any time during the trial at no cost.</p>
+  <p><strong>Subscriptions and refunds.</strong> After the trial, monthly and annual subscriptions are paid in advance. Monthly subscriptions cancel at the end of the current billing month. Annual subscriptions are locked for the year. All sales are final after the trial ends.</p>
+  <p><strong>Your data.</strong> You own everything you put into the Services. After cancellation, we keep your data for 30 days so you can reactivate or export, then we permanently delete it.</p>
+  <p><strong>Acceptable use.</strong> Don't use the Services for anything illegal, abusive, or that harms our infrastructure or other users.</p>
+</div>
+
+<div class="toc-card">
+  <h3>Table of Contents</h3>
+  <ul class="toc-list">
+    <li><a href="#section-1"><span class="toc-num">1.</span><span>Who can use the Services</span></a></li>
+    <li><a href="#section-2"><span class="toc-num">2.</span><span>Your account</span></a></li>
+    <li><a href="#section-3"><span class="toc-num">3.</span><span>Subscriptions, free trials, and billing</span></a></li>
+    <li><a href="#section-4"><span class="toc-num">4.</span><span>Cancellation and refunds</span></a></li>
+    <li><a href="#section-5"><span class="toc-num">5.</span><span>Your data and content</span></a></li>
+    <li><a href="#section-6"><span class="toc-num">6.</span><span>Acceptable use</span></a></li>
+    <li><a href="#section-7"><span class="toc-num">7.</span><span>Service availability and changes</span></a></li>
+    <li><a href="#section-8"><span class="toc-num">8.</span><span>Intellectual property</span></a></li>
+    <li><a href="#section-9"><span class="toc-num">9.</span><span>AI features</span></a></li>
+    <li><a href="#section-10"><span class="toc-num">10.</span><span>Third-party services</span></a></li>
+    <li><a href="#section-11"><span class="toc-num">11.</span><span>Disclaimers</span></a></li>
+    <li><a href="#section-12"><span class="toc-num">12.</span><span>Limitation of liability</span></a></li>
+    <li><a href="#section-13"><span class="toc-num">13.</span><span>Indemnification</span></a></li>
+    <li><a href="#section-14"><span class="toc-num">14.</span><span>Termination</span></a></li>
+    <li><a href="#section-15"><span class="toc-num">15.</span><span>Governing law and disputes</span></a></li>
+    <li><a href="#section-16"><span class="toc-num">16.</span><span>Changes to these Terms</span></a></li>
+    <li><a href="#section-17"><span class="toc-num">17.</span><span>Contact</span></a></li>
+  </ul>
+</div>
+
+<h2 id="section-1">1. Who can use the Services</h2>
+
+<div class="in-short"><strong>In Short:</strong> You must be at least 18, authorized to bind your organization, and located in a country where we offer the Services.</div>
+
+<p>By using the Services, you represent that you are at least 18 years old (or the age of legal majority in your jurisdiction). If you are using the Services on behalf of an organization, you represent that you have the authority to bind that organization to these Terms, and "you" refers to both you individually and the organization.</p>
+
+<p>We do not knowingly allow individuals under 18 to use the Services. If we learn an account belongs to a minor, we will deactivate it.</p>
+
+<h2 id="section-2">2. Your account</h2>
+
+<div class="in-short"><strong>In Short:</strong> Keep your login secure. You're responsible for what happens on your account.</div>
+
+<p>To use the Services you must create an account by providing accurate, current information and a secure password. You are responsible for all activity that occurs under your account, including activity by your team members. You agree to notify us promptly at <a href="mailto:support@thetoolsmithapp.com">support@thetoolsmithapp.com</a> if you suspect unauthorized access.</p>
+
+<p>If you are a manager, you are responsible for the team members you invite to your organization, including their compliance with these Terms. We are not responsible for disputes between you and your team members or between members of your organization.</p>
+
+<h2 id="section-3">3. Subscriptions, free trials, and billing</h2>
+
+<div class="in-short"><strong>In Short:</strong> 14-day free trial, then monthly or annual subscriptions billed through Stripe.</div>
+
+<h3>Free trial</h3>
+<p>New paid plans begin with a 14-day free trial. No credit card is required to start a trial. You may use the Services with all features included in the chosen plan during the trial. At the end of the trial, you must enter payment information to continue using the Services. If you do not, your account will be deactivated.</p>
+
+<h3>Subscription plans</h3>
+<p>We currently offer the following plans:</p>
+<ul>
+  <li><strong>Lite:</strong> $19 per month, or $190 per year (save $38). Covers your entire team up to 10 members.</li>
+  <li><strong>Pro:</strong> $49 per month, or $490 per year (save $98). Covers your entire team with no member limit. Pro is currently in development and may be released at a later date.</li>
+</ul>
+<p>Pricing is per organization, not per user. We may change pricing at any time. Price changes will not apply to your current billing period and we will give you reasonable notice before any change takes effect for your next renewal.</p>
+
+<h3>Billing</h3>
+<p>All payments are processed by Stripe, our third-party payment processor. By providing payment information, you authorize us and Stripe to charge your payment method for the subscription fees and any applicable taxes. Subscriptions automatically renew at the end of each billing period (monthly or annually) at the then-current rate, unless you cancel as described in Section 4.</p>
+
+<p>If a payment fails, we will attempt to charge your payment method again. If the payment continues to fail, your access to paid features may be suspended or your account deactivated.</p>
+
+<h2 id="section-4">4. Cancellation and refunds</h2>
+
+<div class="in-short"><strong>In Short:</strong> Cancel anytime through your billing portal. Monthly: cancels end of month. Annual: locked for the year. No refunds after the free trial.</div>
+
+<h3>How to cancel</h3>
+<p>You can cancel your subscription at any time through the billing portal accessible from your account settings, which is operated by Stripe.</p>
+
+<h3>Monthly subscriptions</h3>
+<p>If you cancel a monthly subscription, your access continues until the end of the current billing month. You will not be charged for the following month. No refunds are issued for the current month.</p>
+
+<h3>Annual subscriptions</h3>
+<p>Annual subscriptions are locked for the full 12-month term. If you cancel an annual subscription, you may turn off auto-renewal at any time, but you will continue to have access until the end of the paid term. We do not issue refunds for unused months on annual subscriptions.</p>
+
+<h3>Refund policy</h3>
+<p>All sales are final after the 14-day free trial period. We do not offer refunds, prorated or otherwise, except where required by applicable law. In our sole discretion, we may grant a refund as a goodwill gesture; this does not establish a right to refunds in future cases.</p>
+
+<h2 id="section-5">5. Your data and content</h2>
+
+<div class="in-short"><strong>In Short:</strong> You own your data. We use it only to operate the Services. After cancellation, we keep it for 30 days, then permanently delete it.</div>
+
+<h3>Ownership</h3>
+<p>You own all data, content, and information that you or your team members enter into the Services ("Customer Data"). We do not claim any ownership of Customer Data.</p>
+
+<h3>License to operate the Services</h3>
+<p>You grant us a worldwide, non-exclusive, royalty-free license to host, store, transmit, display, modify, and create derivative works of Customer Data solely to provide, maintain, support, and improve the Services for you. This license ends when Customer Data is deleted from our systems as described below.</p>
+
+<h3>Backups and security</h3>
+<p>We maintain reasonable technical and organizational measures to protect Customer Data from unauthorized access, loss, or destruction, including regular backups. We do not guarantee that data loss will never occur, and we recommend that you periodically export Customer Data that is critical to your operations.</p>
+
+<h3>Retention after cancellation</h3>
+<p>If you cancel or we deactivate your account, we will retain Customer Data for 30 days after the cancellation effective date to give you the opportunity to reactivate or export your data. After 30 days, Customer Data is permanently deleted from our active systems. Limited copies may remain in backup archives for a longer period as part of our standard backup rotation, after which they are also deleted.</p>
+
+<h3>Export</h3>
+<p>During the 30-day retention period, you can request an export of your Customer Data by contacting <a href="mailto:support@thetoolsmithapp.com">support@thetoolsmithapp.com</a>. We will provide the export in a common, machine-readable format at no charge.</p>
+
+<h2 id="section-6">6. Acceptable use</h2>
+
+<div class="in-short"><strong>In Short:</strong> Don't use the Services for anything illegal or abusive.</div>
+
+<p>You agree not to use the Services in any way that:</p>
+<ul>
+  <li>Violates any applicable law or regulation, including data protection, intellectual property, and export control laws</li>
+  <li>Infringes on the rights of any third party, including intellectual property, privacy, or publicity rights</li>
+  <li>Is harmful, threatening, abusive, harassing, defamatory, or otherwise objectionable</li>
+  <li>Attempts to gain unauthorized access to the Services, our systems, or other accounts</li>
+  <li>Introduces viruses, malware, or other harmful code</li>
+  <li>Interferes with or disrupts the integrity or performance of the Services</li>
+  <li>Reverse engineers, decompiles, or attempts to extract the source code of the Services, except where expressly permitted by law</li>
+  <li>Uses the Services to send spam or unsolicited communications</li>
+  <li>Resells, sublicenses, or commercially exploits the Services without our written permission</li>
+  <li>Scrapes, crawls, or harvests data from the Services using automated means without our written permission</li>
+</ul>
+
+<p>We may suspend or terminate your account if we reasonably believe you have violated these acceptable use rules.</p>
+
+<h2 id="section-7">7. Service availability and changes</h2>
+
+<div class="in-short"><strong>In Short:</strong> We work hard to keep the Services up and running, but cannot guarantee 100% uptime.</div>
+
+<p>We aim to make the Services available 24 hours a day, 7 days a week, but we do not guarantee that the Services will be uninterrupted or error-free. The Services may be temporarily unavailable due to scheduled maintenance, emergency repairs, third-party service outages, or other factors beyond our reasonable control.</p>
+
+<p>We may modify, suspend, or discontinue any part of the Services at any time. If we make material changes that significantly reduce functionality you rely on, we will give you reasonable advance notice and, where appropriate, an opportunity to export your Customer Data.</p>
+
+<h2 id="section-8">8. Intellectual property</h2>
+
+<div class="in-short"><strong>In Short:</strong> We own the Services. You get a limited license to use them.</div>
+
+<p>The Services, including all software, designs, text, graphics, logos, and other content (other than Customer Data), are the property of The Toolsmith LLC or our licensors and are protected by copyright, trademark, and other intellectual property laws. We grant you a limited, non-exclusive, non-transferable, revocable license to access and use the Services in accordance with these Terms.</p>
+
+<p>"The Toolsmith," the Toolsmith logo, and related marks are trademarks of The Toolsmith LLC. You may not use these marks without our prior written permission.</p>
+
+<p>If you provide us with any feedback, suggestions, or ideas about the Services, you grant us a perpetual, irrevocable, royalty-free license to use that feedback for any purpose without obligation to you.</p>
+
+<h2 id="section-9">9. AI features</h2>
+
+<div class="in-short"><strong>In Short:</strong> Some features use AI. AI output can be wrong. Don't rely on it for safety-critical decisions.</div>
+
+<p>The Services include features powered by artificial intelligence ("AI Features"), including the in-app Gidget assistant available on the Pro plan and the marketing site assistant. AI Features are provided by third-party AI service providers, including Anthropic and Groq. By using AI Features, you understand and agree that:</p>
+
+<ul>
+  <li>Your input may be transmitted to and processed by these third-party AI service providers</li>
+  <li>AI output may be incorrect, incomplete, biased, or inappropriate</li>
+  <li>You are responsible for reviewing AI output before acting on it</li>
+  <li>You should not rely on AI output for safety-critical, legal, medical, financial, or compliance decisions</li>
+  <li>The Toolsmith LLC is not liable for any damages arising from your reliance on AI output</li>
+</ul>
+
+<h2 id="section-10">10. Third-party services</h2>
+
+<p>The Services rely on third-party providers, including Supabase (database and authentication), Vercel (hosting), Stripe (payment processing), Resend (email delivery), Anthropic (in-app AI), and Groq (marketing site AI). These third parties are bound by their own terms and privacy policies. We are not responsible for the acts or omissions of third-party providers.</p>
+
+<h2 id="section-11">11. Disclaimers</h2>
+
+<p class="all-caps">The Services are provided on an "as is" and "as available" basis, without warranties of any kind, either express or implied. To the maximum extent permitted by applicable law, we disclaim all warranties, including implied warranties of merchantability, fitness for a particular purpose, non-infringement, and any warranties arising out of course of dealing or usage of trade.</p>
+
+<p class="all-caps">We do not warrant that the Services will meet your requirements, be uninterrupted, secure, or error-free, or that any defects will be corrected. You use the Services at your own risk.</p>
+
+<h2 id="section-12">12. Limitation of liability</h2>
+
+<p class="all-caps">To the maximum extent permitted by applicable law, in no event will The Toolsmith LLC, its officers, employees, contractors, or agents be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, including loss of profits, revenue, data, business opportunities, or goodwill, arising out of or related to your use of or inability to use the Services, whether based on warranty, contract, tort (including negligence), statute, or any other legal theory, and whether or not we have been advised of the possibility of such damages.</p>
+
+<p class="all-caps">To the maximum extent permitted by applicable law, our total cumulative liability to you for all claims arising out of or relating to these Terms or the Services will not exceed the greater of (a) the total amount you paid us in the 12 months preceding the event giving rise to the claim, or (b) one hundred U.S. dollars ($100).</p>
+
+<p>Some jurisdictions do not allow the exclusion of certain warranties or limitations on certain types of damages. To that extent, the above limitations may not apply to you.</p>
+
+<h2 id="section-13">13. Indemnification</h2>
+
+<p>You agree to indemnify, defend, and hold harmless The Toolsmith LLC and its officers, employees, contractors, and agents from any claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees) arising out of or related to: (a) your use of the Services, (b) your Customer Data, (c) your violation of these Terms, or (d) your violation of any third-party right, including intellectual property or privacy rights.</p>
+
+<h2 id="section-14">14. Termination</h2>
+
+<p>You may stop using the Services at any time by canceling your subscription as described in Section 4.</p>
+
+<p>We may suspend or terminate your access to the Services at any time, with or without notice, if we reasonably believe you have violated these Terms, if required by law, or if continued provision of the Services would be impractical or commercially unreasonable. Where possible, we will give you notice and an opportunity to correct the issue.</p>
+
+<p>Upon termination, your right to use the Services ends immediately. Sections that by their nature should survive termination (including ownership, disclaimers, limitations of liability, indemnification, and governing law) will survive.</p>
+
+<h2 id="section-15">15. Governing law and disputes</h2>
+
+<p>These Terms are governed by the laws of the State of Alabama, without regard to its conflict of laws principles. You and we agree that any dispute arising out of or related to these Terms or the Services will be resolved exclusively in the state or federal courts located in Madison County, Alabama, and you and we consent to the personal jurisdiction of those courts.</p>
+
+<p>You and we agree that any claim must be brought within one year after the claim arises, or it is permanently barred.</p>
+
+<h2 id="section-16">16. Changes to these Terms</h2>
+
+<p>We may update these Terms from time to time. If we make material changes, we will notify you by email or through a prominent notice in the Services at least 14 days before the changes take effect. Your continued use of the Services after the effective date constitutes acceptance of the updated Terms. If you do not agree to the updated Terms, you must stop using the Services and may cancel your subscription as described in Section 4.</p>
+
+<h2 id="section-17">17. Contact</h2>
+
+<p>If you have questions about these Terms, please contact us:</p>
+
+<p>The Toolsmith LLC<br/>
+805 Wellman Ave NE<br/>
+Huntsville, AL 35801<br/>
+United States</p>
+
+<p>Email: <a href="mailto:legal@thetoolsmithapp.com">legal@thetoolsmithapp.com</a></p>
+
+</div>
+</div>
+
+<footer>
+  <div class="flogo">
+    <img src="/logo.png" alt="The Toolsmith"/>
+    <span>The Toolsmith</span>
+  </div>
+  <div class="fnote">© 2026 The Toolsmith LLC. All rights reserved.</div>
+  <div class="flinks">
+    <a href="/">Home</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </div>
+</footer>
+
+</body>
+</html>
