@@ -6,12 +6,5 @@
       "source": "/",
       "destination": "/index-full"
     }
-  ],
-  "redirects": [
-    {
-      "source": "/",
-      "destination": "/beta",
-      "permanent": false
-    }
   ]
 }
