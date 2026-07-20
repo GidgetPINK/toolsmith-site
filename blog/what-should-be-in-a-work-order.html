@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>What Should Be in a Work Order? A Simple Guide for Small Teams — The Toolsmith</title>
+<meta name="description" content="The fields every maintenance work order needs, why each one matters, and how small teams keep tasks from slipping through the cracks. A plain-language guide."/>
+<link rel="canonical" href="https://thetoolsmithapp.com/blog/what-should-be-in-a-work-order" />
+<link rel="icon" type="image/png" href="/logo.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-uG5UO1ZLr8pUxlrNe1111.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --charcoal:#1a1a2e;--navy:#16213e;--navy-light:#0f3460;--gold:#c9a84c;
+  --gold-light:#e8c97a;--white:#f8f6f1;--muted:#9a9db5;--card:#1e2245;
+  --cb:rgba(201,168,76,0.18);--r:12px;
+  --tag-guides:#7fb3e0;--tag-senior:#e8c97a;--tag-compliance:#7ec98a
+}
+html{scroll-behavior:smooth}
+body{background:var(--charcoal);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+a{color:var(--gold-light);text-decoration:underline;text-decoration-color:rgba(201,168,76,0.4);text-underline-offset:3px;transition:color .2s}
+a:hover{color:var(--gold);text-decoration-color:var(--gold)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 5%;background:rgba(26,26,46,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--cb)}
+.nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.nav-logo img{height:36px;width:36px;border-radius:6px;object-fit:cover}
+.nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);letter-spacing:.04em;font-weight:600}
+.nav-back{color:var(--muted);font-size:.85rem;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-weight:400;display:flex;align-items:center;gap:.5rem}
+.nav-back:hover{color:var(--gold-light)}
+.nav-back::before{content:'\2190';font-size:1rem;line-height:1}
+.post-hero{padding:8rem 5% 2.5rem;text-align:center;background:radial-gradient(ellipse 70% 50% at 50% 40%,rgba(15,52,96,.4) 0%,transparent 70%),linear-gradient(180deg,var(--charcoal) 0%,var(--navy) 100%);position:relative;overflow:hidden}
+.post-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.post-meta{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;font-weight:500;position:relative;display:flex;gap:1rem;justify-content:center;align-items:center;flex-wrap:wrap}
+.post-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--muted)}
+.post-meta .tag{color:var(--muted)}
+.post-meta .tag-guides{color:var(--tag-guides)}
+.post-meta .tag-senior{color:var(--tag-senior)}
+.post-meta .tag-compliance{color:var(--tag-compliance)}
+.post-meta .read{color:var(--muted)}
+.post-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.5rem);font-weight:700;line-height:1.15;color:var(--white);position:relative;max-width:780px;margin:0 auto}
+.divider{width:48px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1.5rem auto 0;position:relative}
+.post-wrap{max-width:720px;margin:0 auto;padding:3rem 5% 5rem}
+.post-content{font-size:1.05rem;line-height:1.85;color:var(--white)}
+.post-content p{margin-bottom:1.5rem;color:var(--white)}
+.post-content h2{font-family:'Cormorant Garamond',serif;font-size:1.85rem;font-weight:600;color:var(--gold);margin:3rem 0 1.25rem;line-height:1.25;padding-top:1.5rem;border-top:1px solid var(--cb)}
+.post-content h2:first-of-type{padding-top:0;border-top:none}
+.post-content h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--gold-light);margin:2rem 0 .75rem;line-height:1.3}
+.post-content ul,.post-content ol{margin:0 0 1.5rem 0;padding:0;list-style:none}
+.post-content ul li,.post-content ol li{position:relative;padding-left:1.5rem;margin-bottom:.75rem;color:var(--white)}
+.post-content ul li::before{content:'\25C6';position:absolute;left:0;top:0;color:var(--gold);font-size:.65rem;line-height:1.85}
+.post-content ol{counter-reset:item}
+.post-content ol li{counter-increment:item}
+.post-content ol li::before{content:counter(item) '.';position:absolute;left:0;top:0;color:var(--gold);font-weight:600;font-size:.95rem}
+.post-content strong{color:var(--white);font-weight:600}
+.post-content em{color:var(--muted);font-style:italic}
+.post-content blockquote{border-left:3px solid var(--gold);background:rgba(201,168,76,.06);border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin:1.5rem 0;color:var(--muted);font-style:italic}
+.post-content blockquote p:last-child{margin-bottom:0}
+.post-media{margin:0 0 2.5rem;text-align:center}
+.post-media img,.post-media video{display:inline-block;width:auto;height:auto;max-height:360px;max-width:100%;border-radius:var(--r);border:1px solid var(--cb)}
+.post-media figcaption{margin-top:.75rem;color:var(--muted);font-size:.8rem;text-align:center;font-style:italic}
+.cta-card{background:var(--card);border:1px solid rgba(201,168,76,.3);border-radius:var(--r);padding:2rem;margin:3rem 0 1rem;text-align:center;position:relative;overflow:hidden}
+.cta-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.cta-card h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--white);margin:0 0 .75rem;font-weight:600}
+.cta-card p{color:var(--muted);font-size:.95rem;margin-bottom:1.5rem;line-height:1.7}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);padding:.85rem 2rem;border-radius:8px;font-weight:600;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:opacity .2s}
+.cta-btn:hover{opacity:.9;color:var(--charcoal)}
+.post-footer{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--cb);text-align:center}
+.post-footer p{color:var(--muted);font-size:.9rem;margin-bottom:1rem}
+.post-footer a{color:var(--gold)}
+footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.flogo{display:flex;align-items:center;gap:.5rem;font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:1.1rem;font-weight:600}
+.flogo img{height:28px;width:28px;border-radius:4px;object-fit:cover}
+.fnote{color:var(--muted);font-size:.8rem}
+.flinks{display:flex;gap:1.5rem}
+.flinks a{color:var(--muted);font-size:.8rem;text-decoration:none}
+.flinks a:hover{color:var(--gold)}
+@media (max-width:640px){
+  .post-hero{padding:7rem 5% 2rem}
+  .post-wrap{padding:2.5rem 5% 4rem}
+  .post-content{font-size:1rem}
+  .post-content h2{font-size:1.5rem;margin-top:2.5rem}
+  .post-content h3{font-size:1.2rem}
+  .cta-card{padding:1.5rem}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/logo.png" alt="The Toolsmith"/>
+    <span class="nav-logo-text">The Toolsmith</span>
+  </a>
+  <a href="/blog" class="nav-back">Back to blog</a>
+</nav>
+
+<section class="post-hero">
+  <div class="post-meta">
+    <span>JULY 17, 2026</span>
+    <span class="dot"></span>
+    <span class="tag-guides">Guides</span>
+    <span class="dot"></span>
+    <span class="read">6 min read</span>
+  </div>
+  <h1>What Should Be in a Work Order? A Simple Guide for Small Teams</h1>
+  <div class="divider"></div>
+</section>
+
+<main class="post-wrap">
+  <article class="post-content">
+
+    <figure class="post-media">
+      <img src="/blog/media/what-should-be-in-a-work-order.png" alt="A work order in The Toolsmith, showing its title, location, description, priority, assignee, and status"/>
+      <figcaption>A work order in The Toolsmith. Every field described below appears on it.</figcaption>
+    </figure>
+
+    <p>A request comes in and it says "AC in 214 not working." That is the whole thing. No name attached, no date, no note on whether the room is warm or the unit is dead silent, and no way to tell a week later who looked at it or what they found.</p>
+
+    <p>On a small team, that one line turns into a series of interruptions. Somebody has to track down who reported it. Somebody has to walk up to 214 to see what "not working" means. And when the resident's daughter calls Friday afternoon to ask why it is still eighty degrees in her mother's room, nobody can say what happened, because nothing was written down.</p>
+
+    <p>A good work order fixes that before it starts. It is not paperwork for its own sake. It is the difference between a task that gets done and closed out and a task that quietly slips through the cracks. Here is what belongs in one, and why each piece earns its place.</p>
+
+    <h2>A clear title that says what and where</h2>
+
+    <p>"AC in 214 not working" is a start, but a good title is specific enough to scan in a list of thirty open items and know exactly what it is. Something like "214 &mdash; window AC unit not cooling" tells you the room, the equipment, and the symptom in five words.</p>
+
+    <p>When a title is vague, every person who touches the work order has to open it, read the details, and reconstruct what it means. Multiply that across a full board of open work and you have a team spending its morning decoding its own list instead of working it.</p>
+
+    <h2>The fields that matter</h2>
+
+    <p>A work order does not need twenty fields. It needs the handful that answer the questions your team asks all day. Here is the short list.</p>
+
+    <p><strong>Location or asset.</strong> Where is this, or which piece of equipment is it. A room number, a wing, a specific unit. On a small team everyone knows the building, but "the walk-in cooler in the west kitchen" removes any doubt, and it lets you look back later and see how many times that same cooler has needed attention.</p>
+
+    <p><strong>A description of the actual problem.</strong> Write what someone observed, in plain terms. "Unit runs but blows warm air, resident says it started last night" is worth ten times more than "broken." The person who picks up the job should be able to grab the right parts before they walk up the stairs, instead of making the trip twice.</p>
+
+    <p><strong>Priority.</strong> Not everything is an emergency, and not everything can wait. A resident with no cooling in August is not the same as a squeaky door hinge, and your team needs to see that at a glance. Three levels is usually enough: urgent, normal, low. What matters is that the label is on there so the right thing gets done first.</p>
+
+    <p><strong>Who it is assigned to.</strong> A work order with no name on it belongs to nobody, which means it belongs to everybody, which means it waits. Put a specific person on it. If you reassign it later, that is fine, but at any moment one name should own it.</p>
+
+    <p><strong>Status.</strong> Open, in progress, on hold, completed. This is the one field that tells you the state of your whole operation without asking a single person a question. A board where every item shows its status is a board you can run a shift from.</p>
+
+    <p><strong>Dates.</strong> When it came in, and when it needs to be done. The open date gives you a clock. If a work order has been sitting for nine days, the date is what tells you, not your memory. A due date, even a rough one, keeps the low-priority items from aging into forgotten ones.</p>
+
+    <h2>The part almost everyone skips</h2>
+
+    <p>The fields above get a work order started. This next one is what makes it worth having at all, and it is the one small teams skip most often.</p>
+
+    <p><strong>A closeout note and a completion record.</strong> When the job is done, write what was actually done, who did it, and when. "Replaced capacitor, unit cooling normally, confirmed 72 in room, closed 3:40 pm" takes fifteen seconds to write and answers every question anyone will ever ask about that job.</p>
+
+    <p>This is the record that pays off months later. When the same AC unit acts up again in October, the closeout note from July tells the next tech what was already tried. When a family member asks what was done and when, you have an answer with a name and a time on it. And when a state surveyor asks for proof that recurring work is happening, the closeout notes are the proof.</p>
+
+    <p>A work order without a closeout is a question that never got answered. It shows the problem but not the fix, so a month later nobody can tell whether it was ever really resolved or just fell quiet.</p>
+
+    <h2>What this looks like in practice</h2>
+
+    <p>Here is the same request, written two ways.</p>
+
+    <blockquote>
+      <p>AC in 214 not working.</p>
+    </blockquote>
+
+    <p>And here is the version that runs itself.</p>
+
+    <blockquote>
+      <p>214 &mdash; window AC not cooling. Reported by day-shift aide, 7/17 8:15 am. Unit powers on, fan runs, air is warm. Resident in room, priority urgent. Assigned to Marcus. Status: in progress.</p>
+    </blockquote>
+
+    <p>The second one never generates a single "hey, what's the deal with 214" conversation. Anyone who looks at it knows what it is, whose it is, how urgent it is, and where it stands. When Marcus finishes and adds his closeout note, the whole story is there for good.</p>
+
+    <h2>You do not need software to start</h2>
+
+    <p>None of this requires a system. You can put these fields on a paper form, a shared spreadsheet, or a whiteboard, and a disciplined team can run that way for a long time.</p>
+
+    <p>What tends to break is not the format. It is the upkeep. The paper form works until three techs keep three different notebooks. The spreadsheet works until half the team stops opening it. The whiteboard works until it gets erased on a busy Monday and last week's open items are simply gone. The structure is right; the problem is that keeping it current is one more job on a team that is already stretched.</p>
+
+    <p>That is the point where a tool built for this starts to earn its keep. The fields are already there, the closeout is built into finishing the job, and nothing gets erased. But the tool is secondary. The habit is what matters. A team that writes a real work order, with a real closeout, every single time is a team that stops losing track of its own work, whatever they write it on.</p>
+
+    <div class="cta-card">
+      <h3>Work orders that hold their details</h3>
+      <p>The Toolsmith gives your team a work order with every field that matters, assignments, priorities, status, and a completion record you can pull up months later. Built for small senior living communities. Start a free 14-day trial and see it on your own board.</p>
+      <a href="https://toolsmith-cmms.app/register" class="cta-btn">Start Free Trial</a>
+    </div>
+
+    <div class="post-footer">
+      <p>Want more articles like this? <a href="/#newsletter">Join the newsletter</a> for low-volume updates on new features and maintenance tech worth knowing about.</p>
+    </div>
+
+  </article>
+</main>
+
+<footer>
+  <div class="flogo">
+    <img src="/logo.png" alt="The Toolsmith"/>
+    <span>The Toolsmith</span>
+  </div>
+  <div class="fnote">&copy; 2026 The Toolsmith LLC. All rights reserved.</div>
+  <div class="flinks">
+    <a href="/">Home</a>
+    <a href="/blog">Blog</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </div>
+</footer>
+
+</body>
+</html>
