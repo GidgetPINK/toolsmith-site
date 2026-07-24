@@ -8,7 +8,7 @@
   </url>
   <url>
     <loc>https://thetoolsmithapp.com/blog</loc>
-    <lastmod>2026-07-20</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -39,6 +39,12 @@
   <url>
     <loc>https://thetoolsmithapp.com/blog/what-should-be-in-a-work-order</loc>
     <lastmod>2026-07-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://thetoolsmithapp.com/blog/5-signs-your-team-has-outgrown-spreadsheets</loc>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>5 Signs Your Team Has Outgrown Spreadsheets — The Toolsmith</title>
+<meta name="description" content="A spreadsheet works for tracking maintenance until it quietly stops working. Five specific signs that your small team has hit the limit, and what to do about it."/>
+<link rel="canonical" href="https://thetoolsmithapp.com/blog/5-signs-your-team-has-outgrown-spreadsheets" />
+<link rel="icon" type="image/png" href="/logo.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-uG5UO1ZLr8pUxlrNe1111.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --charcoal:#1a1a2e;--navy:#16213e;--navy-light:#0f3460;--gold:#c9a84c;
+  --gold-light:#e8c97a;--white:#f8f6f1;--muted:#9a9db5;--card:#1e2245;
+  --cb:rgba(201,168,76,0.18);--r:12px;
+  --tag-guides:#7fb3e0;--tag-senior:#e8c97a;--tag-compliance:#7ec98a
+}
+html{scroll-behavior:smooth}
+body{background:var(--charcoal);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+a{color:var(--gold-light);text-decoration:underline;text-decoration-color:rgba(201,168,76,0.4);text-underline-offset:3px;transition:color .2s}
+a:hover{color:var(--gold);text-decoration-color:var(--gold)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 5%;background:rgba(26,26,46,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--cb)}
+.nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.nav-logo img{height:36px;width:36px;border-radius:6px;object-fit:cover}
+.nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);letter-spacing:.04em;font-weight:600}
+.nav-back{color:var(--muted);font-size:.85rem;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-weight:400;display:flex;align-items:center;gap:.5rem}
+.nav-back:hover{color:var(--gold-light)}
+.nav-back::before{content:'\2190';font-size:1rem;line-height:1}
+.post-hero{padding:8rem 5% 2.5rem;text-align:center;background:radial-gradient(ellipse 70% 50% at 50% 40%,rgba(15,52,96,.4) 0%,transparent 70%),linear-gradient(180deg,var(--charcoal) 0%,var(--navy) 100%);position:relative;overflow:hidden}
+.post-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.post-meta{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;font-weight:500;position:relative;display:flex;gap:1rem;justify-content:center;align-items:center;flex-wrap:wrap}
+.post-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--muted)}
+.post-meta .tag{color:var(--muted)}
+.post-meta .tag-guides{color:var(--tag-guides)}
+.post-meta .tag-senior{color:var(--tag-senior)}
+.post-meta .tag-compliance{color:var(--tag-compliance)}
+.post-meta .read{color:var(--muted)}
+.post-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.5rem);font-weight:700;line-height:1.15;color:var(--white);position:relative;max-width:780px;margin:0 auto}
+.divider{width:48px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1.5rem auto 0;position:relative}
+.post-wrap{max-width:720px;margin:0 auto;padding:3rem 5% 5rem}
+.post-content{font-size:1.05rem;line-height:1.85;color:var(--white)}
+.post-content p{margin-bottom:1.5rem;color:var(--white)}
+.post-content h2{font-family:'Cormorant Garamond',serif;font-size:1.85rem;font-weight:600;color:var(--gold);margin:3rem 0 1.25rem;line-height:1.25;padding-top:1.5rem;border-top:1px solid var(--cb)}
+.post-content h2:first-of-type{padding-top:0;border-top:none}
+.post-content h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--gold-light);margin:2rem 0 .75rem;line-height:1.3}
+.post-content ul,.post-content ol{margin:0 0 1.5rem 0;padding:0;list-style:none}
+.post-content ul li,.post-content ol li{position:relative;padding-left:1.5rem;margin-bottom:.75rem;color:var(--white)}
+.post-content ul li::before{content:'\25C6';position:absolute;left:0;top:0;color:var(--gold);font-size:.65rem;line-height:1.85}
+.post-content ol{counter-reset:item}
+.post-content ol li{counter-increment:item}
+.post-content ol li::before{content:counter(item) '.';position:absolute;left:0;top:0;color:var(--gold);font-weight:600;font-size:.95rem}
+.post-content strong{color:var(--white);font-weight:600}
+.post-content em{color:var(--muted);font-style:italic}
+.post-content blockquote{border-left:3px solid var(--gold);background:rgba(201,168,76,.06);border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin:1.5rem 0;color:var(--muted);font-style:italic}
+.post-content blockquote p:last-child{margin-bottom:0}
+.post-media{margin:0 0 2.5rem;text-align:center}
+.post-media img,.post-media video{display:inline-block;width:auto;height:auto;max-height:360px;max-width:100%;border-radius:var(--r);border:1px solid var(--cb)}
+.post-media figcaption{margin-top:.75rem;color:var(--muted);font-size:.8rem;text-align:center;font-style:italic}
+.cta-card{background:var(--card);border:1px solid rgba(201,168,76,.3);border-radius:var(--r);padding:2rem;margin:3rem 0 1rem;text-align:center;position:relative;overflow:hidden}
+.cta-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.cta-card h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--white);margin:0 0 .75rem;font-weight:600}
+.cta-card p{color:var(--muted);font-size:.95rem;margin-bottom:1.5rem;line-height:1.7}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);padding:.85rem 2rem;border-radius:8px;font-weight:600;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:opacity .2s}
+.cta-btn:hover{opacity:.9;color:var(--charcoal)}
+.post-footer{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--cb);text-align:center}
+.post-footer p{color:var(--muted);font-size:.9rem;margin-bottom:1rem}
+.post-footer a{color:var(--gold)}
+footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.flogo{display:flex;align-items:center;gap:.5rem;font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:1.1rem;font-weight:600}
+.flogo img{height:28px;width:28px;border-radius:4px;object-fit:cover}
+.fnote{color:var(--muted);font-size:.8rem}
+.flinks{display:flex;gap:1.5rem}
+.flinks a{color:var(--muted);font-size:.8rem;text-decoration:none}
+.flinks a:hover{color:var(--gold)}
+@media (max-width:640px){
+  .post-hero{padding:7rem 5% 2rem}
+  .post-wrap{padding:2.5rem 5% 4rem}
+  .post-content{font-size:1rem}
+  .post-content h2{font-size:1.5rem;margin-top:2.5rem}
+  .post-content h3{font-size:1.2rem}
+  .cta-card{padding:1.5rem}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/logo.png" alt="The Toolsmith"/>
+    <span class="nav-logo-text">The Toolsmith</span>
+  </a>
+  <a href="/blog" class="nav-back">Back to blog</a>
+</nav>
+
+<section class="post-hero">
+  <div class="post-meta">
+    <span>JULY 22, 2026</span>
+    <span class="dot"></span>
+    <span class="tag-guides">Guides</span>
+    <span class="dot"></span>
+    <span class="read">6 min read</span>
+  </div>
+  <h1>5 Signs Your Team Has Outgrown Spreadsheets</h1>
+  <div class="divider"></div>
+</section>
+
+<main class="post-wrap">
+  <article class="post-content">
+
+    <p>A spreadsheet is a fine way to track maintenance. It is free, everybody knows how to use one, and for a long stretch it does exactly what you need. Plenty of small facilities run on one for years without a real problem.</p>
+
+    <p>What makes it tricky is that a spreadsheet does not fail all at once. It never throws an error or shows you a warning. It just slowly stops being the thing holding your operation together, and starts being one more thing your team has to keep up with. The work still gets done. The sheet just stops reflecting it.</p>
+
+    <p>Here are five specific signs that shift has already happened, drawn from what actually goes wrong in small maintenance departments.</p>
+
+    <h2>1. Somebody has to be the spreadsheet person</h2>
+
+    <p>There is one person who knows how the sheet is organized. They know that column J is the one that matters, that the tab named "Old" is actually current, and that the filter has to be cleared before anybody sorts anything or the rows come apart.</p>
+
+    <p>When that person is on vacation, the sheet stops getting updated. When they are out sick, somebody sorts a column without selecting the whole range and now the dates belong to the wrong rooms. Nobody notices for a week.</p>
+
+    <p>The tell is not that the sheet is complicated. It is that keeping it correct has quietly become somebody's job, on top of the job they were hired to do. When maintaining the record costs real hours every week, the record has started charging rent.</p>
+
+    <h2>2. Your techs are not the ones filling it in</h2>
+
+    <p>This is the most common sign, and the most telling. The spreadsheet lives on a computer in an office. Your techs are in a mechanical room, on a ladder, or in a resident's apartment. They are not walking back to the office to type a row.</p>
+
+    <p>So what actually happens is that the tech tells the supervisor what got done, and the supervisor types it in later. Sometimes a day later. Sometimes from memory, or from a note scrawled on the back of a receipt.</p>
+
+    <p>Every one of those handoffs loses detail. "Fixed the AC in 214" is what makes it into the sheet. What the tech actually did was replace a capacitor, notice the drain line was starting to clog, and make a mental note to come back to it. The mental note dies at the end of the shift.</p>
+
+    <p>If the person doing the work is not the person recording it, the record will always be thinner than the work.</p>
+
+    <h2>3. You cannot answer a simple question quickly</h2>
+
+    <p>Try this one. Without opening anything, answer these:</p>
+
+    <ul>
+      <li>How many work orders are open right now?</li>
+      <li>Which ones are overdue?</li>
+      <li>What has this specific rooftop unit needed in the past two years?</li>
+      <li>What did we do the last three times this resident called about the same thing?</li>
+    </ul>
+
+    <p>On a healthy system, all four take under a minute. On a spreadsheet that has been running for a couple of years, the first two require filtering and some judgment about which rows are still current. The last two require reading.</p>
+
+    <p>The asset history question is the one that hurts most. A spreadsheet is organized by date, because that is the order things get typed in. It is not organized by equipment. So finding everything that ever happened to one rooftop unit means scanning for the times somebody happened to write "RTU 3" the same way, which they did not, because sometimes it is "rooftop 3" and sometimes it is "AC unit, roof."</p>
+
+    <h2>4. There are two versions and nobody knows which is real</h2>
+
+    <p>It starts innocently. Somebody makes a copy before a big edit, just to be safe. Somebody else emails a version to the administrator for a budget meeting. A third person keeps a personal tracking sheet because the main one does not have the column they need.</p>
+
+    <p>Now there are three, and they disagree. Not dramatically, just enough. One has last week's completions, one has the updated due dates, one has notes nobody else has seen.</p>
+
+    <p>Shared cloud files help with this, but they do not solve it, because the pressure that created the copies is still there. People make their own version when the main one does not fit how they work. That is a signal worth listening to.</p>
+
+    <p>The moment somebody in your building asks "is this the current one," you have lost the single source of truth, which was the entire reason to keep a sheet.</p>
+
+    <h2>5. A surveyor asks for something and your stomach drops</h2>
+
+    <p>This is the sign that turns an annoyance into a risk.</p>
+
+    <p>A state surveyor asks for the last two years of fire drill documentation, or the monthly generator test records, or proof that hot water temperatures have been checked at resident fixtures. You know the work happened. You were there for most of it.</p>
+
+    <p>But the drills are in a binder, the generator reports are PDFs the vendor emailed, the water temps are in the spreadsheet if somebody remembered to add them, and the last six months of everything are in a tech's notebook in the shop.</p>
+
+    <p>Most facilities that get cited did the work. They could not prove it fast enough, in one place, with a name and a date attached. That gap is not a paperwork problem. It is what the entire inspection is measuring.</p>
+
+    <p>If you want the specifics on what surveyors actually ask for in Alabama, we wrote that up separately in <a href="/blog/adph-survey-readiness-alabama">the ADPH survey readiness guide</a>.</p>
+
+    <h2>What to do if you recognized more than two of these</h2>
+
+    <p>First, do not panic and do not rush out to buy something. Recognizing two or three of these does not mean your operation is broken. It means the tool stopped fitting, which happens to every growing team eventually.</p>
+
+    <p>Second, be honest about which problem you actually have. If the issue is that techs cannot enter work from the field, no amount of reorganizing the spreadsheet will fix it, because the problem is the location of the record, not its layout. If the issue is that you cannot pull asset history, the problem is structure. Naming it correctly saves you from solving the wrong thing.</p>
+
+    <p>Third, whatever you move to, the bar is simple. The person doing the work should be able to record it from where they are standing, in under a minute, and anyone who needs it later should be able to find it without asking a colleague. A system that clears that bar will hold. One that does not will slowly turn back into three spreadsheets and a notebook.</p>
+
+    <p>The spreadsheet was not a mistake. It carried you to the point where it stopped working, which is more than most tools do.</p>
+
+    <div class="cta-card">
+      <h3>Built for teams that outgrew the spreadsheet</h3>
+      <p>The Toolsmith gives your maintenance team work orders they can log from their phone, complete asset history, and records you can pull up in seconds. Made for small senior living communities. Start a free 14-day trial.</p>
+      <a href="https://toolsmith-cmms.app/register" class="cta-btn">Start Free Trial</a>
+    </div>
+
+    <div class="post-footer">
+      <p>Want more articles like this? <a href="/#newsletter">Join the newsletter</a> for low-volume updates on new features and maintenance tech worth knowing about.</p>
+    </div>
+
+  </article>
+</main>
+
+<footer>
+  <div class="flogo">
+    <img src="/logo.png" alt="The Toolsmith"/>
+    <span>The Toolsmith</span>
+  </div>
+  <div class="fnote">&copy; 2026 The Toolsmith LLC. All rights reserved.</div>
+  <div class="flinks">
+    <a href="/">Home</a>
+    <a href="/blog">Blog</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </div>
+</footer>
+
+</body>
+</html>
