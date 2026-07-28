@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Fire Drill Documentation: What a Compliant Log Actually Looks Like — The Toolsmith</title>
+<meta name="description" content="Fire drills are one of the most cited documentation gaps in senior living. Here is exactly what a compliant fire drill log contains, field by field, with a free template."/>
+<link rel="canonical" href="https://thetoolsmithapp.com/blog/fire-drill-documentation-compliant-log" />
+<link rel="icon" type="image/png" href="/logo.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-uG5UO1ZLr8pUxlrNe1111.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --charcoal:#1a1a2e;--navy:#16213e;--navy-light:#0f3460;--gold:#c9a84c;
+  --gold-light:#e8c97a;--white:#f8f6f1;--muted:#9a9db5;--card:#1e2245;
+  --cb:rgba(201,168,76,0.18);--r:12px;
+  --tag-guides:#7fb3e0;--tag-senior:#e8c97a;--tag-compliance:#7ec98a
+}
+html{scroll-behavior:smooth}
+body{background:var(--charcoal);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+a{color:var(--gold-light);text-decoration:underline;text-decoration-color:rgba(201,168,76,0.4);text-underline-offset:3px;transition:color .2s}
+a:hover{color:var(--gold);text-decoration-color:var(--gold)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 5%;background:rgba(26,26,46,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--cb)}
+.nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.nav-logo img{height:36px;width:36px;border-radius:6px;object-fit:cover}
+.nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);letter-spacing:.04em;font-weight:600}
+.nav-back{color:var(--muted);font-size:.85rem;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-weight:400;display:flex;align-items:center;gap:.5rem}
+.nav-back:hover{color:var(--gold-light)}
+.nav-back::before{content:'\2190';font-size:1rem;line-height:1}
+.post-hero{padding:8rem 5% 2.5rem;text-align:center;background:radial-gradient(ellipse 70% 50% at 50% 40%,rgba(15,52,96,.4) 0%,transparent 70%),linear-gradient(180deg,var(--charcoal) 0%,var(--navy) 100%);position:relative;overflow:hidden}
+.post-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.post-meta{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;font-weight:500;position:relative;display:flex;gap:1rem;justify-content:center;align-items:center;flex-wrap:wrap}
+.post-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--muted)}
+.post-meta .tag{color:var(--muted)}
+.post-meta .tag-guides{color:var(--tag-guides)}
+.post-meta .tag-senior{color:var(--tag-senior)}
+.post-meta .tag-compliance{color:var(--tag-compliance)}
+.post-meta .read{color:var(--muted)}
+.post-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.5rem);font-weight:700;line-height:1.15;color:var(--white);position:relative;max-width:780px;margin:0 auto}
+.divider{width:48px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1.5rem auto 0;position:relative}
+.post-wrap{max-width:720px;margin:0 auto;padding:3rem 5% 5rem}
+.post-content{font-size:1.05rem;line-height:1.85;color:var(--white)}
+.post-content p{margin-bottom:1.5rem;color:var(--white)}
+.post-content h2{font-family:'Cormorant Garamond',serif;font-size:1.85rem;font-weight:600;color:var(--gold);margin:3rem 0 1.25rem;line-height:1.25;padding-top:1.5rem;border-top:1px solid var(--cb)}
+.post-content h2:first-of-type{padding-top:0;border-top:none}
+.post-content h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--gold-light);margin:2rem 0 .75rem;line-height:1.3}
+.post-content ul,.post-content ol{margin:0 0 1.5rem 0;padding:0;list-style:none}
+.post-content ul li,.post-content ol li{position:relative;padding-left:1.5rem;margin-bottom:.75rem;color:var(--white)}
+.post-content ul li::before{content:'\25C6';position:absolute;left:0;top:0;color:var(--gold);font-size:.65rem;line-height:1.85}
+.post-content ol{counter-reset:item}
+.post-content ol li{counter-increment:item}
+.post-content ol li::before{content:counter(item) '.';position:absolute;left:0;top:0;color:var(--gold);font-weight:600;font-size:.95rem}
+.post-content strong{color:var(--white);font-weight:600}
+.post-content em{color:var(--muted);font-style:italic}
+.post-content blockquote{border-left:3px solid var(--gold);background:rgba(201,168,76,.06);border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin:1.5rem 0;color:var(--muted);font-style:italic}
+.post-content blockquote p:last-child{margin-bottom:0}
+.download-card{background:var(--card);border:1px solid rgba(126,201,138,.35);border-radius:var(--r);padding:1.75rem 2rem;margin:2.5rem 0;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;flex-wrap:wrap}
+.download-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#7ec98a,#a9dcb4)}
+.download-card .dl-text h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--white);margin:0 0 .35rem;font-weight:600}
+.download-card .dl-text p{color:var(--muted);font-size:.9rem;margin:0;line-height:1.6}
+.dl-btn{display:inline-block;background:linear-gradient(135deg,#7ec98a,#a9dcb4);color:#0f2417;padding:.8rem 1.6rem;border-radius:8px;font-weight:600;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;white-space:nowrap;transition:opacity .2s}
+.dl-btn:hover{opacity:.9;color:#0f2417}
+.cta-card{background:var(--card);border:1px solid rgba(201,168,76,.3);border-radius:var(--r);padding:2rem;margin:3rem 0 1rem;text-align:center;position:relative;overflow:hidden}
+.cta-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.cta-card h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--white);margin:0 0 .75rem;font-weight:600}
+.cta-card p{color:var(--muted);font-size:.95rem;margin-bottom:1.5rem;line-height:1.7}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);padding:.85rem 2rem;border-radius:8px;font-weight:600;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:opacity .2s}
+.cta-btn:hover{opacity:.9;color:var(--charcoal)}
+.post-footer{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--cb);text-align:center}
+.post-footer p{color:var(--muted);font-size:.9rem;margin-bottom:1rem}
+.post-footer a{color:var(--gold)}
+.disclaimer{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--cb);color:var(--muted);font-size:.85rem;font-style:italic;line-height:1.7}
+footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.flogo{display:flex;align-items:center;gap:.5rem;font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:1.1rem;font-weight:600}
+.flogo img{height:28px;width:28px;border-radius:4px;object-fit:cover}
+.fnote{color:var(--muted);font-size:.8rem}
+.flinks{display:flex;gap:1.5rem}
+.flinks a{color:var(--muted);font-size:.8rem;text-decoration:none}
+.flinks a:hover{color:var(--gold)}
+@media (max-width:640px){
+  .post-hero{padding:7rem 5% 2rem}
+  .post-wrap{padding:2.5rem 5% 4rem}
+  .post-content{font-size:1rem}
+  .post-content h2{font-size:1.5rem;margin-top:2.5rem}
+  .post-content h3{font-size:1.2rem}
+  .cta-card{padding:1.5rem}
+  .download-card{flex-direction:column;align-items:flex-start}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/logo.png" alt="The Toolsmith"/>
+    <span class="nav-logo-text">The Toolsmith</span>
+  </a>
+  <a href="/blog" class="nav-back">Back to blog</a>
+</nav>
+
+<section class="post-hero">
+  <div class="post-meta">
+    <span>JULY 28, 2026</span>
+    <span class="dot"></span>
+    <span class="tag-compliance">Compliance</span>
+    <span class="dot"></span>
+    <span class="read">7 min read</span>
+  </div>
+  <h1>Fire Drill Documentation: What a Compliant Log Actually Looks Like</h1>
+  <div class="divider"></div>
+</section>
+
+<main class="post-wrap">
+  <article class="post-content">
+
+    <figure class="post-media" style="max-width:280px;margin-left:auto;margin-right:auto;">
+      <img src="/blog/media/fire-drill-documentation.png" alt="A red fire alarm strobe light mounted on a wall, labeled FIRE" style="max-height:300px;"/>
+    </figure>
+
+    <p>The drill happened. Everybody knows it happened. The alarm sounded, the residents moved to the assembly area, the staff did what they were supposed to do, and the building went back to normal in a few minutes.</p>
+
+    <p>Then a surveyor asks to see the last two years of fire drill records, and the whole thing comes down to what got written on a piece of paper. Not whether the drill was good. Whether it was documented in a way that proves it was good.</p>
+
+    <p>Fire drills are one of the most frequently cited documentation gaps in senior living, and it is almost never because the drills are not being run. It is because the record of the drill is thin, inconsistent, or missing the one field the surveyor most wants to see. This post walks through exactly what belongs on a compliant fire drill log, field by field, and why each one is there. There is a free template at the end you can print and start using today.</p>
+
+    <h2>What the requirement actually is</h2>
+
+    <p>For assisted living facilities in Alabama, fire drills must happen at least once a month, at varying times and on varying days, so the same shift is not always the one drilling. In group and congregate settings, drills also have to happen quarterly on each shift. Every drill must be initiated by the fire alarm system, and residents must actually move to their assembly areas.</p>
+
+    <p>For specialty care assisted living facilities, the bar is higher in one specific way that matters enormously for paperwork. Written observations of the effectiveness of each drill must be assessed monthly, filed, and kept for at least three years.</p>
+
+    <p>That phrase, <em>written observations of effectiveness</em>, is the heart of the whole thing. A surveyor is not satisfied by proof that a drill occurred. They want proof that someone watched it, judged how it went, and wrote that judgment down. A checkmark on a calendar does not do that. It is the single most common reason a facility that runs its drills faithfully still gets cited.</p>
+
+    <h2>The fields a compliant log needs</h2>
+
+    <p>Here is what every drill record should capture. Miss any of these and you have left a surveyor a question to ask.</p>
+
+    <p><strong>Date and time.</strong> Both, not just the date. Part of the requirement is that drills happen at varying times, and the only way to prove that is a log that shows a spread of times across the year. A stack of records that all say 10:00 a.m. tells a surveyor the drills were scheduled for convenience, not realism.</p>
+
+    <p><strong>Shift.</strong> Which shift ran the drill. This is what proves the quarterly-per-shift requirement is being met. If every drill on file was run by the day shift, the log itself is the evidence of the gap.</p>
+
+    <p><strong>Whether the fire alarm system initiated it.</strong> The code requires drills to start from the alarm system, not from someone announcing "this is a drill." A yes-or-no field on this, marked yes every time, closes the question before it is asked.</p>
+
+    <p><strong>Whether residents evacuated to the assembly area.</strong> A drill where residents stay put is not a drill. Record that they actually moved, and where they moved to.</p>
+
+    <p><strong>Evacuation time.</strong> How long it took to get everyone to the assembly area. This is the number that turns a drill from a formality into a measurement. It also gives you a trend. If evacuation times are creeping up over the year, that is something you want to catch before a surveyor does.</p>
+
+    <p><strong>Who participated.</strong> Staff on duty, and how many residents were present. Names or at least a count. This is what lets a surveyor connect the drill to the people who ran it.</p>
+
+    <p><strong>Observations of effectiveness.</strong> This is the required field, and it is the one people skip. Write what you actually saw. "Evacuation smooth, all residents accounted for at assembly point within four minutes, one staff member unsure of the secondary route." That last clause is not a confession, it is exactly what makes the record credible. A log where every drill went perfectly for two years reads as a log nobody was really watching.</p>
+
+    <p><strong>Problems identified and corrective action.</strong> If the observation noted something, this is where the follow-up goes. "Staff member re-trained on secondary evacuation route on the same day." A problem with a documented fix is a strength in a survey, not a weakness. A problem with no recorded follow-up is a finding.</p>
+
+    <p><strong>Signature.</strong> The name and signature of the person who conducted the drill. An unsigned record is an anonymous one, and a surveyor cannot ask an anonymous record any questions.</p>
+
+    <h2>The one field that gets facilities cited</h2>
+
+    <p>If you take one thing from this, make it the observations field.</p>
+
+    <p>Every other field is a fact: a date, a time, a yes or a no. Those are easy to fill in and easy to fill in honestly. The observations field asks for judgment, and judgment takes a sentence or two of actual writing, which is exactly why it gets left blank or filled with a single word like "good."</p>
+
+    <p>But "good" is not an observation of effectiveness. It is the absence of one. A surveyor reading a year of drills that all say "good" learns nothing about whether anyone assessed those drills, which is the specific thing the code requires. Two honest sentences per drill, including the small things that did not go perfectly, is worth more than a year of clean checkmarks.</p>
+
+    <blockquote>
+      <p>The goal is not a record that looks perfect. It is a record that looks like someone was paying attention.</p>
+    </blockquote>
+
+    <h2>Where to keep it</h2>
+
+    <p>Wherever you keep these records, the test is the same one that applies to all survey documentation. When a surveyor asks for the last three years of fire drill logs, can you produce them in under five minutes, complete and legible?</p>
+
+    <p>A three-ring binder works if someone owns it and files every drill the day it happens. A shared folder works if every record actually makes it in. What does not work is the most common setup: some drills in a binder, some in a notebook in the maintenance shop, and the last few months in nobody's quite sure where. That is not a documentation system, it is a documentation hope.</p>
+
+    <p>The record only counts if it can be found. A perfect log that takes twenty minutes to locate is, for the length of that survey, a missing log.</p>
+
+    <div class="download-card">
+      <div class="dl-text">
+        <h3>Free fire drill log template</h3>
+        <p>A printable, one-page record with every field above, including the observations section surveyors look for. Print one per drill, fill it in, and file it.</p>
+      </div>
+      <a href="/downloads/fire-drill-log-template.pdf" class="dl-btn" download>Download PDF</a>
+    </div>
+
+    <h2>The larger point</h2>
+
+    <p>Fire drill documentation is not really about fire drills. It is a small, self-contained example of the pattern that runs through every survey: the work gets done, and the facility gets cited anyway, because the proof of the work was never captured in a form that holds up.</p>
+
+    <p>Fix it for fire drills and you have a template, literally and figuratively, for every other piece of documentation a surveyor will ask about. Capture it as it happens. Write down what you saw, not just that it occurred. Sign it. File it where it can be found. Do that, and the surveyor's request stops being a scramble and becomes a filing question with an easy answer.</p>
+
+    <div class="cta-card">
+      <h3>Recurring inspections that never fall off the calendar</h3>
+      <p>The Toolsmith logs every drill, inspection, and maintenance task with who, what, when, and notes, and lets you pull a clean record for any date range in seconds. Built for small senior living communities. Start a free 14-day trial.</p>
+      <a href="https://toolsmith-cmms.app/register" class="cta-btn">Start Free Trial</a>
+    </div>
+
+    <div class="disclaimer">
+      This post summarizes selected fire drill provisions of the Alabama Administrative Code, Chapters 420-5-4 and 420-5-20, for informational purposes. It is not legal advice, and the template provided is a documentation aid, not a compliance guarantee. For the current and complete requirements, consult the Alabama Department of Public Health or the Alabama Administrative Code directly.
+    </div>
+
+    <div class="post-footer">
+      <p>Want more articles like this? <a href="/#newsletter">Join the newsletter</a> for low-volume updates on new features and maintenance tech worth knowing about.</p>
+    </div>
+
+  </article>
+</main>
+
+<footer>
+  <div class="flogo">
+    <img src="/logo.png" alt="The Toolsmith"/>
+    <span>The Toolsmith</span>
+  </div>
+  <div class="fnote">&copy; 2026 The Toolsmith LLC. All rights reserved.</div>
+  <div class="flinks">
+    <a href="/">Home</a>
+    <a href="/blog">Blog</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </div>
+</footer>
+
+</body>
+</html>
