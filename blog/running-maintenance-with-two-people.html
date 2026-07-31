@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>How to Run a Maintenance Department With Two People — The Toolsmith</title>
+<meta name="description" content="Running facility maintenance with a two-person team is a game of triage, communication, and shared load. Here is how small senior living teams actually make it work."/>
+<link rel="canonical" href="https://thetoolsmithapp.com/blog/running-maintenance-with-two-people" />
+<link rel="icon" type="image/png" href="/logo.png"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-uG5UO1ZLr8pUxlrNe1111.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --charcoal:#1a1a2e;--navy:#16213e;--navy-light:#0f3460;--gold:#c9a84c;
+  --gold-light:#e8c97a;--white:#f8f6f1;--muted:#9a9db5;--card:#1e2245;
+  --cb:rgba(201,168,76,0.18);--r:12px;
+  --tag-guides:#7fb3e0;--tag-senior:#e8c97a;--tag-compliance:#7ec98a
+}
+html{scroll-behavior:smooth}
+body{background:var(--charcoal);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+a{color:var(--gold-light);text-decoration:underline;text-decoration-color:rgba(201,168,76,0.4);text-underline-offset:3px;transition:color .2s}
+a:hover{color:var(--gold);text-decoration-color:var(--gold)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 5%;background:rgba(26,26,46,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--cb)}
+.nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+.nav-logo img{height:36px;width:36px;border-radius:6px;object-fit:cover}
+.nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);letter-spacing:.04em;font-weight:600}
+.nav-back{color:var(--muted);font-size:.85rem;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;font-weight:400;display:flex;align-items:center;gap:.5rem}
+.nav-back:hover{color:var(--gold-light)}
+.nav-back::before{content:'\2190';font-size:1rem;line-height:1}
+.post-hero{padding:8rem 5% 2.5rem;text-align:center;background:radial-gradient(ellipse 70% 50% at 50% 40%,rgba(15,52,96,.4) 0%,transparent 70%),linear-gradient(180deg,var(--charcoal) 0%,var(--navy) 100%);position:relative;overflow:hidden}
+.post-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.post-meta{font-size:.75rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;font-weight:500;position:relative;display:flex;gap:1rem;justify-content:center;align-items:center;flex-wrap:wrap}
+.post-meta .dot{width:3px;height:3px;border-radius:50%;background:var(--muted)}
+.post-meta .tag-guides{color:var(--tag-guides)}
+.post-meta .read{color:var(--muted)}
+.post-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.5rem);font-weight:700;line-height:1.15;color:var(--white);position:relative;max-width:780px;margin:0 auto}
+.divider{width:48px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:1.5rem auto 0;position:relative}
+.post-wrap{max-width:720px;margin:0 auto;padding:3rem 5% 5rem}
+.post-content{font-size:1.05rem;line-height:1.85;color:var(--white)}
+.post-content p{margin-bottom:1.5rem;color:var(--white)}
+.post-content h2{font-family:'Cormorant Garamond',serif;font-size:1.85rem;font-weight:600;color:var(--gold);margin:3rem 0 1.25rem;line-height:1.25;padding-top:1.5rem;border-top:1px solid var(--cb)}
+.post-content h2:first-of-type{padding-top:0;border-top:none}
+.post-content h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--gold-light);margin:2rem 0 .75rem;line-height:1.3}
+.post-content ul,.post-content ol{margin:0 0 1.5rem 0;padding:0;list-style:none}
+.post-content ul li,.post-content ol li{position:relative;padding-left:1.5rem;margin-bottom:.75rem;color:var(--white)}
+.post-content ul li::before{content:'\25C6';position:absolute;left:0;top:0;color:var(--gold);font-size:.65rem;line-height:1.85}
+.post-content ol{counter-reset:item}
+.post-content ol li{counter-increment:item}
+.post-content ol li::before{content:counter(item) '.';position:absolute;left:0;top:0;color:var(--gold);font-weight:600;font-size:.95rem}
+.post-content strong{color:var(--white);font-weight:600}
+.post-content em{color:var(--muted);font-style:italic}
+.post-content blockquote{border-left:3px solid var(--gold);background:rgba(201,168,76,.06);border-radius:0 8px 8px 0;padding:1.25rem 1.5rem;margin:1.5rem 0;color:var(--muted);font-style:italic}
+.post-content blockquote p:last-child{margin-bottom:0}
+.cta-card{background:var(--card);border:1px solid rgba(201,168,76,.3);border-radius:var(--r);padding:2rem;margin:3rem 0 1rem;text-align:center;position:relative;overflow:hidden}
+.cta-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+.cta-card h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--white);margin:0 0 .75rem;font-weight:600}
+.cta-card p{color:var(--muted);font-size:.95rem;margin-bottom:1.5rem;line-height:1.7}
+.cta-btn{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);padding:.85rem 2rem;border-radius:8px;font-weight:600;font-size:.85rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:opacity .2s}
+.cta-btn:hover{opacity:.9;color:var(--charcoal)}
+.post-footer{margin-top:3rem;padding-top:2rem;border-top:1px solid var(--cb);text-align:center}
+.post-footer p{color:var(--muted);font-size:.9rem;margin-bottom:1rem}
+.post-footer a{color:var(--gold)}
+footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.flogo{display:flex;align-items:center;gap:.5rem;font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:1.1rem;font-weight:600}
+.flogo img{height:28px;width:28px;border-radius:4px;object-fit:cover}
+.fnote{color:var(--muted);font-size:.8rem}
+.flinks{display:flex;gap:1.5rem}
+.flinks a{color:var(--muted);font-size:.8rem;text-decoration:none}
+.flinks a:hover{color:var(--gold)}
+@media (max-width:640px){
+  .post-hero{padding:7rem 5% 2rem}
+  .post-wrap{padding:2.5rem 5% 4rem}
+  .post-content{font-size:1rem}
+  .post-content h2{font-size:1.5rem;margin-top:2.5rem}
+  .post-content h3{font-size:1.2rem}
+  .cta-card{padding:1.5rem}
+  footer{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/logo.png" alt="The Toolsmith"/>
+    <span class="nav-logo-text">The Toolsmith</span>
+  </a>
+  <a href="/blog" class="nav-back">Back to blog</a>
+</nav>
+
+<section class="post-hero">
+  <div class="post-meta">
+    <span>JULY 31, 2026</span>
+    <span class="dot"></span>
+    <span class="tag-guides">Guides</span>
+    <span class="dot"></span>
+    <span class="read">6 min read</span>
+  </div>
+  <h1>How to Run a Maintenance Department With Two People</h1>
+  <div class="divider"></div>
+</section>
+
+<main class="post-wrap">
+  <article class="post-content">
+
+    <p>Plenty of senior living communities run their entire maintenance operation on two people. Sometimes one and a half, if the second person also covers the front desk on weekends. The building doesn't know it's short-staffed, though. It still has the same number of rooms, the same aging HVAC, the same residents who need their concerns handled today, not next week.</p>
+
+    <p>So the question isn't whether two people can keep a facility running. They can, and they do, every day. The question is how the ones who do it well manage to stay ahead of the building instead of always chasing it. After years of working alongside small maintenance teams, the answer comes down to three things, and none of them is working faster or longer. It's communication, organization, and a shared mentality about the work.</p>
+
+    <h2>Triage is the whole job</h2>
+
+    <p>The single most important habit on a two-person team is ruthless triage, and the rule that makes it simple is this: <strong>anything that directly affects a resident gets handled first.</strong> Everything else waits, and that's okay.</p>
+
+    <p>A resident's room with no hot water comes before repainting the activity room. A broken grab bar in a bathroom comes before the flickering light in the storage closet. This sounds obvious written down, but under pressure, with a dozen open items and two pairs of hands, it's easy to work on whatever's physically closest or whatever you saw last. The teams that stay sane are the ones who pause, even for ten seconds, and ask which of these actually touches a resident right now.</p>
+
+    <p>Everything that doesn't affect a resident directly still matters, it just goes in a line behind the things that do. The preventive tasks, the cosmetic fixes, the "we should really get to that" items are real work, but they're the work you do in the gaps, not the work you drop a resident issue for.</p>
+
+    <blockquote>
+      <p>The building will always give you more to do than two people can finish. The skill isn't finishing everything. It's always working on the right thing.</p>
+    </blockquote>
+
+    <h2>Communication is the second person's real job</h2>
+
+    <p>On a two-person team, the thing that breaks first is usually not the workload. It's the communication. When it's just the two of you, you assume the other person knows what you know, and most of the time they don't.</p>
+
+    <p>The small teams that run smoothly are almost always the ones with constant, low-friction communication. In practice this means texts and phone calls all day: "heading to 214 for the faucet," "did you already order the filter for the rooftop unit," "resident in 108 called again about the AC." It's not formal. It's two people keeping each other current so neither one duplicates work or drops something the other assumed was covered.</p>
+
+    <p>This works, and it's how most small teams actually operate. But it has a hidden cost that only shows up later. A text thread is not a record. When the administrator asks what happened with the AC in 108 over the past two months, or a surveyor wants to see your maintenance history, "let me scroll back through my texts" is not an answer. The communication got the work done in the moment and then evaporated.</p>
+
+    <p>So the goal isn't to stop the texting and calling, that's what keeps a small team coordinated. The goal is to make sure the *outcome* of that communication lands somewhere permanent. The conversation can be a text. The record of what was done cannot be.</p>
+
+    <h2>Organization is what lets two people act like more</h2>
+
+    <p>The difference between a two-person team that's drowning and one that's on top of things is rarely effort. Both are working hard. The difference is organization, specifically, whether the work lives in a shared, visible place or only in someone's head.</p>
+
+    <p>When the work lives in people's heads, a two-person team is fragile. One person takes a vacation day and the other genuinely doesn't know what's outstanding. Someone gets pulled onto an emergency and forgets the three things they were tracking. A resident request mentioned in passing at 9am is gone by lunch. Nothing is written down because there was never a moment to write it down.</p>
+
+    <p>When the work lives in one shared place, the same two people suddenly operate like a bigger team. Either person can see what's open, what's urgent, and what's been done, without asking. Work doesn't fall through the cracks when someone's out. And the record builds itself as you go, so the survey question that used to mean a frantic search becomes a thirty-second lookup.</p>
+
+    <p>The key is that the shared place has to be low-effort to keep current, or a busy two-person team simply won't keep it current. If logging a completed job takes five minutes and a walk back to an office computer, it won't happen. If it takes fifteen seconds from a phone in the hallway, it will.</p>
+
+    <h2>The "everyone does what they can" mentality</h2>
+
+    <p>There's a mindset that runs through every small maintenance team that works well, and it's worth naming because it's a strength, not just a coping mechanism. Everyone does what they can. Roles are looser than on a big team. The senior tech might handle the boiler and the newer person might handle the light bulbs, but when it's busy, both do whatever the moment needs.</p>
+
+    <p>This flexibility is what makes two people cover the ground of four. But it depends entirely on the two things above. It only works if communication is constant, so each person knows what the other is doing, and if the work is organized somewhere shared, so anyone can pick up anything. Take away those two supports and "everyone does what they can" turns into "everyone does whatever, and things get missed." With them in place, it's the whole reason a small team can punch above its size.</p>
+
+    <h2>What actually helps</h2>
+
+    <p>If you're running a facility with a skeleton crew, the honest advice is not "hire more people," because you already know that and it's usually not up to you. It's this:</p>
+
+    <ul>
+      <li><strong>Make triage a habit, not a scramble.</strong> Resident-impacting work first, always. Say it out loud until it's automatic.</li>
+      <li><strong>Keep communicating the way you already do,</strong> but make sure the result of every conversation lands somewhere permanent, not just in a text thread that disappears.</li>
+      <li><strong>Get the work out of your heads and into one shared place,</strong> so either person can see everything and nothing depends on one person's memory.</li>
+      <li><strong>Make that shared place fast enough to actually use</strong> from where the work happens, in a hallway, in a mechanical room, not back at a desk.</li>
+    </ul>
+
+    <p>None of this requires more hours. It requires the work to be visible and the record to be automatic, so the two of you spend your energy on the building instead of on remembering the building.</p>
+
+    <div class="cta-card">
+      <h3>Built for teams that are stretched thin</h3>
+      <p>The Toolsmith puts every work order in one shared place your whole team can see, log, and update from a phone, in seconds. No per-seat fees. Made for small senior living communities. Start a free 14-day trial.</p>
+      <a href="https://toolsmith-cmms.app/register" class="cta-btn">Start Free Trial</a>
+    </div>
+
+    <div class="post-footer">
+      <p>Want more articles like this? <a href="/#newsletter">Join the newsletter</a> for low-volume updates on new features and maintenance tech worth knowing about.</p>
+    </div>
+
+  </article>
+</main>
+
+<footer>
+  <div class="flogo">
+    <img src="/logo.png" alt="The Toolsmith"/>
+    <span>The Toolsmith</span>
+  </div>
+  <div class="fnote">&copy; 2026 The Toolsmith LLC. All rights reserved.</div>
+  <div class="flinks">
+    <a href="/">Home</a>
+    <a href="/blog">Blog</a>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </div>
+</footer>
+
+</body>
+</html>
