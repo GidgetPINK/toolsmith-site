@@ -575,10 +575,8 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
 <div class="toast" id="toast"></div>
 
 <script>
-var GIDGET_SYSTEM = "You are Gidget, the friendly and knowledgeable assistant for The Toolsmith CMMS, a maintenance management app for small teams.\n\nYour personality: warm, direct, and genuinely helpful. You speak in plain, easy-to-understand language. You are confident about pricing and never hedge or deflect.\n\nABOUT THE TOOLSMITH CMMS:\nThe Toolsmith CMMS is maintenance management software for small teams at senior living communities, churches, schools, and small facilities. It replaces spreadsheets and text messages with real work orders, team chat, and asset tracking.\n\nPLANS:\n\nLite Plan ($19/month or $190/year for the whole team):\n- Work order creation, assignment, and tracking\n- Work order chat with live updates\n- Technician mobile queue\n- Manager dashboard with priority filters\n- Up to 10 team members\n- Email notifications\n- 14-day free trial\n\nPro Plan (Coming Soon, $49/month or $490/year for the whole team):\n- Everything in Lite\n- Full asset registry and management\n- Preventive maintenance scheduling\n- Parts and inventory tracking\n- Downtime tracking and reporting\n- Gidget AI assistant (that is you!)\n- Unlimited team members\n- 14-day free trial\n\nSign up at: toolsmith-cmms.app/register\n\nCUSTOM BUILDS:\nFor teams that need something beyond the self-serve app, The Toolsmith also builds custom CMMS applications. Three tiers: Starter ($500-$800), Standard ($1,200-$2,000), Premium ($2,500+). All AI-assisted for faster delivery and lower cost. When someone asks about custom builds, you can suggest opening the inquiry form. Include the phrase 'let me open that form for you' and the system will open it automatically.\n\nTROUBLESHOOTING:\n- Login problems: Use the forgot password link on the login page.\n- Work orders not showing: Check the priority filter pills on the dashboard.\n- Cannot add assets: Asset management is a Pro feature (coming soon).\n- Team members cannot log in: The manager must add them in the Team tab.\n- Mobile: The app is browser-based. Use Chrome or Safari for best results.\n\nIMPORTANT RULES:\n- Lead with the CMMS app when people ask about the product\n- Only mention custom builds if someone specifically asks or has needs beyond the app\n- Keep responses concise, 2 to 4 sentences unless they ask for detail\n- Never make up features or pricing not listed above\n- You are a she\n- CRITICAL: Never invent contact information. No phone numbers, no addresses, no hours of operation. The only contact method is the inquiry form.";
 
 var gidgetOpen = false;
-var gidgetHistory = [];
 var gidgetTyping = false;
 var gidgetGreeted = false;
 
@@ -629,7 +627,42 @@ function handleGidgetKey(e) {
   if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendGidgetMessage(); }
 }
 
-async function sendGidgetMessage() {
+// Hardcoded Q&A — no API, no cost, no security exposure.
+var GIDGET_QA = [
+  { keys: ['price','cost','how much','pricing','plan','fee','expensive'],
+    a: "Two plans: Lite at $19/month ($190/year) and Pro at $49/month ($490/year). Pro adds asset management, preventive maintenance scheduling, parts inventory, downtime tracking, reports, and the Gidget AI assistant. One flat price for your whole team \u2014 no per-seat fees." },
+  { keys: ['trial','free','try','demo','test'],
+    a: "Yes \u2014 there's a free 14-day trial, no credit card required. You can start at toolsmith-cmms.app/register." },
+  { keys: ['mobile','phone','tablet','app store','google play','ios','android'],
+    a: "Yes. The Toolsmith works on any phone or tablet through the browser, and native App Store and Google Play apps are coming soon." },
+  { keys: ['what is','what\'s','about','who is it for','what kind','facilit','senior','church','who'],
+    a: "The Toolsmith is maintenance software (a CMMS) built for small senior living communities \u2014 assisted and independent living, plus churches and small facilities. It handles work orders, asset tracking, parts inventory, and survey-ready reports, without the complexity of software built for hospitals." },
+  { keys: ['start','sign up','signup','get started','register','begin','how do i'],
+    a: "You can start your free trial at toolsmith-cmms.app/register \u2014 it only takes a few minutes to set up." },
+  { keys: ['contact','email','talk','human','sales','call','reach'],
+    a: "You can reach us at april.smith@thetoolsmithapp.com. Happy to answer anything." },
+  { keys: ['work order','asset','part','inventory','report','feature','do'],
+    a: "The Toolsmith handles work orders, asset tracking, parts and inventory, preventive maintenance scheduling, downtime tracking, and survey-ready reports \u2014 all built for small maintenance teams. Want to try it? Start free at toolsmith-cmms.app/register." },
+  { keys: ['custom','build','bespoke','tailor','custom build','something different','beyond','specific need'],
+    openForm: true,
+    a: "Beyond the self-serve app, we also build custom CMMS applications. Three tiers: Starter ($500\u2013$800), Standard ($1,200\u2013$2,000), and Premium ($2,500+), all AI-assisted for faster delivery and lower cost. Let me open our inquiry form so you can tell us what you need." }
+];
+var GIDGET_FALLBACK = "Great question \u2014 I'm not sure about that one. The best way to get an answer is to email april.smith@thetoolsmithapp.com, or you can start a free trial at toolsmith-cmms.app/register.";
+
+function answerGidgetMatch(text) {
+  var t = text.toLowerCase();
+  var best = null, bestScore = 0;
+  for (var i = 0; i < GIDGET_QA.length; i++) {
+    var score = 0;
+    for (var j = 0; j < GIDGET_QA[i].keys.length; j++) {
+      if (t.indexOf(GIDGET_QA[i].keys[j]) !== -1) score++;
+    }
+    if (score > bestScore) { bestScore = score; best = GIDGET_QA[i]; }
+  }
+  return best ? best : { a: GIDGET_FALLBACK };
+}
+
+function sendGidgetMessage() {
   if (gidgetTyping) return;
   var input = document.getElementById('gidgetInput');
   var text = input.value.trim();
@@ -637,33 +670,17 @@ async function sendGidgetMessage() {
   input.value = '';
   input.style.height = 'auto';
   addMsg(text, 'user');
-  gidgetHistory.push({ role: 'user', content: text });
   gidgetTyping = true;
   document.getElementById('gidgetSend').disabled = true;
   showTyping();
-  try {
-    var response = await fetch('https://toolsmith-cmms.app/api/gidget', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        system: GIDGET_SYSTEM,
-        messages: gidgetHistory
-      })
-    });
-    var data = await response.json();
-    var reply = data.reply || "I'm sorry, I ran into an issue. Please try again.";
+  var match = answerGidgetMatch(text);
+  setTimeout(function() {
     hideTyping();
-    gidgetHistory.push({ role: 'assistant', content: reply });
-    addMsg(reply, 'gidget');
-    if (reply.toLowerCase().indexOf('let me open that form for you') !== -1) {
-      setTimeout(function(){ openInquiry(); }, 800);
-    }
-  } catch(err) {
-    hideTyping();
-    addMsg("I'm having a little trouble right now. You can start a free trial directly at the link above.", 'gidget');
-  }
-  gidgetTyping = false;
-  document.getElementById('gidgetSend').disabled = false;
+    addMsg(match.a, 'gidget');
+    gidgetTyping = false;
+    document.getElementById('gidgetSend').disabled = false;
+    if (match.openForm) { setTimeout(function(){ openInquiry(); }, 800); }
+  }, 500);
 }
 
 function openInquiry() {
