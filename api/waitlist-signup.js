@@ -33,7 +33,8 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { name, email, biggest_headache, user_agent } = req.body || {}
+    const { name, email, biggest_headache, user_agent, source } = req.body || {}
+    const cleanSource = (typeof source === 'string' && source.trim()) ? source.trim() : 'prelaunch-landing'
 
     if (!name || typeof name !== 'string' || name.trim().length === 0) {
       return res.status(400).json({ error: 'Name is required' })
@@ -60,7 +61,7 @@ export default async function handler(req, res) {
         name: cleanName,
         email: cleanEmail,
         biggest_headache: cleanHeadache,
-        source: 'prelaunch-landing',
+        source: cleanSource,
         user_agent: user_agent || null
       })
 
@@ -75,6 +76,7 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: 'Something went wrong. Please try again.' })
     }
 
+    if (cleanSource === 'prelaunch-landing') {
     try {
       await resend.emails.send({
         from: 'The Toolsmith <hello@thetoolsmithapp.com>',
@@ -85,6 +87,7 @@ export default async function handler(req, res) {
       })
     } catch (emailError) {
       console.error('Email send failed (signup succeeded):', emailError)
+    }
     }
 
     return res.status(200).json({ success: true })
