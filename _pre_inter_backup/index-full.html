@@ -8,7 +8,7 @@
 <meta name="description" content="The Toolsmith CMMS. Work orders, team chat, and asset tracking for senior living communities, churches, schools, and small facilities. Start your free trial."/>
 <link rel="icon" type="image/png" href="/logo.png"/>
 <link rel="apple-touch-icon" href="/logo.png"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -17,7 +17,7 @@
   --cb:rgba(201,168,76,0.18);--r:12px;--green:#98c379;--red:#e06c75
 }
 html{scroll-behavior:smooth}
-body{background:var(--charcoal);color:var(--white);font-family:'Inter',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
+body{background:var(--charcoal);color:var(--white);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.7;overflow-x:hidden}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1rem 5%;background:rgba(26,26,46,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--cb)}
 .nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none}
 .nav-logo img{height:36px;width:36px;border-radius:6px;object-fit:cover}
@@ -34,7 +34,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .mobile-menu-close{position:absolute;top:1.25rem;right:1.5rem;background:none;border:none;color:var(--gold);font-size:1.5rem;cursor:pointer;line-height:1;padding:.25rem}
 .nav-links a{color:var(--muted);font-size:.85rem;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s;font-weight:400}
 .nav-links a:hover{color:var(--gold-light)}
-.nav-cta{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);padding:.5rem 1.25rem;border-radius:6px;font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:opacity .2s;font-family:'Inter',sans-serif;cursor:pointer;border:none}
+.nav-cta{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);padding:.5rem 1.25rem;border-radius:6px;font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:opacity .2s;font-family:'DM Sans',sans-serif;cursor:pointer;border:none}
 .nav-cta:hover{opacity:.88}
 .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;gap:4rem;padding:10rem 5% 6rem;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(15,52,96,.6) 0%,transparent 70%),linear-gradient(180deg,var(--charcoal) 0%,var(--navy) 100%);position:relative;overflow:hidden}
 .hero-copy{flex:1;max-width:560px;text-align:left;position:relative}
@@ -50,9 +50,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-badges{display:flex;gap:.75rem;justify-content:flex-start;flex-wrap:wrap;margin-bottom:2.5rem;position:relative}
 .badge{background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);color:var(--gold-light);padding:.35rem .85rem;border-radius:20px;font-size:.78rem;letter-spacing:.05em}
 .hero-cta{display:flex;gap:1rem;justify-content:flex-start;flex-wrap:wrap;position:relative}
-.btn-primary{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);padding:.9rem 2.25rem;border-radius:8px;font-weight:600;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:opacity .2s,transform .2s;font-family:'Inter',sans-serif}
+.btn-primary{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);padding:.9rem 2.25rem;border-radius:8px;font-weight:600;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:opacity .2s,transform .2s;font-family:'DM Sans',sans-serif}
 .btn-primary:hover{opacity:.88;transform:translateY(-1px)}
-.btn-ghost{display:inline-block;background:transparent;color:var(--gold-light);padding:.9rem 2.25rem;border-radius:8px;font-weight:500;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:1px solid var(--cb);cursor:pointer;transition:border-color .2s,color .2s;font-family:'Inter',sans-serif}
+.btn-ghost{display:inline-block;background:transparent;color:var(--gold-light);padding:.9rem 2.25rem;border-radius:8px;font-weight:500;font-size:.9rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:1px solid var(--cb);cursor:pointer;transition:border-color .2s,color .2s;font-family:'DM Sans',sans-serif}
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
 section{padding:6rem 5%}
 .slabel{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem;font-weight:500}
@@ -72,7 +72,7 @@ section{padding:6rem 5%}
 .pricing-features{list-style:none;margin-bottom:1.75rem;display:flex;flex-direction:column;gap:.6rem}
 .pricing-features li{display:flex;gap:.75rem;align-items:flex-start;font-size:.88rem;color:var(--white);line-height:1.5}
 .pricing-features li::before{content:'\2713';color:var(--gold);font-weight:700;flex-shrink:0;margin-top:.1rem}
-.pricing-btn{background:rgba(201,168,76,.1);border:1px solid var(--gold);color:var(--gold);padding:.65rem 1.25rem;border-radius:7px;font-size:.82rem;font-family:'Inter',sans-serif;font-weight:500;letter-spacing:.05em;cursor:pointer;text-align:center;transition:background .2s,color .2s;text-decoration:none;display:block}
+.pricing-btn{background:rgba(201,168,76,.1);border:1px solid var(--gold);color:var(--gold);padding:.65rem 1.25rem;border-radius:7px;font-size:.82rem;font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:.05em;cursor:pointer;text-align:center;transition:background .2s,color .2s;text-decoration:none;display:block}
 .pricing-btn:hover{background:var(--gold);color:var(--charcoal)}
 .pricing-btn.primary-btn{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);border:none;font-weight:600}
 .pricing-btn.primary-btn:hover{opacity:.88}
@@ -98,7 +98,7 @@ section{padding:6rem 5%}
 .service-features{list-style:none;margin-bottom:1.75rem;display:flex;flex-direction:column;gap:.6rem}
 .service-features li{display:flex;gap:.75rem;align-items:flex-start;font-size:.88rem;color:var(--white);line-height:1.5}
 .service-features li::before{content:'\2713';color:var(--gold);font-weight:700;flex-shrink:0;margin-top:.1rem}
-.service-btn{background:rgba(201,168,76,.1);border:1px solid var(--gold);color:var(--gold);padding:.65rem 1.25rem;border-radius:7px;font-size:.82rem;font-family:'Inter',sans-serif;font-weight:500;letter-spacing:.05em;cursor:pointer;text-align:center;transition:background .2s,color .2s;text-decoration:none;display:block}
+.service-btn{background:rgba(201,168,76,.1);border:1px solid var(--gold);color:var(--gold);padding:.65rem 1.25rem;border-radius:7px;font-size:.82rem;font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:.05em;cursor:pointer;text-align:center;transition:background .2s,color .2s;text-decoration:none;display:block}
 .service-btn:hover{background:var(--gold);color:var(--charcoal)}
 .service-btn.primary-btn{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);border:none;font-weight:600}
 .service-btn.primary-btn:hover{opacity:.88}
@@ -117,7 +117,7 @@ section{padding:6rem 5%}
 #newsletter{background:linear-gradient(135deg,var(--navy-light),var(--charcoal));text-align:center}
 .nbox{max-width:520px;margin:0 auto;background:var(--card);border:1px solid var(--cb);border-radius:16px;padding:3rem 2.5rem}
 .nform{display:flex;gap:.75rem;margin-top:1.75rem}
-.ninput{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--cb);border-radius:8px;padding:.8rem 1.1rem;color:var(--white);font-family:'Inter',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s}
+.ninput{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--cb);border-radius:8px;padding:.8rem 1.1rem;color:var(--white);font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s}
 .ninput::placeholder{color:var(--muted)}
 .ninput:focus{border-color:var(--gold)}
 footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
@@ -138,13 +138,13 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
 .inq-sub{color:var(--muted);font-size:.88rem;line-height:1.6;margin-bottom:1.75rem}
 .inq-field{margin-bottom:1rem}
 .inq-label{display:block;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;font-weight:500}
-.inq-input,.inq-select,.inq-textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.2);border-radius:8px;padding:.75rem 1rem;color:var(--white);font-family:'Inter',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s}
+.inq-input,.inq-select,.inq-textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.2);border-radius:8px;padding:.75rem 1rem;color:var(--white);font-family:'DM Sans',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s}
 .inq-input:focus,.inq-select:focus,.inq-textarea:focus{border-color:var(--gold)}
 .inq-input::placeholder,.inq-textarea::placeholder{color:var(--muted)}
 .inq-select{appearance:none;cursor:pointer}
 .inq-select option{background:#1e2245;color:var(--white)}
 .inq-textarea{resize:vertical;min-height:100px}
-.inq-btn{width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);border:none;border-radius:8px;padding:.9rem;font-size:.9rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;font-family:'Inter',sans-serif;margin-top:.5rem}
+.inq-btn{width:100%;background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--charcoal);border:none;border-radius:8px;padding:.9rem;font-size:.9rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:.5rem}
 .inq-btn:disabled{opacity:.6;cursor:not-allowed}
 .inq-note{color:var(--muted);font-size:.75rem;text-align:center;margin-top:.75rem}
 .gidget-bubble{position:fixed;bottom:2rem;right:2rem;z-index:500}
@@ -176,7 +176,7 @@ footer{background:var(--charcoal);border-top:1px solid var(--cb);padding:2.5rem 
 .typing-dots span:nth-child(3){animation-delay:.3s}
 @keyframes dot{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
 .gidget-input-row{padding:.75rem 1rem;border-top:1px solid var(--cb);display:flex;gap:.6rem;align-items:flex-end}
-.gidget-input{flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.2);border-radius:10px;padding:.6rem .85rem;color:var(--white);font-family:'Inter',sans-serif;font-size:.88rem;outline:none;resize:none;max-height:80px;line-height:1.4;transition:border-color .2s}
+.gidget-input{flex:1;background:rgba(255,255,255,.05);border:1px solid rgba(201,168,76,.2);border-radius:10px;padding:.6rem .85rem;color:var(--white);font-family:'DM Sans',sans-serif;font-size:.88rem;outline:none;resize:none;max-height:80px;line-height:1.4;transition:border-color .2s}
 .gidget-input:focus{border-color:var(--gold)}
 .gidget-input::placeholder{color:var(--muted)}
 .gidget-send{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--gold-light));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:opacity .2s}
@@ -726,7 +726,7 @@ async function submitInquiry() {
         '<div style="width:64px;height:64px;border-radius:50%;background:rgba(152,195,121,0.12);border:1px solid rgba(152,195,121,0.3);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 1.5rem;">&#10003;</div>' +
         '<h2 style="font-family:Cormorant Garamond,serif;color:#c9a84c;font-size:1.8rem;font-weight:600;margin-bottom:1rem;">Got it, ' + name + '.</h2>' +
         '<p style="color:#9a9db5;font-size:.93rem;line-height:1.75;margin-bottom:1.5rem;">Your inquiry has been received. We will review your project and send a detailed proposal within one business day.</p>' +
-        '<button onclick="closeInquiry()" style="background:none;border:1px solid rgba(201,168,76,.3);color:#c9a84c;border-radius:8px;padding:.65rem 1.75rem;font-size:.85rem;font-family:Inter,sans-serif;cursor:pointer;">Close</button>' +
+        '<button onclick="closeInquiry()" style="background:none;border:1px solid rgba(201,168,76,.3);color:#c9a84c;border-radius:8px;padding:.65rem 1.75rem;font-size:.85rem;font-family:DM Sans,sans-serif;cursor:pointer;">Close</button>' +
         '</div>';
     } else {
       showToast('Something went wrong. Please try again.');
@@ -761,7 +761,7 @@ async function submitProWaitlist() {
         '<div style="width:64px;height:64px;border-radius:50%;background:rgba(152,195,121,0.12);border:1px solid rgba(152,195,121,0.3);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 1.5rem;">&#10003;</div>' +
         '<h2 style="font-family:Cormorant Garamond,serif;color:#c9a84c;font-size:1.8rem;font-weight:600;margin-bottom:1rem;">You are on the list, ' + name + '.</h2>' +
         '<p style="color:#9a9db5;font-size:.93rem;line-height:1.75;margin-bottom:1.5rem;">We will let you know the moment Pro launches. No spam, just one note when it is ready.</p>' +
-        '<button onclick="closeProWaitlist()" style="background:none;border:1px solid rgba(201,168,76,.3);color:#c9a84c;border-radius:8px;padding:.65rem 1.75rem;font-size:.85rem;font-family:Inter,sans-serif;cursor:pointer;">Close</button>' +
+        '<button onclick="closeProWaitlist()" style="background:none;border:1px solid rgba(201,168,76,.3);color:#c9a84c;border-radius:8px;padding:.65rem 1.75rem;font-size:.85rem;font-family:DM Sans,sans-serif;cursor:pointer;">Close</button>' +
         '</div>';
     } else {
       showToast(data.error || 'Something went wrong. Please try again.');
